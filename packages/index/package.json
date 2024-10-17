@@ -26,7 +26,7 @@
         "@parcel/transformer-jsonld": "2.12.0",
         "@parcel/transformer-sass": "2.12.0",
         "@types/domready": "1.0.2",
-        "@types/node": "20.12.12",
+        "@types/node": "20.16.12",
         "cli-real-favicon": "0.0.9",
         "parcel": "2.12.0",
         "prettier": "3.3.3",
