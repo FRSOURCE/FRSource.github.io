@@ -79,6 +79,20 @@
     </head>
 
     <body class="us-none">
+        <div class="relative">
+            <header>
+                <nav>
+                    <a
+                        href="/blog"
+                        title="Click to navigate to our blog"
+                        aria-label="Click to navigate to our blog"
+                        class="btn text"
+                        target="_blank"
+                        >Click here and enjoy our blog with your coffee ♥</a
+                    >
+                </nav>
+            </header>
+        </div>
         <main>
             <div class="icon-logotype">
                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="icon">
@@ -87,68 +101,73 @@
             </div>
 
             <div class="content">
-                <details class="theme-selector load-fadeinup fadeInUp d-md-n">
-                    <summary>
-                        <div
-                            class="btn btn--big outline mt-1"
-                            title="Click to choose the website's color scheme"
-                            aria-label="Click to choose the website's color scheme"
+                <div class="mobile-nav-wrapper d-md-n">
+                    <details class="load-fadeinup fadeInUp">
+                        <summary>
+                            <div
+                                class="btn btn--big outline mt-1"
+                                title="Click to choose the website's color scheme"
+                                aria-label="Click to choose the website's color scheme"
+                            >
+                                <svg
+                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    class="icon"
+                                >
+                                    <title>Eye</title>
+                                    <use xlink:href="#eye" href="#eye"></use>
+                                </svg>
+                            </div>
+                        </summary>
+                        <button
+                            type="button"
+                            data-theme="dark"
+                            class="btn btn--big outline mt-1 d-b"
+                            title="Click to switch to the dark mode"
+                            aria-label="Click to switch to the dark mode"
                         >
                             <svg
                                 xmlns:xlink="http://www.w3.org/1999/xlink"
                                 class="icon"
                             >
-                                <title>Eye</title>
-                                <use xlink:href="#eye" href="#eye"></use>
+                                <title>Moon</title>
+                                <use xlink:href="#moon" href="#moon"></use>
                             </svg>
-                        </div>
-                    </summary>
-                    <button
-                        type="button"
-                        data-theme="dark"
-                        class="btn btn--big outline mt-1 d-b"
-                        title="Click to switch to the dark mode"
-                        aria-label="Click to switch to the dark mode"
-                    >
-                        <svg
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            class="icon"
+                        </button>
+                        <button
+                            type="button"
+                            data-theme="auto"
+                            class="btn btn--big outline mt-1 d-b"
+                            title="Click to switch to the system's color mode"
+                            aria-label="Click to switch to the system's color mode"
                         >
-                            <title>Moon</title>
-                            <use xlink:href="#moon" href="#moon"></use>
-                        </svg>
-                    </button>
-                    <button
-                        type="button"
-                        data-theme="auto"
-                        class="btn btn--big outline mt-1 d-b"
-                        title="Click to switch to the system's color mode"
-                        aria-label="Click to switch to the system's color mode"
-                    >
-                        <svg
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            class="icon"
+                            <svg
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                class="icon"
+                            >
+                                <title>Automatic</title>
+                                <use
+                                    xlink:href="#triangle"
+                                    href="#triangle"
+                                ></use>
+                            </svg>
+                        </button>
+                        <button
+                            type="button"
+                            data-theme="light"
+                            class="btn btn--big outline mt-1 d-b"
+                            title="Click to switch to the light mode"
+                            aria-label="Click to switch to the light mode"
                         >
-                            <title>Automatic</title>
-                            <use xlink:href="#triangle" href="#triangle"></use>
-                        </svg>
-                    </button>
-                    <button
-                        type="button"
-                        data-theme="light"
-                        class="btn btn--big outline mt-1 d-b"
-                        title="Click to switch to the light mode"
-                        aria-label="Click to switch to the light mode"
-                    >
-                        <svg
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            class="icon"
-                        >
-                            <title>Sun</title>
-                            <use xlink:href="#circle" href="#circle"></use>
-                        </svg>
-                    </button>
-                </details>
+                            <svg
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                class="icon"
+                            >
+                                <title>Sun</title>
+                                <use xlink:href="#circle" href="#circle"></use>
+                            </svg>
+                        </button>
+                    </details>
+                </div>
 
                 <div class="logo-wrapper">
                     <svg

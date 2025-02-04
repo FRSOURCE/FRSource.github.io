@@ -65,7 +65,8 @@ main {
     }
 }
 
-footer {
+footer,
+header {
     position: relative;
     display: flex;
     flex-flow: row-reverse;
@@ -78,6 +79,11 @@ footer {
     @media (min-height: #{variables.$breakpoint2}) {
         font-size: 1.5vh;
     }
+}
+
+header {
+    position: absolute;
+    inset: -1lh 0 0;
 }
 
 details {
@@ -118,9 +124,12 @@ h2 {
 }
 
 a {
+    text-decoration: none;
+}
+
+main a {
     color: variables.$colorPrimary;
     text-transform: uppercase;
-    text-decoration: none;
 
     &:active,
     &:hover {

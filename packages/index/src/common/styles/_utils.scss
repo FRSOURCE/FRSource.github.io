@@ -2,6 +2,10 @@
 
 @use 'variables';
 
+.relative {
+    position: relative;
+}
+
 .mt-1 {
     margin-top: map.get(variables.$spacings, 1);
 }
