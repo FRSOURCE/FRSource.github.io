@@ -31,8 +31,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.4
       '@frsource/prettier-config':
-        specifier: 1.22.0
-        version: 1.22.0(eslint@9.1.1)
+        specifier: 1.23.0
+        version: 1.23.0(eslint@9.1.1)
       '@swc-node/register':
         specifier: 1.10.9
         version: 1.10.9(@swc/core@1.10.9(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3)
@@ -82,8 +82,8 @@ importers:
         specifier: ^3.3.0
         version: 3.3.2
       prettier:
-        specifier: 3.4.2
-        version: 3.4.2
+        specifier: 3.5.0
+        version: 3.5.0
       sharp:
         specifier: 0.33.5
         version: 0.33.5
@@ -116,8 +116,8 @@ importers:
         specifier: 5.1.8
         version: 5.1.8
       '@frsource/prettier-config':
-        specifier: 1.22.0
-        version: 1.22.0(eslint@9.1.1)
+        specifier: 1.23.0
+        version: 1.23.0(eslint@9.1.1)
       '@parcel/packager-raw-url':
         specifier: 2.13.3
         version: 2.13.3(@parcel/core@2.13.3(@swc/helpers@0.5.15))
@@ -146,8 +146,8 @@ importers:
         specifier: 2.13.3
         version: 2.13.3(@swc/helpers@0.5.15)(postcss@8.4.49)(srcset@4.0.0)(svgo@3.3.2)
       prettier:
-        specifier: 3.4.2
-        version: 3.4.2
+        specifier: 3.5.0
+        version: 3.5.0
       rimraf:
         specifier: 6.0.1
         version: 6.0.1
@@ -457,8 +457,8 @@ packages:
     resolution: {integrity: sha512-cp92BbFFueN5knEU01CtLF/YOUxW4tdGslOuYhLQG9qOYnlndnUomBxQcjGMRQBG1UX+P4G6NgMnsvqdZmRGeQ==}
     engines: {node: '>=20.0.0'}
 
-  '@frsource/prettier-config@1.22.0':
-    resolution: {integrity: sha512-GSlEgtV4uNmN0NoeavCITfeD0b4ROfH6kidzVyn3NVrBaqFBOn2lFYOxVxEmY6bYj4rDBWJtOBBorKL9xFYCYQ==}
+  '@frsource/prettier-config@1.23.0':
+    resolution: {integrity: sha512-Ang0I0CXG466naqhlrdcIJRXy4qF69N4EkfsLvB2035UMnAwhBMKcrq5qtPRqSUShXGMbIbIUKR561aKPAV6eg==}
     peerDependencies:
       eslint: '>= 3'
 
@@ -2828,8 +2828,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier@3.4.2:
-    resolution: {integrity: sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==}
+  prettier@3.5.0:
+    resolution: {integrity: sha512-quyMrVt6svPS7CjQ9gKb3GLEX/rl3BCL2oa/QkNcXv4YNVBC9olt3s+H7ukto06q7B1Qz46PbrKLO34PR6vXcA==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -3658,7 +3658,7 @@ snapshots:
 
   '@frsource/is-animated@1.0.4': {}
 
-  '@frsource/prettier-config@1.22.0(eslint@9.1.1)':
+  '@frsource/prettier-config@1.23.0(eslint@9.1.1)':
     dependencies:
       eslint: 9.1.1
 
@@ -6247,7 +6247,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier@3.4.2: {}
+  prettier@3.5.0: {}
 
   property-information@6.5.0: {}
 
