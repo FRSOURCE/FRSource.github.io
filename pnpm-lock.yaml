@@ -113,8 +113,8 @@ importers:
         version: 0.14.1
     devDependencies:
       '@frsource/frs-replace':
-        specifier: 5.1.16
-        version: 5.1.16
+        specifier: 5.1.18
+        version: 5.1.18
       '@frsource/prettier-config':
         specifier: 1.23.0
         version: 1.23.0(eslint@9.1.1)
@@ -448,8 +448,8 @@ packages:
     resolution: {integrity: sha512-5WoDz3Y19Bg2BnErkZTp0en+c/i9PvgFS7MBe1+m60HjFr0hrphlAGp4yzI7pxpt4xShln4ZyYp4neJm8hmOkQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@frsource/frs-replace@5.1.16':
-    resolution: {integrity: sha512-bHGf6IAu2PD5h6zB4YQ8G5Q8SqgKeXnvvyDsLK+dU87G2FvJxOoKWzCnHkbMQSaohoYk7neha5QE0NeuDFC71w==}
+  '@frsource/frs-replace@5.1.18':
+    resolution: {integrity: sha512-oy/BCqF2J4Ca6K5EvHJl/1uUz39NgfQLZQKagrPQnmuaTEGOJqCfixpNpmtIGXjuGbFby0ZU2DlNtu9V33ETyg==}
     engines: {node: '>=20.0.0'}
     hasBin: true
 
@@ -3654,7 +3654,7 @@ snapshots:
 
   '@eslint/js@9.1.1': {}
 
-  '@frsource/frs-replace@5.1.16':
+  '@frsource/frs-replace@5.1.18':
     dependencies:
       fast-glob: 3.3.3
       get-stdin: 9.0.0
