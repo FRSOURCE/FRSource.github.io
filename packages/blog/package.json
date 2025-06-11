@@ -43,7 +43,7 @@
         "sharp": "0.34.2",
         "string-replace-async": "3.0.2",
         "vitepress": "1.6.3",
-        "vue": "3.5.15"
+        "vue": "3.5.16"
     },
     "dependencies": {
         "simple-icons": "14.15.0"
