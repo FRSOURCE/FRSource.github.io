@@ -24,7 +24,7 @@
         "@frsource/is-animated": "^1.0.1",
         "@frsource/prettier-config": "1.29.0",
         "@swc-node/register": "1.10.10",
-        "@swc/core": "1.12.4",
+        "@swc/core": "1.12.5",
         "@types/command-line-args": "5.2.3",
         "@types/cross-spawn": "6.0.6",
         "@types/fs-extra": "11.0.4",
@@ -43,7 +43,7 @@
         "sharp": "0.34.2",
         "string-replace-async": "3.0.2",
         "vitepress": "1.6.3",
-        "vue": "3.5.15"
+        "vue": "3.5.17"
     },
     "dependencies": {
         "simple-icons": "15.2.0"
