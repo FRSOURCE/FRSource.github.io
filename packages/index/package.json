@@ -17,7 +17,7 @@
         "format": "prettier --write ."
     },
     "devDependencies": {
-        "@frsource/frs-replace": "5.1.47",
+        "@frsource/frs-replace": "5.1.77",
         "@frsource/prettier-config": "1.29.0",
         "@parcel/packager-raw-url": "2.15.2",
         "@parcel/transformer-inline-string": "2.15.2",
