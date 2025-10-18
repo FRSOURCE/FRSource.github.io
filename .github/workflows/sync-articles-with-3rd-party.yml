@@ -7,7 +7,7 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v5
-      - uses: pnpm/action-setup@v4.1.0
+      - uses: pnpm/action-setup@v4.2.0
       - name: Use Node.js
         uses: actions/setup-node@v5
         with:
@@ -18,7 +18,7 @@ jobs:
         env:
           MEDIUM_TOKEN_FRS: ${{ secrets.MEDIUM_TOKEN_FRS }}
         run: cd packages/blog && pnpm sync-posts --sync-with-medium
-      - uses: stefanzweifel/git-auto-commit-action@v6
+      - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore: add updated articles after sync [no ci]"
           file_pattern: 'packages/blog/.vitepress/*'

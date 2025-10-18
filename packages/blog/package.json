@@ -22,9 +22,9 @@
     "keywords": [],
     "devDependencies": {
         "@frsource/is-animated": "^1.0.1",
-        "@frsource/prettier-config": "1.29.0",
-        "@swc-node/register": "1.10.10",
-        "@swc/core": "1.12.4",
+        "@frsource/prettier-config": "1.36.0",
+        "@swc-node/register": "1.11.1",
+        "@swc/core": "1.13.5",
         "@types/command-line-args": "5.2.3",
         "@types/cross-spawn": "6.0.6",
         "@types/fs-extra": "11.0.4",
@@ -32,20 +32,20 @@
         "@types/remove-markdown": "0.3.4",
         "chokidar": "4.0.3",
         "command-line-args": "6.0.1",
-        "concurrently": "9.1.2",
+        "concurrently": "9.2.1",
         "cpy-cli": "6.0.0",
         "cross-spawn": "7.0.6",
         "fs-extra": "11.3.2",
         "gray-matter": "4.0.3",
         "lodash-es": "^4.17.21",
         "node-fetch": "^3.3.0",
-        "prettier": "3.5.3",
+        "prettier": "3.6.2",
         "sharp": "0.34.4",
         "string-replace-async": "3.0.2",
         "vitepress": "1.6.4",
         "vue": "3.5.22"
     },
     "dependencies": {
-        "simple-icons": "15.2.0"
+        "simple-icons": "15.16.1"
     }
 }
