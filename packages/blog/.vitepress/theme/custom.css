@@ -34,8 +34,8 @@
     --vp-nav-height: 84px;
 
     --vp-font-family-base: 'Avenir Book', Tahoma, Verdana, sans-serif;
-    --font-family-secondary: Inconsolata, 'Ubuntu Mono', 'Trebuchet MS', Tahoma,
-        monospace;
+    --font-family-secondary:
+        Inconsolata, 'Ubuntu Mono', 'Trebuchet MS', Tahoma, monospace;
 
     --layout-horizontal-spacing: 24px;
 }

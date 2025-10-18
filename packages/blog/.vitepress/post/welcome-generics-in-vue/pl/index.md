@@ -58,8 +58,8 @@ Teraz rozumiesz zasadę działania typów generycznych w TypeScript (i innych st
 
 Wyobraźmy sobie komponent `Tabs`, który:
 
--   sam zarządza nawigacją pomiędzy zakładkami,
--   wspiera dowolne rozszerzanie renderowania treści zakładek w opaciu o sloty.
+- sam zarządza nawigacją pomiędzy zakładkami,
+- wspiera dowolne rozszerzanie renderowania treści zakładek w opaciu o sloty.
 
 ```vue
 // Tabs.vue
