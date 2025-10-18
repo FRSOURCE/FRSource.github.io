@@ -18,26 +18,26 @@
     },
     "devDependencies": {
         "@frsource/frs-replace": "5.1.77",
-        "@frsource/prettier-config": "1.29.0",
-        "@parcel/packager-raw-url": "2.15.2",
-        "@parcel/transformer-inline-string": "2.15.2",
-        "@parcel/transformer-jsonld": "2.15.2",
-        "@parcel/transformer-sass": "2.15.2",
+        "@frsource/prettier-config": "1.36.0",
+        "@parcel/packager-raw-url": "2.16.0",
+        "@parcel/transformer-inline-string": "2.16.0",
+        "@parcel/transformer-jsonld": "2.16.0",
+        "@parcel/transformer-sass": "2.16.0",
         "@realfavicongenerator/generate-favicon": "^0.4.12",
         "@realfavicongenerator/image-adapter-node": "^0.4.12",
         "@types/domready": "1.0.2",
-        "@types/node": "22.15.21",
-        "parcel": "2.15.2",
-        "prettier": "3.5.3",
+        "@types/node": "22.18.11",
+        "parcel": "2.16.0",
+        "prettier": "3.6.2",
         "rimraf": "6.0.1",
-        "sass": "1.89.0",
+        "sass": "1.93.2",
         "svgo": "^3",
-        "typescript": "5.8.3"
+        "typescript": "5.9.3"
     },
     "dependencies": {
-        "@parcel/service-worker": "2.15.2",
+        "@parcel/service-worker": "2.16.0",
         "domready": "1.0.8",
-        "powerglitch": "2.4.0",
+        "powerglitch": "2.5.0",
         "regenerator-runtime": "0.14.1"
     }
 }
