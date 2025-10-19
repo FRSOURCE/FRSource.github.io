@@ -74,29 +74,24 @@ export class ContactDialogCtrl {
         return token;
     }
 
-    private async sendContactData(data: string, attempt = 0) {
-        return new Promise<void>(async (resolve, reject) => {
-            const url =
-                'https://script.google.com/macros/s/AKfycbzrISB5QwRuuwGTgkxgKp7DGENDHPcxZTcka2_LRQ0zULSf5Ec/exec?' +
-                data;
+    private async sendContactData(data: string, attempt = 0): Promise<void> {
+        const url =
+            'https://script.google.com/macros/s/AKfycbzrISB5QwRuuwGTgkxgKp7DGENDHPcxZTcka2_LRQ0zULSf5Ec/exec?' +
+            data;
 
-            const token = await this.executeGrecaptcha();
-            const req = new XMLHttpRequest();
-            req.open('POST', url + '&token=' + encodeURIComponent(token));
-            req.setRequestHeader('Content-type', 'text/plain;charset=utf-8');
-            req.onreadystatechange = () => {
-                if (req.readyState === 4) {
-                    if (req.status === 200) {
-                        const res = JSON.parse(req.responseText);
-                        if (res.result === 'success') return resolve();
-                        else if (++attempt < 3)
-                            resolve(this.sendContactData(data, attempt));
-                        else reject();
-                    } else reject();
-                }
-            };
-            req.send();
+        const token = await this.executeGrecaptcha();
+
+        const res = await fetch(url + '&token=' + encodeURIComponent(token), {
+            redirect: 'follow',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8',
+            },
         });
+        const resData = (await res.json()) as { result: string };
+        if (resData.result === 'success') return;
+        else if (++attempt < 3) return this.sendContactData(data, attempt);
+        else throw new Error('Failed to submit contact form');
     }
 
     isShown() {
@@ -137,7 +132,11 @@ export class ContactDialogCtrl {
                 button.classList.remove('fill');
                 button.classList.add('pe-n');
             },
-            () => {},
+            () => {
+                button.textContent = 'ERROR! Try later.';
+                button.classList.remove('fill');
+                button.classList.add('pe-n');
+            },
         );
         button.disabled = false;
     }
