@@ -61,8 +61,8 @@ Now you understand how generics might be useful in TypeScript (or any other stat
 
 Imagine a `Tabs` component that:
 
--   will handle the tab navigation by itself,
--   will support complete customization of the rendered content for each tab via slots.
+- will handle the tab navigation by itself,
+- will support complete customization of the rendered content for each tab via slots.
 
 ```vue
 // Tabs.vue
