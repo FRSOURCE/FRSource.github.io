@@ -49,7 +49,13 @@ typedSelf.addEventListener('activate', (event) => {
 typedSelf.addEventListener('fetch', function (event) {
     event.respondWith(
         (async () => {
-            if (event.request.method !== 'GET') return fetch(event.request);
+            if (
+                event.request.method !== 'GET' ||
+                !['http:', 'https:'].includes(
+                    new URL(event.request.url).protocol,
+                )
+            )
+                return fetch(event.request);
             if (!event.clientId) return fetch(event.request);
 
             const client = await typedSelf.clients.get(event.clientId);
