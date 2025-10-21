@@ -6,7 +6,7 @@
   "repository": "https://github.com/FRSource/frsource.github.io.git",
   "author": "Jakub Freisler",
   "license": "Apache 2.0",
-  "packageManager": "pnpm@10.18.3",
+  "packageManager": "pnpm@10.19.0",
   "scripts": {
     "start": "concurrently 'pnpm run -r --parallel start' 'pnpm preview'",
     "build": "pnpm run -r build",
