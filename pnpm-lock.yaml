@@ -24,15 +24,15 @@ importers:
   packages/blog:
     dependencies:
       simple-icons:
-        specifier: 15.16.1
-        version: 15.16.1
+        specifier: 15.17.0
+        version: 15.17.0
     devDependencies:
       '@frsource/is-animated':
         specifier: ^1.0.1
         version: 1.0.5
       '@frsource/prettier-config':
-        specifier: 1.36.0
-        version: 1.36.0(prettier@3.6.2)
+        specifier: 1.37.0
+        version: 1.37.0(prettier@3.6.2)
       '@swc-node/register':
         specifier: 1.11.1
         version: 1.11.1(@swc/core@1.13.5)(@swc/types@0.1.25)(typescript@5.9.3)
@@ -116,8 +116,8 @@ importers:
         specifier: 5.1.77
         version: 5.1.77
       '@frsource/prettier-config':
-        specifier: 1.36.0
-        version: 1.36.0(prettier@3.6.2)
+        specifier: 1.37.0
+        version: 1.37.0(prettier@3.6.2)
       '@parcel/packager-raw-url':
         specifier: 2.16.0
         version: 2.16.0(@parcel/core@2.16.0)
@@ -431,8 +431,8 @@ packages:
     resolution: {integrity: sha512-d4JZUisl3JGZbBZrgneFZcq67MpEIugCung8pChwygE/FZUR3CnRKxePrw66YSpUbkmRrSSpAtNWO1xnRXwmNA==}
     engines: {node: '>=20.0.0'}
 
-  '@frsource/prettier-config@1.36.0':
-    resolution: {integrity: sha512-MHD5LoekRnOtrYIj/fBymNrE1VjsrXWzXnWNqzqir5SwnXW/E/T/8m5iM/guxFEdEcWsA2xp+Wl95c6SMMWc+g==}
+  '@frsource/prettier-config@1.37.0':
+    resolution: {integrity: sha512-IDxzQc3vjrroc/GLR0ByokDkriiQ1+d8hWsz2kP+pW2WJ+M8s3NgqVjW9lQy5RYYaYjl6eDyjUypJi+ssTgoXQ==}
     peerDependencies:
       prettier: '>= 3'
 
@@ -2729,8 +2729,8 @@ packages:
   simple-get@4.0.1:
     resolution: {integrity: sha512-brv7p5WgH0jmQJr1ZDDfKDOSeWWg+OVypG99A/5vYGPqJ6pxiaHLy8nxtFjBA7oMa01ebA9gfh1uMCFqOuXxvA==}
 
-  simple-icons@15.16.1:
-    resolution: {integrity: sha512-UpT6dslPDUfl+9xAjxHAh4ralefkrAqBe8o4cN+HtBOa2HjYZnEAiQsUkAdkaMfW05rU/rc/MWaKxF/cpUllCg==}
+  simple-icons@15.17.0:
+    resolution: {integrity: sha512-viOcugYj+JFYVWJvDh4Ph1xHk9iTGhzt+NoPrfAQYSCADvmZFSQUWyKEbSMuqVRUsaRgvADn+Cczysemsf1N3Q==}
     engines: {node: '>=0.12.18'}
 
   simple-swizzle@0.2.2:
@@ -3317,7 +3317,7 @@ snapshots:
 
   '@frsource/is-animated@1.0.5': {}
 
-  '@frsource/prettier-config@1.36.0(prettier@3.6.2)':
+  '@frsource/prettier-config@1.37.0(prettier@3.6.2)':
     dependencies:
       prettier: 3.6.2
 
@@ -5867,7 +5867,7 @@ snapshots:
       once: 1.4.0
       simple-concat: 1.0.1
 
-  simple-icons@15.16.1: {}
+  simple-icons@15.17.0: {}
 
   simple-swizzle@0.2.2:
     dependencies:
