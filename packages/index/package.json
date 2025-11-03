@@ -26,10 +26,10 @@
         "@realfavicongenerator/generate-favicon": "^0.4.12",
         "@realfavicongenerator/image-adapter-node": "^0.4.12",
         "@types/domready": "1.0.2",
-        "@types/node": "22.18.11",
+        "@types/node": "22.19.0",
         "parcel": "2.16.0",
         "prettier": "3.6.2",
-        "rimraf": "6.0.1",
+        "rimraf": "6.1.0",
         "sass": "1.93.2",
         "svgo": "^3",
         "typescript": "5.9.3"
