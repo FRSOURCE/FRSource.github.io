@@ -40,10 +40,10 @@
         "lodash-es": "^4.17.21",
         "node-fetch": "^3.3.0",
         "prettier": "3.6.2",
-        "sharp": "0.34.4",
+        "sharp": "0.34.5",
         "string-replace-async": "3.0.2",
         "vitepress": "1.6.4",
-        "vue": "3.5.23"
+        "vue": "3.5.24"
     },
     "dependencies": {
         "simple-icons": "15.19.0"
