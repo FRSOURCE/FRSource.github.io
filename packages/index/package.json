@@ -17,17 +17,17 @@
         "format": "prettier --write ."
     },
     "devDependencies": {
-        "@frsource/frs-replace": "5.1.89",
+        "@frsource/frs-replace": "5.1.91",
         "@frsource/prettier-config": "1.37.0",
-        "@parcel/packager-raw-url": "2.16.1",
-        "@parcel/transformer-inline-string": "2.16.1",
-        "@parcel/transformer-jsonld": "2.16.1",
-        "@parcel/transformer-sass": "2.16.1",
+        "@parcel/packager-raw-url": "2.16.3",
+        "@parcel/transformer-inline-string": "2.16.3",
+        "@parcel/transformer-jsonld": "2.16.3",
+        "@parcel/transformer-sass": "2.16.3",
         "@realfavicongenerator/generate-favicon": "^0.4.12",
         "@realfavicongenerator/image-adapter-node": "^0.4.12",
         "@types/domready": "1.0.2",
         "@types/node": "22.19.0",
-        "parcel": "2.16.1",
+        "parcel": "2.16.3",
         "prettier": "3.6.2",
         "rimraf": "6.1.2",
         "sass": "1.93.3",
@@ -35,7 +35,7 @@
         "typescript": "5.9.3"
     },
     "dependencies": {
-        "@parcel/service-worker": "2.16.1",
+        "@parcel/service-worker": "2.16.3",
         "domready": "1.0.8",
         "powerglitch": "2.5.0",
         "regenerator-runtime": "0.14.1"
