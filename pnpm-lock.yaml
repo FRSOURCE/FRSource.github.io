@@ -24,8 +24,8 @@ importers:
   packages/blog:
     dependencies:
       simple-icons:
-        specifier: 15.19.0
-        version: 15.19.0
+        specifier: 16.9.0
+        version: 16.9.0
     devDependencies:
       '@frsource/is-animated':
         specifier: ^1.0.1
@@ -2827,8 +2827,8 @@ packages:
   simple-get@4.0.1:
     resolution: {integrity: sha512-brv7p5WgH0jmQJr1ZDDfKDOSeWWg+OVypG99A/5vYGPqJ6pxiaHLy8nxtFjBA7oMa01ebA9gfh1uMCFqOuXxvA==}
 
-  simple-icons@15.19.0:
-    resolution: {integrity: sha512-JyEgtl1l8YCqoKT3PcavneVnctp5bHPlzmO8Otop83cySrkh8vFwgUmb2PUTJWRftvare7FyJLlFLKDV/tCVzw==}
+  simple-icons@16.9.0:
+    resolution: {integrity: sha512-aKst2C7cLkFyaiQ/Crlwxt9xYOpGPk05XuJZ0ZTJNNCzHCKYrGWz2ebJSi5dG8CmTCxUF/BGs6A8uyJn/EQxqw==}
     engines: {node: '>=0.12.18'}
 
   simple-swizzle@0.2.2:
@@ -6026,7 +6026,7 @@ snapshots:
       once: 1.4.0
       simple-concat: 1.0.1
 
-  simple-icons@15.19.0: {}
+  simple-icons@16.9.0: {}
 
   simple-swizzle@0.2.2:
     dependencies:
