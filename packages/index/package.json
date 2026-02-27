@@ -26,7 +26,7 @@
         "@realfavicongenerator/generate-favicon": "^0.6.0",
         "@realfavicongenerator/image-adapter-node": "^0.6.0",
         "@types/domready": "1.0.2",
-        "@types/node": "22.19.0",
+        "@types/node": "22.19.13",
         "parcel": "2.16.4",
         "prettier": "3.8.1",
         "rimraf": "6.1.3",
