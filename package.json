@@ -9,7 +9,7 @@
   "packageManager": "pnpm@10.33.0",
   "scripts": {
     "start": "concurrently 'pnpm run -r --parallel start' 'pnpm preview'",
-    "build": "pnpm run -r build",
+    "build": "pnpm run --filter=frsource.github.io-index build && pnpm run --filter=frsource.github.io-blog build",
     "format": "pnpm run -r format",
     "preview": "serve public",
     "prepare": "husky"

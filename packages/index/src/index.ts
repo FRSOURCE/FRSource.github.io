@@ -32,9 +32,10 @@ import { startLogoAnimation } from './logo.ctrl';
         .addEventListener('click', async function () {
             if (!contactDialogCtrl) {
                 this.disabled = true;
-                const contactDialogModule = await import(
-                    './contactDialog'
-                ).catch(() => (this.disabled = false as false));
+                const contactDialogModule =
+                    await import('./contactDialog').catch(
+                        () => (this.disabled = false as false),
+                    );
                 if (!contactDialogModule) return;
                 contactDialogCtrl = new contactDialogModule.ContactDialogCtrl();
                 await contactDialogModule.ContactDialogCtrl.templateLoader;
