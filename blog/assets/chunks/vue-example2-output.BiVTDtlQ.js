@@ -1,0 +1,1 @@
+const e="/blog/post/welcome-generics-in-vue/example1-issue.webp",o="/blog/post/welcome-generics-in-vue/example3-output.webp",s="/blog/post/welcome-generics-in-vue/vue-example1-type-output.webp",p="/blog/post/welcome-generics-in-vue/vue-example2-output.webp";export{e as _,o as a,s as b,p as c};
