@@ -16,7 +16,7 @@
         "docs:build": "vitepress build .",
         "docs:preview": "vitepress preview .",
         "format": "prettier --write .",
-        "copy-production-dist": "cpy . ../../../../../../public/blog  --cwd .vitepress/dist",
+        "copy-production-dist": "cpy . ../../../../public/blog  --cwd .vitepress/dist",
         "medium:getAuthorId": "node --loader @swc-node/register/esm ./.vitepress/scripts/getMediumUserDetails.ts"
     },
     "keywords": [],
