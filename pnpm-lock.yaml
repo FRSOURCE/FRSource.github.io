@@ -24,15 +24,15 @@ importers:
   packages/blog:
     dependencies:
       simple-icons:
-        specifier: 16.13.0
-        version: 16.13.0
+        specifier: 16.16.0
+        version: 16.16.0
     devDependencies:
       '@frsource/is-animated':
         specifier: ^1.0.1
         version: 1.0.5
       '@frsource/prettier-config':
-        specifier: 1.42.0
-        version: 1.42.0(prettier@3.8.2)
+        specifier: 1.43.0
+        version: 1.43.0(prettier@3.8.2)
       '@swc-node/register':
         specifier: 1.11.1
         version: 1.11.1(@swc/core@1.15.26(@swc/helpers@0.5.17))(@swc/types@0.1.26)(typescript@5.9.3)
@@ -92,7 +92,7 @@ importers:
         version: 3.0.2
       vitepress:
         specifier: 1.6.4
-        version: 1.6.4(@algolia/client-search@5.18.0)(@types/node@22.19.0)(lightningcss@1.30.2)(postcss@8.5.8)(sass@1.98.0)(search-insights@2.13.0)(typescript@5.9.3)
+        version: 1.6.4(@algolia/client-search@5.18.0)(@types/node@22.19.0)(lightningcss@1.30.2)(postcss@8.5.8)(sass@1.99.0)(search-insights@2.13.0)(typescript@5.9.3)
       vue:
         specifier: 3.5.32
         version: 3.5.32(typescript@5.9.3)
@@ -116,8 +116,8 @@ importers:
         specifier: 5.1.102
         version: 5.1.102
       '@frsource/prettier-config':
-        specifier: 1.42.0
-        version: 1.42.0(prettier@3.8.2)
+        specifier: 1.43.0
+        version: 1.43.0(prettier@3.8.2)
       '@parcel/packager-raw-url':
         specifier: 2.16.4
         version: 2.16.4(@parcel/core@2.16.4(@swc/helpers@0.5.17))
@@ -131,11 +131,11 @@ importers:
         specifier: 2.16.4
         version: 2.16.4(@parcel/core@2.16.4(@swc/helpers@0.5.17))
       '@realfavicongenerator/generate-favicon':
-        specifier: ^0.6.0
-        version: 0.6.2
+        specifier: ^0.8.0
+        version: 0.8.0
       '@realfavicongenerator/image-adapter-node':
-        specifier: ^0.6.0
-        version: 0.6.1
+        specifier: ^0.8.0
+        version: 0.8.0
       '@types/domready':
         specifier: 1.0.2
         version: 1.0.2
@@ -152,8 +152,8 @@ importers:
         specifier: 6.1.3
         version: 6.1.3
       sass:
-        specifier: 1.98.0
-        version: 1.98.0
+        specifier: 1.99.0
+        version: 1.99.0
       svgo:
         specifier: ^3
         version: 3.3.2
@@ -434,8 +434,8 @@ packages:
     resolution: {integrity: sha512-d4JZUisl3JGZbBZrgneFZcq67MpEIugCung8pChwygE/FZUR3CnRKxePrw66YSpUbkmRrSSpAtNWO1xnRXwmNA==}
     engines: {node: '>=20.0.0'}
 
-  '@frsource/prettier-config@1.42.0':
-    resolution: {integrity: sha512-jRChY1zABhgRCMh5itE/5cejlT1nuf0xOl8prtJUSLIwEbwwZ12kzFob8hA15mu3/65xCIoJzAOUrUECbdGWcA==}
+  '@frsource/prettier-config@1.43.0':
+    resolution: {integrity: sha512-3GeNgX27X0GvVr7QU18WdDCpjrmFMKlkPn/WfoBwCTa9GKvXJ5NhqxQUVbT6ImOrPv+bBApJrEawNrmRA1yafA==}
     peerDependencies:
       prettier: '>= 3'
 
@@ -1191,11 +1191,11 @@ packages:
     peerDependencies:
       '@parcel/core': ^2.16.4
 
-  '@realfavicongenerator/generate-favicon@0.6.2':
-    resolution: {integrity: sha512-3vecIkpK80bDLolyXwFy9ktdbjNk6QbOdnhcJ9flw6jlv4D5/mVwP0UQl16YtNYHBUfeA2cU4rAR5hDbH2IiKA==}
+  '@realfavicongenerator/generate-favicon@0.8.0':
+    resolution: {integrity: sha512-3Cy774m1TYpthka4r4CGNPNcLKP0giPl07fRnlXCkB5TN3/72Urc+APJlt3UBaEjLJskgFj/z/h/kPtHHtE2KQ==}
 
-  '@realfavicongenerator/image-adapter-node@0.6.1':
-    resolution: {integrity: sha512-BvWhxqwGIipscjNPSet08KdWr/EICYxYFScDfIWAm1a+LwukECwiBIzFPjxfLa3iflDUX2ODY7w52IksrB5e+g==}
+  '@realfavicongenerator/image-adapter-node@0.8.0':
+    resolution: {integrity: sha512-KCm/oeA470rva9kFcllM1MLiD4QjY8vmnFj2y232W5VWk1dehj3k3h+DXWx+ssQX6MrVwIU6EzDh6SVdqHy7Hg==}
 
   '@rollup/rollup-android-arm-eabi@4.29.1':
     resolution: {integrity: sha512-ssKhA8RNltTZLpG6/QNkCSge+7mBQGUqJRisZ2MDQcEGaK93QESEgWK2iOpIDZ7k9zPVkG5AS3ksvD5ZWxmItw==}
@@ -2649,8 +2649,8 @@ packages:
   safe-buffer@5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
 
-  sass@1.98.0:
-    resolution: {integrity: sha512-+4N/u9dZ4PrgzGgPlKnaaRQx64RO0JBKs9sDhQ2pLgN6JQZ25uPQZKQYaBJU48Kd5BxgXoJ4e09Dq7nMcOUW3A==}
+  sass@1.99.0:
+    resolution: {integrity: sha512-kgW13M54DUB7IsIRM5LvJkNlpH+WhMpooUcaWGFARkF1Tc82v9mIWkCbCYf+MBvpIUBSeSOTilpZjEPr2VYE6Q==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -2703,8 +2703,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  simple-icons@16.13.0:
-    resolution: {integrity: sha512-N4AMZvFERU5YLEtUudtUesiM2H4O5xQ9qfS3K0oOV5II5KVtxOUAlmZ7KqBgiTSGBgCVkuLD/Z9dJKBtnI3kKQ==}
+  simple-icons@16.16.0:
+    resolution: {integrity: sha512-H+Z29a0TrCw6mrG42V2aqHQaKdJCT87x5aojLlPiIXOf1lpMqnKFAR/jP5xkI5hLrVTCBWs33e9sOtyNWqCx1A==}
     engines: {node: '>=0.12.18'}
 
   slash@5.1.0:
@@ -3259,7 +3259,7 @@ snapshots:
 
   '@frsource/is-animated@1.0.5': {}
 
-  '@frsource/prettier-config@1.42.0(prettier@3.8.2)':
+  '@frsource/prettier-config@1.43.0(prettier@3.8.2)':
     dependencies:
       prettier: 3.8.2
 
@@ -4062,7 +4062,7 @@ snapshots:
     dependencies:
       '@parcel/plugin': 2.16.4(@parcel/core@2.16.4(@swc/helpers@0.5.17))
       '@parcel/source-map': 2.1.1
-      sass: 1.98.0
+      sass: 1.99.0
     transitivePeerDependencies:
       - '@parcel/core'
       - napi-wasm
@@ -4176,13 +4176,13 @@ snapshots:
     transitivePeerDependencies:
       - napi-wasm
 
-  '@realfavicongenerator/generate-favicon@0.6.2':
+  '@realfavicongenerator/generate-favicon@0.8.0':
     dependencies:
       '@svgdotjs/svg.js': 3.2.4
 
-  '@realfavicongenerator/image-adapter-node@0.6.1':
+  '@realfavicongenerator/image-adapter-node@0.8.0':
     dependencies:
-      '@realfavicongenerator/generate-favicon': 0.6.2
+      '@realfavicongenerator/generate-favicon': 0.8.0
       '@svgdotjs/svg.js': 3.2.4
       sharp: 0.34.5
       svgdom: 0.1.19
@@ -4447,9 +4447,9 @@ snapshots:
 
   '@ungap/structured-clone@1.2.1': {}
 
-  '@vitejs/plugin-vue@5.2.1(vite@5.4.14(@types/node@22.19.0)(lightningcss@1.30.2)(sass@1.98.0))(vue@3.5.32(typescript@5.9.3))':
+  '@vitejs/plugin-vue@5.2.1(vite@5.4.14(@types/node@22.19.0)(lightningcss@1.30.2)(sass@1.99.0))(vue@3.5.32(typescript@5.9.3))':
     dependencies:
-      vite: 5.4.14(@types/node@22.19.0)(lightningcss@1.30.2)(sass@1.98.0)
+      vite: 5.4.14(@types/node@22.19.0)(lightningcss@1.30.2)(sass@1.99.0)
       vue: 3.5.32(typescript@5.9.3)
 
   '@vue/compiler-core@3.5.32':
@@ -5590,7 +5590,7 @@ snapshots:
 
   safe-buffer@5.2.1: {}
 
-  sass@1.98.0:
+  sass@1.99.0:
     dependencies:
       chokidar: 4.0.3
       immutable: 5.1.5
@@ -5689,7 +5689,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  simple-icons@16.13.0: {}
+  simple-icons@16.16.0: {}
 
   slash@5.1.0: {}
 
@@ -5884,7 +5884,7 @@ snapshots:
       '@types/unist': 3.0.2
       vfile-message: 4.0.2
 
-  vite@5.4.14(@types/node@22.19.0)(lightningcss@1.30.2)(sass@1.98.0):
+  vite@5.4.14(@types/node@22.19.0)(lightningcss@1.30.2)(sass@1.99.0):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.5.6
@@ -5893,9 +5893,9 @@ snapshots:
       '@types/node': 22.19.0
       fsevents: 2.3.3
       lightningcss: 1.30.2
-      sass: 1.98.0
+      sass: 1.99.0
 
-  vitepress@1.6.4(@algolia/client-search@5.18.0)(@types/node@22.19.0)(lightningcss@1.30.2)(postcss@8.5.8)(sass@1.98.0)(search-insights@2.13.0)(typescript@5.9.3):
+  vitepress@1.6.4(@algolia/client-search@5.18.0)(@types/node@22.19.0)(lightningcss@1.30.2)(postcss@8.5.8)(sass@1.99.0)(search-insights@2.13.0)(typescript@5.9.3):
     dependencies:
       '@docsearch/css': 3.8.2
       '@docsearch/js': 3.8.2(@algolia/client-search@5.18.0)(search-insights@2.13.0)
@@ -5904,7 +5904,7 @@ snapshots:
       '@shikijs/transformers': 2.1.0
       '@shikijs/types': 2.1.0
       '@types/markdown-it': 14.1.2
-      '@vitejs/plugin-vue': 5.2.1(vite@5.4.14(@types/node@22.19.0)(lightningcss@1.30.2)(sass@1.98.0))(vue@3.5.32(typescript@5.9.3))
+      '@vitejs/plugin-vue': 5.2.1(vite@5.4.14(@types/node@22.19.0)(lightningcss@1.30.2)(sass@1.99.0))(vue@3.5.32(typescript@5.9.3))
       '@vue/devtools-api': 7.7.1
       '@vue/shared': 3.5.15
       '@vueuse/core': 12.5.0(typescript@5.9.3)
@@ -5913,7 +5913,7 @@ snapshots:
       mark.js: 8.11.1
       minisearch: 7.1.1
       shiki: 2.1.0
-      vite: 5.4.14(@types/node@22.19.0)(lightningcss@1.30.2)(sass@1.98.0)
+      vite: 5.4.14(@types/node@22.19.0)(lightningcss@1.30.2)(sass@1.99.0)
       vue: 3.5.32(typescript@5.9.3)
     optionalDependencies:
       postcss: 8.5.8
