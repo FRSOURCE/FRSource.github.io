@@ -24,15 +24,15 @@ importers:
   packages/blog:
     dependencies:
       simple-icons:
-        specifier: 16.19.0
-        version: 16.19.0
+        specifier: 16.20.0
+        version: 16.20.0
     devDependencies:
       '@frsource/is-animated':
         specifier: ^1.0.1
         version: 1.0.5
       '@frsource/prettier-config':
-        specifier: 1.45.0
-        version: 1.45.0(prettier@3.8.3)
+        specifier: 1.46.0
+        version: 1.46.0(prettier@3.8.3)
       '@swc-node/register':
         specifier: 1.11.1
         version: 1.11.1(@swc/core@1.15.33(@swc/helpers@0.5.17))(@swc/types@0.1.26)(typescript@5.9.3)
@@ -116,8 +116,8 @@ importers:
         specifier: 5.1.109
         version: 5.1.109
       '@frsource/prettier-config':
-        specifier: 1.45.0
-        version: 1.45.0(prettier@3.8.3)
+        specifier: 1.46.0
+        version: 1.46.0(prettier@3.8.3)
       '@parcel/packager-raw-url':
         specifier: 2.16.4
         version: 2.16.4(@parcel/core@2.16.4(@swc/helpers@0.5.17))
@@ -434,8 +434,8 @@ packages:
     resolution: {integrity: sha512-d4JZUisl3JGZbBZrgneFZcq67MpEIugCung8pChwygE/FZUR3CnRKxePrw66YSpUbkmRrSSpAtNWO1xnRXwmNA==}
     engines: {node: '>=20.0.0'}
 
-  '@frsource/prettier-config@1.45.0':
-    resolution: {integrity: sha512-iSMoM+QkmzmANgJJC/QZxJuagaopIe4L079SVcdhT5bIEVLjcQ5bBhIB/lZufCgkGWLASJuoMryVHpOo3bpXOw==}
+  '@frsource/prettier-config@1.46.0':
+    resolution: {integrity: sha512-Im0KTLCHkNeDoJW9VUGlSrbkhM0tPnkeZRCJGnEEUtKcHInsUY8oYZU12d52fXfax2/Ac+7aOv7ovdmn05ce7Q==}
     peerDependencies:
       prettier: '>= 3'
 
@@ -2704,8 +2704,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  simple-icons@16.19.0:
-    resolution: {integrity: sha512-muxcz/FDvWFPrKJdsjaz79qsBjtZeVKUVIFl7wLVOwb+yqAag8FPe8+hFlMVRnmAXYQIm4eUDDm2+dhOj0cFgQ==}
+  simple-icons@16.20.0:
+    resolution: {integrity: sha512-2b7Xu+Zy+iwLiuLSAcWuxnM1ETNFy7JmxWSjh0Y/A8P3KGjFFcokbpWbUf/IivMNbR9WuZ/QQlirh5bGh3Q2vA==}
     engines: {node: '>=0.12.18'}
 
   slash@5.1.0:
@@ -3260,7 +3260,7 @@ snapshots:
 
   '@frsource/is-animated@1.0.5': {}
 
-  '@frsource/prettier-config@1.45.0(prettier@3.8.3)':
+  '@frsource/prettier-config@1.46.0(prettier@3.8.3)':
     dependencies:
       prettier: 3.8.3
 
@@ -5690,7 +5690,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  simple-icons@16.19.0: {}
+  simple-icons@16.20.0: {}
 
   slash@5.1.0: {}
 
