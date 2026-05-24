@@ -5,6 +5,7 @@ import { getGitCreationTimestamp } from './getGitCreationTimestamp';
 import { getGitTimestamp } from './getGitTimestamp';
 import type replaceAsync from 'string-replace-async';
 
+const __dirname = new URL('.', import.meta.url).pathname;
 const getReplaceAsync = new Function(
     'modulePath',
     "return import('string-replace-async').then(mod => mod.default)",

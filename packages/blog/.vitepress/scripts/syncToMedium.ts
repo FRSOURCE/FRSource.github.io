@@ -13,6 +13,8 @@ import { existsSync, promises as fs } from 'fs';
 import isAnimated from '@frsource/is-animated';
 import sharp from 'sharp';
 
+const __dirname = new URL('.', import.meta.url).pathname;
+
 type AdditionalPostData = {
     syncDateMedium?: string; // date when post was last updated
     syncedIdMedium?: string; // id under which post is published to medium
