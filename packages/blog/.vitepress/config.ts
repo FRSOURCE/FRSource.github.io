@@ -9,11 +9,15 @@ import {
 } from 'vitepress';
 import { promises as fs, writeFileSync } from 'fs';
 import path from 'path';
-import { Feed } from 'feed';
+import { type Author, Feed } from 'feed';
 import matter from 'gray-matter';
 import { parsePostMarkdown } from './scripts/posts.utils';
 import { getGitCreationTimestamp } from './scripts/getGitCreationTimestamp';
 import { getGitTimestamp } from './scripts/getGitTimestamp';
+import { members } from './composables/members';
+
+const siteURL = 'https://www.frsource.org';
+const blogURL = `${siteURL}/blog`;
 
 const generateEditLink = (pageData: PageData) => {
     if (pageData.frontmatter?.type === 'article') {
@@ -185,25 +189,22 @@ export default defineConfigWithTheme<
         },
     },
     async buildEnd(siteConfig: SiteConfig) {
-        const siteUrl = 'https://www.frsource.org';
-        const blogBase = '/blog';
-
         const feed = new Feed({
             title: 'FRSPACE',
             description: 'Web, IT, robotics & much more!',
-            id: `${siteUrl}${blogBase}/`,
-            link: `${siteUrl}${blogBase}/`,
+            id: `${blogURL}/`,
+            link: siteURL,
             language: 'en',
             copyright: `Copyright ${new Date().getFullYear()} FRSOURCE`,
             feedLinks: {
-                rss2: `${siteUrl}${blogBase}/feed.rss`,
-                atom: `${siteUrl}${blogBase}/feed.atom`,
-                json: `${siteUrl}${blogBase}/feed.json`,
+                rss2: `${blogURL}/feed.rss`,
+                atom: `${blogURL}/feed.atom`,
+                json: `${blogURL}/feed.json`,
             },
             author: {
                 name: 'FRSOURCE',
-                email: 'jakub@frsource.org',
-                link: 'https://www.frsource.org/',
+                email: 'blog@frsource.org',
+                link: `${siteURL}/`,
             },
         });
 
@@ -214,6 +215,7 @@ export default defineConfigWithTheme<
             image?: { src: string; alt?: string };
             creationDate: number;
             postDir: string;
+            author: Author;
         }> = [];
 
         try {
@@ -236,6 +238,11 @@ export default defineConfigWithTheme<
                     data.srcPath,
                     { cwd: __dirname },
                 );
+                const member = members.find(({ id }) => id === data.author);
+                const author = {
+                    name: member?.name,
+                    link: 'https://www.frsource.org/blog/team',
+                };
 
                 entries.push({
                     title,
@@ -243,6 +250,7 @@ export default defineConfigWithTheme<
                     image: data.image,
                     creationDate,
                     postDir,
+                    author,
                 });
             }
         } catch {
@@ -251,19 +259,29 @@ export default defineConfigWithTheme<
 
         entries
             .sort((a, b) => b.creationDate - a.creationDate)
-            .forEach(({ title, description, image, creationDate, postDir }) => {
-                const link = `${siteUrl}${blogBase}/post/${postDir}/`;
-                feed.addItem({
+            .forEach(
+                ({
                     title,
-                    id: link,
-                    link,
                     description,
-                    date: new Date(creationDate),
-                    ...(image && {
-                        image: `${siteUrl}${blogBase}${image.src}`,
-                    }),
-                });
-            });
+                    image,
+                    creationDate,
+                    postDir,
+                    author,
+                }) => {
+                    const link = `${blogURL}/post/${postDir}/`;
+                    feed.addItem({
+                        title,
+                        id: link,
+                        link,
+                        description,
+                        date: new Date(creationDate),
+                        ...(image && {
+                            image: `${blogURL}${image.src}`,
+                        }),
+                        author: [author],
+                    });
+                },
+            );
 
         writeFileSync(path.resolve(siteConfig.outDir, 'feed.rss'), feed.rss2());
         writeFileSync(

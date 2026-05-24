@@ -6,8 +6,8 @@ export const members = [
         avatar: '/blog/authors/frs.webp',
         name: 'Jakub FRS Freisler',
         title: 'Tech Lead',
-        org: 'Vue Storefront',
-        orgLink: 'https://vuestorefront.io/',
+        org: 'Alokai',
+        orgLink: 'https://alokai.com/',
         desc: 'FRSOURCE founder, Frontend expert, Typescript geek 💙 Wanna talk about web performance? Write me! 🚀',
         mediumId:
             '1d50e5fe137fa862e8440fac3870949af6de81235b6261a315721505faf529fa5',
