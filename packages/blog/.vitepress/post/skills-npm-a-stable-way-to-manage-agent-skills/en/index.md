@@ -1,13 +1,22 @@
 ---
-description: "Managing AI agent capabilities shouldn't be a messy task. Discover how skills-npm brings professional-grade versioning and dependency management to your agent's toolbox."
+description: >-
+    Managing AI agent capabilities shouldn't be a messy task. Discover how
+    skills-npm brings professional-grade versioning and dependency management to
+    your agent's toolbox.
 head:
     - - meta
       - name: keywords
-        content: 'AI agents, npm, skills-npm, software engineering, dependency management, automation'
+        content: >-
+            AI agents, npm, skills-npm, software engineering, dependency management,
+            automation
 image:
     src: /post/skills-npm-a-stable-way-to-manage-agent-skills/splash.webp
     alt: 'Light bulb and a title "skills-npm: AI skills distribution & versioning"'
 author: frs
+syncDateMedium: 1779663473000
+syncedIdMedium: e185d30e133b
+syncedUrlMedium: >-
+    https://medium.com/@kubafreisler/skills-npm-a-stable-way-to-distribute-and-maintain-agent-skills-e185d30e133b
 ---
 
 # `skills-npm`: a Stable Way to Distribute and Maintain Agent Skills
