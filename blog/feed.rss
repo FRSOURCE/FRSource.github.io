@@ -2,9 +2,9 @@
 <rss version="2.0">
     <channel>
         <title>FRSPACE</title>
-        <link>https://www.frsource.org/blog/</link>
+        <link>https://www.frsource.org</link>
         <description>Web, IT, robotics &amp; much more!</description>
-        <lastBuildDate>Sun, 24 May 2026 14:59:19 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 24 May 2026 20:11:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>

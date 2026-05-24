@@ -1,7 +1,7 @@
 {
     "version": "https://jsonfeed.org/version/1",
     "title": "FRSPACE",
-    "home_page_url": "https://www.frsource.org/blog/",
+    "home_page_url": "https://www.frsource.org",
     "feed_url": "https://www.frsource.org/blog/feed.json",
     "description": "Web, IT, robotics & much more!",
     "author": {
@@ -15,7 +15,11 @@
             "title": "`skills-npm`: a Stable Way to Distribute and Maintain Agent Skills",
             "summary": "Managing AI agent capabilities shouldn't be a messy task. Discover how skills-npm brings professional-grade versioning and dependency management to your agent's toolbox.",
             "image": "https://www.frsource.org/blog/post/skills-npm-a-stable-way-to-manage-agent-skills/splash.webp",
-            "date_modified": "2026-05-24T14:58:16.000Z"
+            "date_modified": "2026-05-24T14:58:16.000Z",
+            "author": {
+                "name": "Jakub FRS Freisler",
+                "url": "https://www.frsource.org/blog/team"
+            }
         },
         {
             "id": "https://www.frsource.org/blog/post/welcome-generics-in-vue/",
@@ -23,7 +27,11 @@
             "title": "Welcome generics in Vue",
             "summary": "Vue 3.3 has been just released 💚 And alongside other features and improvements, it includes a new compiler feature that I have been eagerly waiting on - generics support!",
             "image": "https://www.frsource.org/blog/post/welcome-generics-in-vue/splash.webp",
-            "date_modified": "2023-05-15T04:19:32.000Z"
+            "date_modified": "2023-05-15T04:19:32.000Z",
+            "author": {
+                "name": "Jakub FRS Freisler",
+                "url": "https://www.frsource.org/blog/team"
+            }
         }
     ]
 }
