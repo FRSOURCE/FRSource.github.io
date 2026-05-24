@@ -12,7 +12,7 @@ export type ArticleProps = {
 
 <script setup lang="ts">
 import type { DefaultTheme } from 'vitepress/theme';
-import VPImage from 'vitepress/dist/client/theme-default/components/VPImage.vue';
+import { VPImage } from 'vitepress/theme';
 import Tile from './Tile.vue';
 import TileTextContent from './TileTextContent.vue';
 import AuthorInfo from '../../components/AuthorInfo.vue';

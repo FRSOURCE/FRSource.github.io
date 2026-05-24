@@ -5,9 +5,11 @@ import {
     DefaultTheme,
     LocaleConfig,
     PageData,
+    SiteConfig,
 } from 'vitepress';
-import { promises as fs } from 'fs';
+import { promises as fs, writeFileSync } from 'fs';
 import path from 'path';
+import { Feed } from 'feed';
 import matter from 'gray-matter';
 import { parsePostMarkdown } from './scripts/posts.utils';
 import { getGitCreationTimestamp } from './scripts/getGitCreationTimestamp';
@@ -47,7 +49,7 @@ const locales: LocaleConfig = {
                     link: 'https://www.frsource.org/',
                 },
             ],
-            lastUpdatedText: 'Ostatnia aktualizacja',
+            lastUpdated: { text: 'Ostatnia aktualizacja' },
             creationDateText: 'Opublikowany',
             darkModeSwitchLabel: 'Wygląd',
             sidebarMenuLabel: 'Menu',
@@ -75,14 +77,39 @@ export default defineConfigWithTheme<
     cleanUrls: true,
     lastUpdated: true,
     markdown: {
-        headers: {
-            level: [0, 0],
-        },
+        headers: false,
         lineNumbers: true,
     },
     locales,
     head: [
         ['meta', { name: 'theme-color', content: '#f35e48' }],
+        [
+            'link',
+            {
+                rel: 'alternate',
+                type: 'application/rss+xml',
+                href: 'https://www.frsource.org/blog/feed.rss',
+                title: 'FRSPACE RSS',
+            },
+        ],
+        [
+            'link',
+            {
+                rel: 'alternate',
+                type: 'application/atom+xml',
+                href: 'https://www.frsource.org/blog/feed.atom',
+                title: 'FRSPACE Atom',
+            },
+        ],
+        [
+            'link',
+            {
+                rel: 'alternate',
+                type: 'application/feed+json',
+                href: 'https://www.frsource.org/blog/feed.json',
+                title: 'FRSPACE JSON Feed',
+            },
+        ],
         [
             'link',
             {
@@ -140,7 +167,7 @@ export default defineConfigWithTheme<
                 link: 'https://www.frsource.org/',
             },
         ],
-        lastUpdatedText: 'Last updated',
+        lastUpdated: { text: 'Last updated' },
         creationDateText: 'Published',
         darkModeSwitchLabel: 'Appearance',
         sidebarMenuLabel: 'Menu',
@@ -156,6 +183,97 @@ export default defineConfigWithTheme<
             prev: 'Previous article',
             next: 'Next article',
         },
+    },
+    async buildEnd(siteConfig: SiteConfig) {
+        const siteUrl = 'https://www.frsource.org';
+        const blogBase = '/blog';
+
+        const feed = new Feed({
+            title: 'FRSPACE',
+            description: 'Web, IT, robotics & much more!',
+            id: `${siteUrl}${blogBase}/`,
+            link: `${siteUrl}${blogBase}/`,
+            language: 'en',
+            copyright: `Copyright ${new Date().getFullYear()} FRSOURCE`,
+            feedLinks: {
+                rss2: `${siteUrl}${blogBase}/feed.rss`,
+                atom: `${siteUrl}${blogBase}/feed.atom`,
+                json: `${siteUrl}${blogBase}/feed.json`,
+            },
+            author: {
+                name: 'FRSOURCE',
+                email: 'jakub@frsource.org',
+                link: 'https://www.frsource.org/',
+            },
+        });
+
+        const postsDir = path.resolve(siteConfig.srcDir, 'post');
+        const entries: Array<{
+            title: string;
+            description: string;
+            image?: { src: string; alt?: string };
+            creationDate: number;
+            postDir: string;
+        }> = [];
+
+        try {
+            const postDirs = (
+                await fs.readdir(postsDir, { withFileTypes: true })
+            )
+                .filter((d) => d.isDirectory())
+                .map((d) => d.name);
+
+            for (const postDir of postDirs) {
+                const filePath = path.join(postsDir, postDir, 'index.md');
+                const file = matter.read(filePath);
+                const { data, content } = file;
+
+                if (!data.description) continue;
+
+                const title: string =
+                    data.title || content.match(/# (.+)/)?.[1] || postDir;
+                const creationDate = await getGitCreationTimestamp(
+                    data.srcPath,
+                    { cwd: __dirname },
+                );
+
+                entries.push({
+                    title,
+                    description: data.description,
+                    image: data.image,
+                    creationDate,
+                    postDir,
+                });
+            }
+        } catch {
+            // posts directory not yet populated
+        }
+
+        entries
+            .sort((a, b) => b.creationDate - a.creationDate)
+            .forEach(({ title, description, image, creationDate, postDir }) => {
+                const link = `${siteUrl}${blogBase}/post/${postDir}/`;
+                feed.addItem({
+                    title,
+                    id: link,
+                    link,
+                    description,
+                    date: new Date(creationDate),
+                    ...(image && {
+                        image: `${siteUrl}${blogBase}${image.src}`,
+                    }),
+                });
+            });
+
+        writeFileSync(path.resolve(siteConfig.outDir, 'feed.rss'), feed.rss2());
+        writeFileSync(
+            path.resolve(siteConfig.outDir, 'feed.atom'),
+            feed.atom1(),
+        );
+        writeFileSync(
+            path.resolve(siteConfig.outDir, 'feed.json'),
+            feed.json1(),
+        );
     },
     async transformPageData(pageData) {
         if (pageData.frontmatter?.type === 'article') {

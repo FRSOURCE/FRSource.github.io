@@ -1,10 +1,14 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { useData, Locales } from 'vitepress';
-import Layout from 'vitepress/dist/client/theme-default/Layout.vue';
+import { useData, Locales, withBase } from 'vitepress';
+import DefaultTheme from 'vitepress/theme';
+const Layout = DefaultTheme.Layout;
 import Articles from './Articles.vue';
 import VPDocFooterLastUpdated from 'vitepress/dist/client/theme-default/components/VPDocFooterLastUpdated.vue';
 import AuthorInfo from '../../components/AuthorInfo.vue';
+import RSSIcon from './RSSIcon.vue';
+import AtomIcon from './AtomIcon.vue';
+import JsonFeedIcon from './JsonFeedIcon.vue';
 // import CreationDate from "../../components/CreationDate.vue";
 
 const { localeIndex, page, frontmatter } = useData();
@@ -28,6 +32,27 @@ const formattedArticles = computed(() =>
 const headerArray = computed(
     () => frontmatter.value.frs_hero.text.split(' ') as string[],
 );
+
+const feedLinks = [
+    {
+        href: withBase('/feed.rss'),
+        label: 'RSS',
+        ariaLabel: 'Subscribe via RSS',
+        icon: RSSIcon,
+    },
+    {
+        href: withBase('/feed.atom'),
+        label: 'Atom',
+        ariaLabel: 'Subscribe via Atom',
+        icon: AtomIcon,
+    },
+    {
+        href: withBase('/feed.json'),
+        label: 'JSON Feed',
+        ariaLabel: 'Subscribe via JSON Feed',
+        icon: JsonFeedIcon,
+    },
+];
 </script>
 
 <template>
@@ -99,6 +124,21 @@ const headerArray = computed(
             </Articles>
         </template>
 
+        <template #layout-bottom>
+            <div class="rss-footer">
+                <a
+                    v-for="{ href, label, ariaLabel, icon } in feedLinks"
+                    :key="href"
+                    :href="href"
+                    :aria-label="ariaLabel"
+                    class="rss-footer__link"
+                >
+                    <component :is="icon" class="rss-footer__icon" />
+                    {{ label }}
+                </a>
+            </div>
+        </template>
+
         <template #doc-before>
             <div class="header-info">
                 <AuthorInfo
@@ -113,6 +153,34 @@ const headerArray = computed(
 </template>
 
 <style scoped>
+.rss-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 12px 24px;
+    border-top: 1px solid var(--vp-c-divider);
+}
+
+.rss-footer__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    color: var(--vp-c-text-2);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.rss-footer__link:hover {
+    color: var(--vp-c-brand-1);
+}
+
+.rss-footer__icon {
+    width: 14px;
+    height: 14px;
+}
+
 .hero {
     display: flex;
     flex-flow: column-reverse;
