@@ -11,6 +11,9 @@ author: frs
 syncDateMedium: 1684126658000
 syncedIdMedium: 1c01cc3da0fa
 syncedUrlMedium: 'https://medium.com/@kubafreisler/welcome-generics-in-vue-1c01cc3da0fa'
+syncDateDevTo: 1684126658000
+syncedUrlDevTo: 'https://dev.to/jakfrs/welcome-generics-in-vue-4bgh'
+syncedIdDevTo: 3750176
 ---
 
 # Welcome generics in Vue

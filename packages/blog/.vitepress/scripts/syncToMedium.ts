@@ -164,7 +164,7 @@ export const publish = async ({
         const articleIndexPath = path.join(srcDirPath, 'index.md');
         const articleLastUpdated = await getGitTimestamp(srcDirPath);
         const frontmatterData = matter.read(articleIndexPath);
-        const { syncDateMedium, syncedIdMedium } =
+        const { syncDateMedium, syncedIdMedium, syncedUrlMedium } =
             frontmatterData.data as AdditionalPostData;
 
         const post = await preparePostForPublish({
@@ -173,6 +173,7 @@ export const publish = async ({
             frontmatterData,
             syncDateMedium,
             syncedIdMedium,
+            syncedUrlMedium,
         });
         if (!post) return;
         const fetch = await getFetch();

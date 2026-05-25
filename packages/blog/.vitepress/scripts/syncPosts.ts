@@ -5,6 +5,7 @@ import chokidar from 'chokidar';
 import commandLineArgs from 'command-line-args';
 import { memoize } from 'lodash-es';
 import { publish as mediumPublish } from './syncToMedium';
+import { publish as devToPublish } from './syncToDevTo';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const LOCALES = ['en', 'pl'];
@@ -17,6 +18,7 @@ const memoizedPostDestinationPath = memoize(postDestinationPath);
 const args = commandLineArgs([
     { name: 'watch', alias: 'w', type: Boolean },
     { name: 'sync-with-medium', type: Boolean },
+    { name: 'sync-with-devto', type: Boolean },
 ]);
 const cwd = path.join(__dirname, '..');
 
@@ -29,15 +31,25 @@ const watcher = chokidar
         await clearPosts();
         const filesToSync = await filterOutDirs(watcher.getWatched());
         const syncedPosts = await copyPosts(filesToSync);
+        const enPosts = syncedPosts.filter((post) => post?.locale === 'en');
         if (args['sync-with-medium']) {
             await Promise.all(
-                syncedPosts.map((post) => {
-                    if (post?.locale !== 'en') return;
-                    return mediumPublish({
+                enPosts.map((post) =>
+                    mediumPublish({
                         srcDirPath: post.src,
                         postname: post.postname,
-                    });
-                }),
+                    }),
+                ),
+            );
+        }
+        if (args['sync-with-devto']) {
+            await Promise.all(
+                enPosts.map((post) =>
+                    devToPublish({
+                        srcDirPath: post.src,
+                        postname: post.postname,
+                    }),
+                ),
             );
         }
         if (!args.watch) await watcher.close();
