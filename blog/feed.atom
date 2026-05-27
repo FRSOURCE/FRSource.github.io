@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.frsource.org/blog/</id>
     <title>FRSPACE</title>
-    <updated>2026-05-27T11:11:47.315Z</updated>
+    <updated>2026-05-27T11:12:28.666Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>FRSOURCE</name>
@@ -17,6 +17,7 @@
         <title type="html"><![CDATA[`skills-npm`: a Stable Way to Distribute and Maintain Agent Skills]]></title>
         <id>https://www.frsource.org/blog/post/skills-npm-a-stable-way-to-manage-agent-skills/</id>
         <link href="https://www.frsource.org/blog/post/skills-npm-a-stable-way-to-manage-agent-skills/"/>
+        <link rel="enclosure" href="https://www.frsource.org/blog/post/skills-npm-a-stable-way-to-manage-agent-skills/splash.webp" type="image/webp"/>
         <updated>2026-05-24T14:58:16.000Z</updated>
         <summary type="html"><![CDATA[Managing AI agent capabilities shouldn't be a messy task. Discover how skills-npm brings professional-grade versioning and dependency management to your agent's toolbox.]]></summary>
         <author>
@@ -28,6 +29,7 @@
         <title type="html"><![CDATA[Welcome generics in Vue]]></title>
         <id>https://www.frsource.org/blog/post/welcome-generics-in-vue/</id>
         <link href="https://www.frsource.org/blog/post/welcome-generics-in-vue/"/>
+        <link rel="enclosure" href="https://www.frsource.org/blog/post/welcome-generics-in-vue/splash.webp" type="image/webp"/>
         <updated>2023-05-15T04:19:32.000Z</updated>
         <summary type="html"><![CDATA[Vue 3.3 has been just released 💚 And alongside other features and improvements, it includes a new compiler feature that I have been eagerly waiting on - generics support!]]></summary>
         <author>
