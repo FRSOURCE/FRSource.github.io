@@ -41,6 +41,7 @@ export const publish = async ({
     srcDirPath: string;
     postname: string;
 }) => {
+    console.log(`Uploading ${postname} to dev.to...`);
     try {
         const articleIndexPath = path.join(srcDirPath, 'index.md');
         const articleLastUpdated = await getGitTimestamp(srcDirPath);
@@ -120,8 +121,8 @@ export const publish = async ({
             body: JSON.stringify(articlePayload),
         });
 
-        const data = await tryToParseJSONResponse(response);
         if (response.status === 200 || response.status === 201) {
+            const data = await tryToParseJSONResponse(response);
             const action = isUpdate ? 'Updated' : 'Published';
             console.log(`${action} to Dev.to: ${data.url}`);
             frontmatterData.data.syncDateDevTo = articleLastUpdated;
@@ -132,10 +133,11 @@ export const publish = async ({
                 matter.stringify(frontmatterData.content, frontmatterData.data),
             );
         } else {
-            throw Object.assign(
-                new Error((data.error as string) || 'Unknown error'),
-                { status: response.status, data },
-            );
+            const text = await response.text();
+            throw Object.assign(new Error(text || 'Unknown error'), {
+                status: response.status,
+                data: text,
+            });
         }
     } catch (error) {
         const err = error as {

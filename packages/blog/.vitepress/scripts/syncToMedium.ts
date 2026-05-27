@@ -160,6 +160,7 @@ export const publish = async ({
     srcDirPath: string;
     postname: string;
 }) => {
+    console.log(`Uploading ${postname} to medium...`);
     try {
         const articleIndexPath = path.join(srcDirPath, 'index.md');
         const articleLastUpdated = await getGitTimestamp(srcDirPath);
