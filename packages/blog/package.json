@@ -32,7 +32,7 @@
         "@types/remove-markdown": "0.3.4",
         "chokidar": "5.0.0",
         "command-line-args": "6.0.2",
-        "concurrently": "9.2.3",
+        "concurrently": "10.0.3",
         "cpy-cli": "7.0.0",
         "cross-spawn": "7.0.6",
         "fs-extra": "11.3.5",
