@@ -18,7 +18,7 @@
     },
     "devDependencies": {
         "@frsource/frs-replace": "5.1.114",
-        "@frsource/prettier-config": "1.46.0",
+        "@frsource/prettier-config": "1.47.2",
         "@parcel/packager-raw-url": "2.16.4",
         "@parcel/transformer-inline-string": "2.16.4",
         "@parcel/transformer-jsonld": "2.16.4",
@@ -28,7 +28,7 @@
         "@types/domready": "1.0.2",
         "@types/node": "24.13.2",
         "parcel": "2.16.4",
-        "prettier": "3.8.4",
+        "prettier": "3.9.3",
         "rimraf": "6.1.3",
         "sass": "1.101.0",
         "svgo": "^4.0.0",
