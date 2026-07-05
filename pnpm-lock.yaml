@@ -29,7 +29,7 @@ importers:
     devDependencies:
       '@frsource/is-animated':
         specifier: ^1.0.1
-        version: 1.0.5
+        version: 1.1.11
       '@frsource/prettier-config':
         specifier: 1.47.2
         version: 1.47.2(prettier@3.9.4)
@@ -365,8 +365,8 @@ packages:
     engines: {node: '>=20.0.0'}
     hasBin: true
 
-  '@frsource/is-animated@1.0.5':
-    resolution: {integrity: sha512-d4JZUisl3JGZbBZrgneFZcq67MpEIugCung8pChwygE/FZUR3CnRKxePrw66YSpUbkmRrSSpAtNWO1xnRXwmNA==}
+  '@frsource/is-animated@1.1.11':
+    resolution: {integrity: sha512-GTWO2eumB3DrONeLw6QYvdlWc4O7Ry1cfU5TCC9DqriFyG4l47bMRRQgQQOvqulCN+zGZPcSulJCW+cEovVVXg==}
     engines: {node: '>=20.0.0'}
 
   '@frsource/prettier-config@1.47.2':
@@ -3272,7 +3272,7 @@ snapshots:
       get-stdin: 10.0.0
       yargs: 18.0.0
 
-  '@frsource/is-animated@1.0.5': {}
+  '@frsource/is-animated@1.1.11': {}
 
   '@frsource/prettier-config@1.47.2(prettier@3.9.4)':
     dependencies:
