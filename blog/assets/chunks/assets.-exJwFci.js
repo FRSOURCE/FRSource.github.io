@@ -1,0 +1,1 @@
+var e=`/blog/code.webp`,t=`/blog/code_320.webp`,n=`/blog/code_400.webp`,r=`/blog/post/welcome-generics-in-vue/example1-issue.webp`,i=`/blog/post/welcome-generics-in-vue/example3-output.webp`,a=`/blog/post/welcome-generics-in-vue/vue-example1-type-output.webp`,o=`/blog/post/welcome-generics-in-vue/vue-example2-output.webp`;export{n as a,r as i,a as n,t as o,i as r,e as s,o as t};
