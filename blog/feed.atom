@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.frsource.org/blog/</id>
     <title>FRSPACE</title>
-    <updated>2026-07-27T09:48:48.919Z</updated>
+    <updated>2026-07-30T11:34:11.890Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>FRSOURCE</name>
         <email>blog@frsource.org</email>
         <uri>https://www.frsource.org/</uri>
     </author>
-    <link rel="alternate" href="https://www.frsource.org"/>
+    <link rel="alternate" href="https://www.frsource.org/"/>
     <link rel="self" href="https://www.frsource.org/blog/feed.atom"/>
     <subtitle>Web, IT, robotics &amp; much more!</subtitle>
     <rights>Copyright 2026 FRSOURCE</rights>
