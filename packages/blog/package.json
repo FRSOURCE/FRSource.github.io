@@ -42,7 +42,7 @@
         "prettier": "3.9.6",
         "sharp": "0.35.3",
         "string-replace-async": "3.0.2",
-        "feed": "^5.0.0",
+        "feed": "^6.0.0",
         "vitepress": "2.0.0-alpha.18",
         "vue": "3.5.40"
     },
