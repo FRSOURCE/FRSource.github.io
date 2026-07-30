@@ -29,7 +29,7 @@ importers:
     devDependencies:
       '@frsource/is-animated':
         specifier: ^1.0.1
-        version: 1.1.16
+        version: 1.1.18
       '@frsource/prettier-config':
         specifier: 1.47.5
         version: 1.47.5(prettier@3.9.6)
@@ -116,8 +116,8 @@ importers:
         version: 0.14.1
     devDependencies:
       '@frsource/frs-replace':
-        specifier: 5.1.121
-        version: 5.1.121
+        specifier: 5.1.123
+        version: 5.1.123
       '@frsource/prettier-config':
         specifier: 1.47.5
         version: 1.47.5(prettier@3.9.6)
@@ -366,13 +366,13 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@frsource/frs-replace@5.1.121':
-    resolution: {integrity: sha512-hrTVBlAp6WkLdaX3gP7LwBWz3iDhEUbBDaW61q9efQQzCNZws/uuBxIk5aW2+M4EO0P/UdqyISu8NBZVPuEqrg==}
+  '@frsource/frs-replace@5.1.123':
+    resolution: {integrity: sha512-/ZGyOdDADZRur9XzgRaNCHckC77zVbDPI56uzkXlOnUtf+18RXxiqBjZ86ORnZz3jNu7xfTZ9dDVX/AMtaAJKw==}
     engines: {node: '>=20.0.0'}
     hasBin: true
 
-  '@frsource/is-animated@1.1.16':
-    resolution: {integrity: sha512-rqy03Y7VvdD9rmKsL8ENzQC3lXpv1iEU4h1Z8ej9VJMIyq/u+upV2DmTEGIrc5PrsrR/4kpz/8pMSjKe0V8bDQ==}
+  '@frsource/is-animated@1.1.18':
+    resolution: {integrity: sha512-YkuTabDLRyEKLfJYV75yn2YE2R+zOJ+8IS5XlkBIr4/A9w5AaQr+KCBgswd89JfJuXF4e0idZ7fVK1OQKyLCqA==}
     engines: {node: '>=20.0.0'}
 
   '@frsource/prettier-config@1.47.5':
@@ -3332,13 +3332,13 @@ snapshots:
   '@esbuild/win32-x64@0.27.7':
     optional: true
 
-  '@frsource/frs-replace@5.1.121':
+  '@frsource/frs-replace@5.1.123':
     dependencies:
       fast-glob: 3.3.3
       get-stdin: 10.0.0
       yargs: 18.0.0
 
-  '@frsource/is-animated@1.1.16': {}
+  '@frsource/is-animated@1.1.18': {}
 
   '@frsource/prettier-config@1.47.5(prettier@3.9.6)':
     dependencies:
