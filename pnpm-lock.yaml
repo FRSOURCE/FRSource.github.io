@@ -31,8 +31,8 @@ importers:
         specifier: ^1.0.1
         version: 1.1.18
       '@frsource/prettier-config':
-        specifier: 1.47.6
-        version: 1.47.6(prettier@3.9.6)
+        specifier: 1.47.7
+        version: 1.47.7(prettier@3.9.6)
       '@swc-node/register':
         specifier: 1.12.1
         version: 1.12.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@swc/core@1.15.46(@swc/helpers@0.5.17))(@swc/types@0.1.27)(supports-color@10.2.2)(typescript@6.0.3)
@@ -119,8 +119,8 @@ importers:
         specifier: 5.1.123
         version: 5.1.123
       '@frsource/prettier-config':
-        specifier: 1.47.6
-        version: 1.47.6(prettier@3.9.6)
+        specifier: 1.47.7
+        version: 1.47.7(prettier@3.9.6)
       '@parcel/packager-raw-url':
         specifier: 2.16.4
         version: 2.16.4(@parcel/core@2.16.4(@swc/helpers@0.5.17))
@@ -369,8 +369,8 @@ packages:
     resolution: {integrity: sha512-YkuTabDLRyEKLfJYV75yn2YE2R+zOJ+8IS5XlkBIr4/A9w5AaQr+KCBgswd89JfJuXF4e0idZ7fVK1OQKyLCqA==}
     engines: {node: '>=20.0.0'}
 
-  '@frsource/prettier-config@1.47.6':
-    resolution: {integrity: sha512-+q88N4+hAqZxsMaoDbX+721XMYRjTbdYao32fRUNlm81fS5eLeAERb9+6gJxHOn2krNzplABO0oEpyuBYWXlkw==}
+  '@frsource/prettier-config@1.47.7':
+    resolution: {integrity: sha512-K4AaE/lXI2CQXowuCb4z276Bf1ouH5QfbFTRoaQ0Xbw1MM129LRvIJ7y7qq6jv1vd0kRc+TaFjUQm8Hn69cp+Q==}
     peerDependencies:
       prettier: '>= 3'
 
@@ -3344,7 +3344,7 @@ snapshots:
 
   '@frsource/is-animated@1.1.18': {}
 
-  '@frsource/prettier-config@1.47.6(prettier@3.9.6)':
+  '@frsource/prettier-config@1.47.7(prettier@3.9.6)':
     dependencies:
       prettier: 3.9.6
 
