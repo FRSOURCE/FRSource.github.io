@@ -24,7 +24,7 @@
         "@frsource/is-animated": "^1.0.1",
         "@frsource/prettier-config": "1.47.7",
         "@swc-node/register": "1.12.1",
-        "@swc/core": "1.16.0",
+        "@swc/core": "1.16.1",
         "@types/command-line-args": "5.2.3",
         "@types/cross-spawn": "6.0.6",
         "@types/fs-extra": "11.0.4",
@@ -40,11 +40,11 @@
         "lodash-es": "^4.17.21",
         "node-fetch": "^3.3.0",
         "prettier": "3.9.6",
-        "sharp": "0.35.3",
+        "sharp": "0.35.4",
         "string-replace-async": "3.0.2",
         "feed": "^6.0.0",
         "vitepress": "2.0.0-alpha.19",
-        "vue": "3.5.41"
+        "vue": "3.5.42"
     },
     "dependencies": {
         "simple-icons": "16.28.0"
