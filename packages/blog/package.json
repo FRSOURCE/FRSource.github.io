@@ -22,7 +22,7 @@
     "keywords": [],
     "devDependencies": {
         "@frsource/is-animated": "^1.0.1",
-        "@frsource/prettier-config": "1.47.7",
+        "@frsource/prettier-config": "1.47.8",
         "@swc-node/register": "1.12.1",
         "@swc/core": "1.16.1",
         "@types/command-line-args": "5.2.3",
