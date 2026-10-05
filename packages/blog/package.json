@@ -22,7 +22,7 @@
     "keywords": [],
     "devDependencies": {
         "@frsource/is-animated": "^1.0.1",
-        "@frsource/prettier-config": "1.47.9",
+        "@frsource/prettier-config": "1.47.13",
         "@swc-node/register": "1.12.1",
         "@swc/core": "1.16.13",
         "@types/command-line-args": "5.2.3",
@@ -39,7 +39,7 @@
         "gray-matter": "4.0.3",
         "lodash-es": "^4.17.21",
         "node-fetch": "^3.3.0",
-        "prettier": "3.9.6",
+        "prettier": "3.9.9",
         "sharp": "0.35.5",
         "string-replace-async": "3.0.2",
         "feed": "^6.0.0",
