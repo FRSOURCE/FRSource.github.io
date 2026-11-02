@@ -189,8 +189,8 @@ importers:
         specifier: ^1.0.1
         version: 1.1.29
       '@frsource/prettier-config':
-        specifier: 1.48.1
-        version: 1.48.1(prettier@3.9.10)
+        specifier: 1.48.2
+        version: 1.48.2(prettier@3.9.10)
       '@swc-node/register':
         specifier: 1.12.1
         version: 1.12.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@swc/core@1.16.21(@swc/helpers@0.5.17))(@swc/types@0.1.28)(supports-color@10.2.2)(typescript@6.0.3)
@@ -277,8 +277,8 @@ importers:
         specifier: 5.1.152
         version: 5.1.152
       '@frsource/prettier-config':
-        specifier: 1.48.1
-        version: 1.48.1(prettier@3.9.10)
+        specifier: 1.48.2
+        version: 1.48.2(prettier@3.9.10)
       '@parcel/packager-raw-url':
         specifier: 2.16.4
         version: 2.16.4(@parcel/core@2.16.4(@swc/helpers@0.5.17))
@@ -528,8 +528,8 @@ packages:
     engines: {node: '>=20.0.0'}
     deprecated: 'This package has been replaced by is-animated library: https://www.npmjs.com/package/is-animated. To migrate, simply install is-animated@3.0.0 or higher. No additional migration steps are required.'
 
-  '@frsource/prettier-config@1.48.1':
-    resolution: {integrity: sha512-z8Fk/XExp7SSHHM9sRHHHXcN37W/2JzVxkrpdfGGMZ0kt1pmrVjMC0SWQ8rQs03lDxPii/rv8+CscEmVAOCIIA==}
+  '@frsource/prettier-config@1.48.2':
+    resolution: {integrity: sha512-BtrnUzvXL8IF3KGAFAsfFFWT8y5l3GvVFumem87pKRB6uancRPpr072BvH92zr+0Sygj9oPoifouUHnF/qklXA==}
     peerDependencies:
       prettier: '>= 3'
 
@@ -3723,7 +3723,7 @@ snapshots:
 
   '@frsource/is-animated@1.1.29': {}
 
-  '@frsource/prettier-config@1.48.1(prettier@3.9.10)':
+  '@frsource/prettier-config@1.48.2(prettier@3.9.10)':
     dependencies:
       prettier: 3.9.10
 
