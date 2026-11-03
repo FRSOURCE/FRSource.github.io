@@ -59,6 +59,28 @@
             href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
             rel="stylesheet"
         />
+        <script>
+            // a glitch sweep is in progress: stay covered until the script reveals the page
+            (function () {
+                try {
+                    var v = (sessionStorage.getItem('FRS:glitch') || '').split(
+                        ':',
+                    );
+                    if (!v[0] || Date.now() - +v[1] > 4000) return;
+                    var t = localStorage.getItem('FRS:theme');
+                    var dark =
+                        t === 'dark' ||
+                        (t !== 'light' &&
+                            matchMedia('(prefers-color-scheme: dark)').matches);
+                    var root = document.documentElement;
+                    root.style.setProperty(
+                        '--veil-bg',
+                        dark ? '#030b19' : '#efefef',
+                    );
+                    root.classList.add('glitch-cover');
+                } catch (e) {}
+            })();
+        </script>
         <script type="module" src="./index.ts" defer></script>
         <noscript
             ><style>
@@ -83,12 +105,24 @@
             <header>
                 <nav>
                     <a
+                        href="/portfolio/"
+                        data-glitch="fwd"
+                        class="btn text nav-work"
+                        title="See the websites we have built"
+                        >Our work</a
+                    >
+                    <a
                         href="/blog"
                         title="Click to navigate to our blog"
                         aria-label="Click to navigate to our blog"
                         class="btn text"
                         target="_blank"
-                        >Click here and enjoy our blog with your coffee ♥</a
+                        ><span class="sr-only md:not-sr-only"
+                            >Click here and enjoy our </span
+                        >blog<span class="sr-only md:not-sr-only"
+                            >with your coffee</span
+                        >
+                        ♥</a
                     >
                 </nav>
             </header>
@@ -176,7 +210,7 @@
                         xmlns:xlink="http://www.w3.org/1999/xlink"
                         viewBox="0 0 258 199"
                     >
-                        <title>FRSource logo</title>
+                        <title>FRSOURCE logo</title>
                         <defs>
                             <linearGradient
                                 id="grd1"
@@ -292,7 +326,7 @@
                                 class="load-fadeinup fadeInUp topline__item wrap-ellipsis"
                                 ><a
                                     href="mailto:hi@frsource.org"
-                                    title="Use this email address to contact the FRSource team"
+                                    title="Use this email address to contact the FRSOURCE team"
                                     >hi@frsource.org</a
                                 ></span
                             >
@@ -315,7 +349,7 @@
                     <div class="d-f">
                         <button
                             type="button"
-                            class="btn fill btn--contact mb-7 d-b load-fadeinup fadeInUp f-grow f-md-grow-0"
+                            class="btn fill btn--contact mb-3 d-b load-fadeinup fadeInUp f-grow f-md-grow-0"
                         >
                             <div class="d-ib topline">
                                 <small class="topline__item">just&nbsp;</small
@@ -328,6 +362,22 @@
                             class="load-fadeinup fadeInUp tt-u contact-col__cta"
                             >A contact form will open</small
                         >
+                    </div>
+
+                    <div class="d-f">
+                        <a
+                            href="/portfolio/"
+                            data-glitch="fwd"
+                            class="btn fill btn--work mb-7 d-b load-fadeinup fadeInUp f-grow f-md-grow-0"
+                            title="See the websites we have built"
+                        >
+                            <span class="d-ib topline">
+                                <small class="topline__item">see&nbsp;</small
+                                ><span class="topline__item"
+                                    >our&nbsp;work&nbsp;→</span
+                                >
+                            </span>
+                        </a>
                     </div>
 
                     <ul class="d-f lh-1 w-md-60p">
@@ -371,7 +421,7 @@
                                 class="d-b t-c"
                                 target="_blank"
                                 rel="noopener"
-                                href="https://github.com/FRSource"
+                                href="https://github.com/FRSOURCE"
                                 title="Click and see our GitHub projects!"
                                 aria-label="Click and see our GitHub projects! (Opens up in a new window)"
                                 ><svg
@@ -617,7 +667,7 @@
                     },
                     "sameAs": [
                         "https://facebook.com/FRSOURCE",
-                        "https://github.com/FRSource",
+                        "https://github.com/FRSOURCE",
                         "https://twitter.com/frsource1",
                         "https://instagram.com/frsource"
                     ]

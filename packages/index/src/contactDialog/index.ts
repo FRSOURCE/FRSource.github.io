@@ -5,6 +5,8 @@ export class ContactDialogCtrl {
     static grecaptchaScriptLoader: Promise<void>;
     static templateLoader: Promise<Response>;
 
+    private lastPrefill = '';
+    private opener: Element | null = null;
     private grecaptchaCallbackResolver: (token: string) => void = () => {};
     element: HTMLDialogElement;
 
@@ -28,6 +30,9 @@ export class ContactDialogCtrl {
         element
             .querySelector('.dialog__btn-close')!
             .addEventListener('click', this.hide.bind(this));
+        element.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') this.hide();
+        });
 
         element
             .querySelector<HTMLFormElement>('.gform')!
@@ -98,14 +103,29 @@ export class ContactDialogCtrl {
         return this.element.getAttribute('open') === 'open';
     }
 
-    show() {
+    /** @param message optional text to pre-fill an empty (or untouched) message field */
+    show(message?: string) {
+        this.opener = document.activeElement;
         requestAnimationFrame(() => {
+            if (message !== undefined) this.prefill(message);
             this.element.setAttribute('open', 'open');
+            this.element.querySelector<HTMLElement>('input')?.focus();
         });
     }
 
     hide() {
         this.element.removeAttribute('open');
+        if (this.opener instanceof HTMLElement) this.opener.focus();
+        this.opener = null;
+    }
+
+    private prefill(message: string) {
+        const textarea = this.element.querySelector('textarea');
+        if (!textarea) return;
+        if (textarea.value === '' || textarea.value === this.lastPrefill) {
+            textarea.value = message;
+            this.lastPrefill = message;
+        }
     }
 
     async onFormSubmit(e: Event) {

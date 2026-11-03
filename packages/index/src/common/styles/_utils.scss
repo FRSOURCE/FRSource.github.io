@@ -10,6 +10,10 @@
     margin-top: map.get(variables.$spacings, 1);
 }
 
+.mt-3 {
+    margin-top: map.get(variables.$spacings, 3);
+}
+
 .mb-2 {
     margin-bottom: map.get(variables.$spacings, 2);
 }
@@ -139,5 +143,40 @@
         position: relative;
         top: (1em - variables.$lineHeight3);
         vertical-align: top;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.not-sr-only {
+    @media (orientation:landscape) and (min-width: #{variables.$breakpoint3}) {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip-path: none;
+        white-space: normal;
+    }
+}
+
+// ellipsis wrappers clip outlines drawn outside the link: give the ring room inside the wrapper
+.wrap-ellipsis {
+    padding: 4px;
+    margin: -4px;
+
+    a:focus-visible {
+        outline-offset: 1px;
     }
 }

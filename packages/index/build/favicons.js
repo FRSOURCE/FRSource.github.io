@@ -93,11 +93,13 @@ const PUBLIC_PATH = resolve(__dirname, '..', '..', '..', 'public');
         '<meta name="theme-color" content="#071633" />',
     ].join('\n');
 
-    await replaceInFile(
-        resolve(PUBLIC_PATH, 'index.html'),
-        '</head>',
-        `${markupToInsert}</head>`,
-    );
+    for (const page of ['index.html', 'portfolio/index.html']) {
+        await replaceInFile(
+            resolve(PUBLIC_PATH, page),
+            '</head>',
+            `${markupToInsert}</head>`,
+        );
+    }
 })();
 
 ///

@@ -12,6 +12,11 @@ const CACHE_NAME = 'frsource-cache-' + version;
 const typedSelf = self as unknown as ServiceWorkerGlobalScope &
     typeof globalThis;
 
+// the portfolio page is not controlled by this worker, so don't precache its screenshots and bundles
+for (let i = urlsToCache.length - 1; i >= 0; i--)
+    if (/^\/portfolio[/.]|\.(jpe?g|webp)$/.test(urlsToCache[i]))
+        urlsToCache.splice(i, 1);
+
 urlsToCache.unshift(
     'https://www.frsource.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js',
     'https://fonts.googleapis.com/css2?family=Inconsolata&display=swap',

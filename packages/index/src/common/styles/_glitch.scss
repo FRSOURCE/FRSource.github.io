@@ -1,0 +1,107 @@
+@use 'variables';
+
+:root {
+    --veil-bg: #efefef;
+}
+
+@media (prefers-color-scheme: dark) {
+    body:not(.t-light) {
+        --veil-bg: #{variables.$darkModeBg};
+    }
+}
+
+body.t-dark {
+    --veil-bg: #{variables.$darkModeBg};
+}
+
+// the destination page of a glitch sweep starts hidden under the veil
+html.glitch-cover {
+    background: var(--veil-bg);
+
+    body {
+        visibility: hidden;
+    }
+}
+
+.veil {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    overflow: hidden;
+    pointer-events: none;
+
+    &__band {
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+    &__fringe,
+    &__fill {
+        position: absolute;
+        inset: 0;
+    }
+
+    &__fringe {
+        &--coral {
+            background: variables.$colorTertiary;
+        }
+
+        &--teal {
+            background: variables.$darkModeGradPrimary;
+        }
+    }
+
+    &__fill {
+        background: var(--veil-bg);
+
+        &--grad {
+            background: linear-gradient(
+                140deg,
+                variables.$colorTertiary 20%,
+                variables.$darkModePrimaryInverted 100%
+            );
+        }
+    }
+}
+
+// content flickers in after the veil leaves; opacity changes only once,
+// the rest is slicing and colour fringes (WCAG 2.3.1: no repeated flashes)
+@keyframes glitchIn {
+    0% {
+        opacity: 0;
+        translate: -14px 0;
+    }
+
+    25% {
+        opacity: 1;
+        translate: 12px 0;
+        filter: drop-shadow(5px 0 0 variables.$colorTertiary)
+            drop-shadow(-5px 0 0 variables.$darkModeGradPrimary);
+    }
+
+    50% {
+        translate: -6px 0;
+        clip-path: inset(0 0 55% 0);
+        filter: none;
+    }
+
+    75% {
+        translate: 3px 0;
+        clip-path: inset(0);
+        filter: drop-shadow(3px 0 0 variables.$darkModeGradPrimary);
+    }
+
+    100% {
+        opacity: 1;
+        translate: 0 0;
+        clip-path: inset(0);
+        filter: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.glitch-cover body {
+        visibility: visible;
+    }
+}

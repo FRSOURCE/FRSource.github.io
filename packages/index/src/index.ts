@@ -5,6 +5,8 @@ import './index.scss';
 import type { ContactDialogCtrl } from './contactDialog';
 import domready from 'domready';
 import { startLogoAnimation } from './logo.ctrl';
+import { initGlitch } from './common/glitch';
+import { initThemeButtons } from './common/theme';
 
 (async () => {
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -54,18 +56,8 @@ import { startLogoAnimation } from './logo.ctrl';
                 : contactDialogCtrl.show();
         });
 
-    const themes: string[] = [];
-    document.body.querySelectorAll('.btn[data-theme]').forEach((btn) => {
-        const theme = btn.getAttribute('data-theme')!;
-        themes.push(theme);
-        btn.addEventListener('click', () => {
-            localStorage.setItem('FRS:theme', theme);
-            themes.forEach((theme) =>
-                document.body.classList.remove('t-' + theme),
-            );
-            document.body.classList.add('t-' + theme);
-        });
-    });
+    initThemeButtons();
+    initGlitch();
 
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker

@@ -83,6 +83,7 @@ header {
 
 header {
     position: absolute;
+    z-index: 2;
     inset: -1lh 0 0;
 }
 
@@ -221,4 +222,9 @@ ol {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+:focus-visible {
+    outline: 2px solid variables.$colorTertiary;
+    outline-offset: 3px;
 }

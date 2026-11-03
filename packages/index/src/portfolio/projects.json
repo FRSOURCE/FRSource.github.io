@@ -1,0 +1,127 @@
+[
+    {
+        "id": "visual-regression",
+        "name": "visual-regression.dev",
+        "host": "visual-regression.dev",
+        "url": "https://visual-regression.dev/",
+        "year": "2026",
+        "stack": ["Nuxt", "Docus", "Vue", "TypeScript"],
+        "description": "A guide to visual regression testing: how it works, which tools exist and how they compare. It also hosts a shared run manifest, a format that lets different tools and platforms exchange the results of their runs.",
+        "note": "Open standard for test run data, shared across tools.",
+        "alt": "visual-regression.dev homepage introducing visual regression testing and a shared run manifest"
+    },
+    {
+        "id": "pixsame",
+        "name": "Pixsame",
+        "host": "pixsame.com",
+        "url": "https://pixsame.com/",
+        "year": "2026",
+        "stack": ["TypeScript", "Vue", "Cypress", "pnpm monorepo"],
+        "description": "A platform for visual regression testing. It starts with a Cypress plugin that diffs screenshots, and the tools around it are built on the shared run manifest format.",
+        "note": "Open source, MIT licensed.",
+        "alt": "Pixsame homepage with the headline Visual regression that agrees with itself and a demo UI card"
+    },
+    {
+        "id": "digestweb",
+        "name": "DigestWeb",
+        "host": "digestweb.dev",
+        "url": "https://digestweb.dev/",
+        "year": "2026",
+        "stack": ["VitePress", "Vue 3", "TypeScript", "Tailwind CSS"],
+        "description": "A news portal that collects handpicked stories about web development and AI into a daily feed. Readers can follow it through RSS, Atom or JSON Feed.",
+        "alt": "DigestWeb feed for 28 October 2026 with editor-picked AI and web development articles"
+    },
+    {
+        "id": "znak",
+        "name": "Krzyżówka ZNAK",
+        "host": "miesiecznik.znak.com.pl/crossword",
+        "url": "https://www.miesiecznik.znak.com.pl/crossword",
+        "year": "2025",
+        "stack": ["WordPress", "Vue.js", "TypeScript", "Tailwind CSS"],
+        "description": "An interactive Polish crossword for the Znak monthly, styled after the New York Times one. A Vue app runs inside WordPress through a custom plugin, and a solved puzzle earns the reader a code for a cheaper subscription.",
+        "alt": "Krzyżówka ZNAK playable 5 by 5 crossword grid with the clue list on the right"
+    },
+    {
+        "id": "skarpetoholik",
+        "name": "Skarpetoholik",
+        "host": "skarpetoholik.pl",
+        "url": "https://skarpetoholik.pl/",
+        "year": "2024",
+        "stack": ["WordPress", "PHP", "Custom plugins"],
+        "description": "An online sock shop on WordPress. Its behaviour comes from custom plugins.",
+        "alt": "Skarpetoholik shop homepage with a hero banner of mismatched colourful socks"
+    },
+    {
+        "id": "takapara",
+        "name": "Takapara",
+        "host": "takapara.com",
+        "url": "https://takapara.com/",
+        "year": "2024",
+        "stack": ["WordPress", "PHP", "Custom plugins"],
+        "description": "Another sock store on WordPress, with its own custom plugins.",
+        "alt": "Takapara online shop homepage with a Halloween colourful socks campaign banner"
+    },
+    {
+        "id": "fast-angle",
+        "name": "Fast angle",
+        "host": "frsource.org/fast-angle",
+        "url": "https://www.frsource.org/fast-angle/",
+        "internal": true,
+        "year": "2022",
+        "stack": ["Vue 3", "TypeScript", "Vite", "PWA", "Android TWA", "Swift"],
+        "description": "A simple online protractor: load an image and measure any angle directly on it. It runs in the browser as a PWA, and the same code ships as an Android app (a trusted web activity) and an iOS hybrid app.",
+        "note": "One codebase, three ways to install: web, Google Play and the App Store.",
+        "links": [
+            {
+                "label": "Google Play",
+                "url": "https://play.google.com/store/apps/details?id=org.frsource.www.fast_angle.twa"
+            },
+            {
+                "label": "App Store",
+                "url": "https://apps.apple.com/tz/app/fast-angle/id6450143053"
+            }
+        ],
+        "alt": "Fast angle web app with an empty measurement board, a toolbar for loading an image, undo, zoom and fullscreen"
+    },
+    {
+        "id": "unsound",
+        "name": "Unsound Festival",
+        "host": "unsound.pl",
+        "url": "https://archive.unsound.pl/2019/unsound-new-york-2019/pl/",
+        "year": "2019",
+        "stack": ["HTML", "SCSS", "JavaScript", "PHP", "Directus"],
+        "description": "The website of the Unsound music festival, built together with Grupa Robocza. It is deliberately light on CPU and network: plain HTML, SCSS with CSS modules, minified class names and no framework. The design is minimal and typography-based, with an interactive map of that year's festival venues.",
+        "note": "The backend is PHP, which the client required, with Directus as the CMS and our own panels and modifications.",
+        "alt": "Unsound New York 2019 festival homepage with city collage hero and artist photo grid"
+    },
+    {
+        "id": "kreatordomu",
+        "name": "Kreator Domu",
+        "host": "kreatordomu.pl/kalkulator",
+        "url": "https://kreatordomu.pl/kalkulator",
+        "year": "2017",
+        "stack": ["AngularJS", "PHP"],
+        "description": "An app that brought investors, designers and contractors together. Users could plan the renovation or construction of a house, plan purchases with a product search, and build moodboards. After that they could find a contractor, using offers, messages and a shared calendar.",
+        "alt": "Kreator Domu cost estimate screen with rooms in a sidebar, wall dimensions and a material picker"
+    },
+    {
+        "id": "ezwolska",
+        "name": "eRejestracja",
+        "host": "ezwolska.pl/portal",
+        "url": "https://ezwolska.pl/portal",
+        "year": "2016",
+        "stack": ["ASSECO", "Windows Server"],
+        "description": "A virtual practice portal for a group of dental clinics, built on ASSECO software. We set it up on Windows Server to meet the conditions of a European Funds grant.",
+        "alt": "eRejestracja patient portal home page of a group of dental clinics in Kraków"
+    },
+    {
+        "id": "tauron",
+        "name": "Tauron Smart Home",
+        "host": "Tauron press release (in Polish)",
+        "url": "https://media.tauron.pl/pr/292844/smart-home-dla-klientow-taurona",
+        "year": "2015",
+        "stack": ["Java", "AngularJS"],
+        "description": "A web dashboard where Tauron customers manage their smart home: sockets, bulbs, thermometers, smoke and motion detectors, radiators and a TV.",
+        "alt": "Smart home web dashboard showing room tabs, temperature, humidity, air quality, pressure and power usage"
+    }
+]
