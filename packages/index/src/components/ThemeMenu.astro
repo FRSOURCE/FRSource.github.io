@@ -1,0 +1,44 @@
+---
+// theme picker for small screens, `initThemeButtons` wires up the `data-theme` buttons
+const themes = [
+    { theme: 'dark', icon: 'moon', title: 'Moon', label: 'dark mode' },
+    {
+        theme: 'auto',
+        icon: 'triangle',
+        title: 'Automatic',
+        label: "system's color mode",
+    },
+    { theme: 'light', icon: 'circle', title: 'Sun', label: 'light mode' },
+];
+---
+
+<div class="mobile-nav-wrapper md:hidden">
+    <details class="load-fadeinup fadeInUp">
+        <summary>
+            <div
+                class="btn btn--big btn--outline mt-1"
+                title="Click to choose the website's color scheme"
+                aria-label="Click to choose the website's color scheme"
+            >
+                <svg class="icon">
+                    <title>Eye</title>
+                    <use href="#eye"></use>
+                </svg>
+            </div>
+        </summary>
+        {themes.map(({ theme, icon, title, label }) => (
+            <button
+                type="button"
+                data-theme={theme}
+                class="btn btn--big btn--outline mt-1 block"
+                title={`Click to switch to the ${label}`}
+                aria-label={`Click to switch to the ${label}`}
+            >
+                <svg class="icon">
+                    <title>{title}</title>
+                    <use href={`#${icon}`} />
+                </svg>
+            </button>
+        ))}
+    </details>
+</div>

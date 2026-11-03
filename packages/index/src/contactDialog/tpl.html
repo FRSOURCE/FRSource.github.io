@@ -1,17 +1,17 @@
 <button
     type="button"
-    class="btn btn--big outline dialog__btn-close"
+    class="btn btn--big btn--outline dialog__btn-close"
     title="Click to close FRSOURCE contact form"
     aria-label="Click to close FRSOURCE contact form"
 >
-    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="icon">
+    <svg class="icon">
         <title>Left arrow</title>
-        <use xlink:href="#arrow" href="#arrow"></use>
+        <use href="#arrow"></use>
     </svg>
 </button>
-<div class="dialog__body d-f f-col">
+<div class="dialog__body flex flex-col">
     <form
-        class="f-grow d-f f-col h-100p gform"
+        class="gform flex h-full grow flex-col"
         method="POST"
         action="https://script.google.com/macros/s/AKfycbzrISB5QwRuuwGTgkxgKp7DGENDHPcxZTcka2_LRQ0zULSf5Ec/exec"
     >
@@ -35,15 +35,15 @@
             type="text"
             name="message"
             id="form-message"
-            class="f-grow"
+            class="grow"
             required
         ></textarea>
 
-        <div class="d-f jc-sb">
-            <small class="tt-u d-n d-md-b"
+        <div class="flex justify-between">
+            <small class="hidden uppercase md:block"
                 >I will answer when<br />my cat falls asleep</small
             >
-            <button class="btn fill tt-u f-grow f-md-grow-0" type="submit">
+            <button class="btn fill grow uppercase md:grow-0" type="submit">
                 Send
             </button>
         </div>
@@ -55,8 +55,6 @@
     class="svg-sprite"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    xml:space="preserve"
 >
     <symbol id="arrow" viewBox="0 0 131 131">
         <circle r="60" cx="65" cy="65" stroke-width="9" fill="none" />

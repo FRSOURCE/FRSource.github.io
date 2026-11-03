@@ -1,9 +1,7 @@
-import tplUrl from 'url:./tpl.html';
-import './_styles.scss';
+import tpl from './tpl.html?raw';
 
 export class ContactDialogCtrl {
     static grecaptchaScriptLoader: Promise<void>;
-    static templateLoader: Promise<Response>;
 
     private lastPrefill = '';
     private opener: Element | null = null;
@@ -18,12 +16,8 @@ export class ContactDialogCtrl {
         this.setupDialogElement(this.element);
     }
 
-    private async setupDialogElement(element: HTMLDialogElement) {
-        if (!ContactDialogCtrl.templateLoader)
-            ContactDialogCtrl.templateLoader = fetch(tplUrl);
-        const tplResponse = await ContactDialogCtrl.templateLoader;
-
-        element.innerHTML = await tplResponse.text();
+    private setupDialogElement(element: HTMLDialogElement) {
+        element.innerHTML = tpl;
         element.querySelectorAll('input,textarea').forEach((inputEl) => {
             inputEl.setAttribute('placeholder', ' '); // to let 'placeholder-shown' styling to kick in
         });
@@ -37,8 +31,6 @@ export class ContactDialogCtrl {
         element
             .querySelector<HTMLFormElement>('.gform')!
             .addEventListener('submit', this.onFormSubmit.bind(this));
-
-        this.element = element;
     }
 
     private createScriptElement() {
@@ -150,12 +142,12 @@ export class ContactDialogCtrl {
             () => {
                 button.textContent = 'THX!';
                 button.classList.remove('fill');
-                button.classList.add('pe-n');
+                button.classList.add('pointer-events-none');
             },
             () => {
                 button.textContent = 'ERROR! Try later.';
                 button.classList.remove('fill');
-                button.classList.add('pe-n');
+                button.classList.add('pointer-events-none');
             },
         );
         button.disabled = false;

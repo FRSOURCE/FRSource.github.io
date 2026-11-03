@@ -1,0 +1,99 @@
+@layer theme, base, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* no preflight on purpose: base.css is the reset this site has always used */
+@import './base.css' layer(base);
+@import './layout.css' layer(components);
+@import './buttons.css' layer(components);
+@import './dialog.css' layer(components);
+@import './portfolio.css' layer(components);
+@import './glitch.css' layer(components);
+@import './animations.css';
+
+@theme static {
+    --color-primary: #071633;
+    --color-primary-inverted: #fff;
+    --color-secondary: #053db3;
+    --color-tertiary: #ff5f49;
+
+    --color-dark-bg: #030b19;
+    --color-dark-grad-primary: #02bfb5;
+    --color-dark-grad-secondary: #021c87;
+    --color-dark-primary-inverted: #063eb4;
+
+    --font-regular:
+        'Inconsolata', 'Ubuntu Mono', 'Trebuchet MS', 'Tahoma', monospace;
+
+    --leading-1: 1;
+    --leading-3: 1.2;
+
+    --tracking-1: 0.04em;
+    --tracking-2: 0.08em;
+    --tracking-3: 0.1em;
+
+    --text-1: 0.5rem;
+    --text-2: 0.625rem;
+    --text-3: 1rem;
+    --text-4: 1.25rem;
+    --text-5: 1.5rem;
+    --text-6: 1.875rem;
+    --text-7: 2.5rem;
+
+    --spacing-1: 5px;
+    --spacing-2: 10px;
+    --spacing-3: 15px;
+    --spacing-4: 20px;
+    --spacing-5: 25px;
+    --spacing-6: 30px;
+    --spacing-7: 45px;
+
+    --breakpoint-*: initial;
+    --breakpoint-sm: 480px;
+    --breakpoint-md: 920px;
+    --breakpoint-xl: 1440px;
+    --breakpoint-2xl: 1920px;
+}
+
+/* theme switch: `prefers-color-scheme` unless the visitor picked one (`body.t-light` / `body.t-dark`) */
+@custom-variant dark {
+    @media (prefers-color-scheme: dark) {
+        body:not(.t-light) & {
+            @slot;
+        }
+    }
+
+    body.t-dark & {
+        @slot;
+    }
+}
+
+/* landscape screens wide enough for the two-column layout */
+@custom-variant desktop {
+    @media (orientation: landscape) and (min-width: 920px) {
+        @slot;
+    }
+}
+
+@utility grad-text {
+    background-color: var(--color-secondary);
+    background-image: linear-gradient(
+        140deg,
+        var(--color-tertiary) 35%,
+        var(--color-secondary) 80%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+@utility grad-bg {
+    background-color: var(--color-secondary);
+    background-image: linear-gradient(
+        140deg,
+        var(--color-tertiary) 40%,
+        var(--color-secondary) 99%
+    );
+}

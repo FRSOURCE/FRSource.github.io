@@ -1,7 +1,8 @@
 {
-    "extends": "../../tsconfig.json",
+    "extends": "astro/tsconfigs/strict",
+    "include": [".astro/types.d.ts", "src/**/*", "build/**/*"],
+    "exclude": ["dist"],
     "compilerOptions": {
-        "lib": ["ES2015", "esnext", "DOM"]
-    },
-    "include": ["./tsconfig.json", "./**/*.ts"]
+        "lib": ["ESNext", "DOM"]
+    }
 }

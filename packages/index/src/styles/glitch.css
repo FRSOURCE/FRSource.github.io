@@ -1,0 +1,103 @@
+:root {
+    --veil-bg: #efefef;
+}
+
+@media (prefers-color-scheme: dark) {
+    body:not(.t-light) {
+        --veil-bg: var(--color-dark-bg);
+    }
+}
+
+body.t-dark {
+    --veil-bg: var(--color-dark-bg);
+}
+
+/* the destination page of a glitch sweep starts hidden under the veil */
+html.glitch-cover {
+    background: var(--veil-bg);
+
+    body {
+        visibility: hidden;
+    }
+}
+
+.veil {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.veil__band {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.veil__fringe,
+.veil__fill {
+    position: absolute;
+    inset: 0;
+}
+
+.veil__fringe--coral {
+    background: var(--color-tertiary);
+}
+
+.veil__fringe--teal {
+    background: var(--color-dark-grad-primary);
+}
+
+.veil__fill {
+    background: var(--veil-bg);
+}
+
+.veil__fill--grad {
+    background: linear-gradient(
+        140deg,
+        var(--color-tertiary) 20%,
+        var(--color-dark-primary-inverted) 100%
+    );
+}
+
+/* content flickers in after the veil leaves; opacity changes only once,
+   the rest is slicing and colour fringes (WCAG 2.3.1: no repeated flashes) */
+@keyframes glitchIn {
+    0% {
+        opacity: 0;
+        translate: -14px 0;
+    }
+
+    25% {
+        opacity: 1;
+        translate: 12px 0;
+        filter: drop-shadow(5px 0 0 var(--color-tertiary))
+            drop-shadow(-5px 0 0 var(--color-dark-grad-primary));
+    }
+
+    50% {
+        translate: -6px 0;
+        clip-path: inset(0 0 55% 0);
+        filter: none;
+    }
+
+    75% {
+        translate: 3px 0;
+        clip-path: inset(0);
+        filter: drop-shadow(3px 0 0 var(--color-dark-grad-primary));
+    }
+
+    100% {
+        opacity: 1;
+        translate: 0 0;
+        clip-path: inset(0);
+        filter: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.glitch-cover body {
+        visibility: visible;
+    }
+}

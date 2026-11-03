@@ -1,0 +1,111 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import Sprite from '../components/Sprite.astro';
+
+interface Props {
+    title: string;
+    description: string;
+    keywords?: string;
+    bodyClass?: string;
+    /** structured data, rendered as a single JSON-LD script */
+    jsonLd?: object;
+}
+
+const { title, description, keywords, bodyClass, jsonLd } = Astro.props;
+
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const image = new URL('/logo.jpg', Astro.site).href;
+const fonts =
+    'https://fonts.googleapis.com/css2?family=Inconsolata&display=swap';
+const csp =
+    "default-src; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://static.cloudflareinsights.com; script-src-attr; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/; img-src 'self' data:; font-src https://fonts.gstatic.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google.com/recaptcha/; media-src; object-src; child-src; frame-src 'self' https://www.google.com; worker-src 'self'; form-action https://script.google.com; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+        {keywords && <meta name="keywords" content={keywords} />}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href={url} />
+        <meta http-equiv="Content-Security-Policy" content={csp} />
+
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com/"
+            crossorigin="anonymous"
+        />
+        <link rel="preload" href={fonts} as="style" />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={url} />
+        <meta property="og:image" content={image} />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:site_name" content="FRSOURCE" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={image} />
+
+        <link href={fonts} rel="stylesheet" />
+        <script is:inline>
+            // a glitch sweep is in progress: stay covered until the script reveals the page
+            (function () {
+                try {
+                    var v = (sessionStorage.getItem('FRS:glitch') || '').split(
+                        ':',
+                    );
+                    if (!v[0] || Date.now() - +v[1] > 4000) return;
+                    var t = localStorage.getItem('FRS:theme');
+                    var dark =
+                        t === 'dark' ||
+                        (t !== 'light' &&
+                            matchMedia('(prefers-color-scheme: dark)').matches);
+                    var root = document.documentElement;
+                    root.style.setProperty(
+                        '--veil-bg',
+                        dark ? '#030b19' : '#efefef',
+                    );
+                    root.classList.add('glitch-cover');
+                } catch (e) {}
+            })();
+        </script>
+        <slot name="head" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    </head>
+
+    <body class:list={['select-none', bodyClass]}>
+        <slot name="before" />
+        <div class="relative">
+            <header>
+                <slot name="nav" />
+            </header>
+        </div>
+        <!-- applies the saved theme before first paint -->
+        <script is:inline>
+            (function (t) {
+                t && document.body.classList.add('t-' + t);
+            })(localStorage.getItem('FRS:theme'));
+        </script>
+        <main>
+            <slot />
+        </main>
+
+        <Footer />
+        <Sprite />
+        {jsonLd && (
+            <script
+                type="application/ld+json"
+                set:html={JSON.stringify(jsonLd, null, 4)}
+            />
+        )}
+    </body>
+</html>

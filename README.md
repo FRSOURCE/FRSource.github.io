@@ -5,7 +5,7 @@ text content, all markdown files, words, images are licensed under [CC BY-NC-SA 
 
 ## Portfolio page (`/portfolio/`)
 
-Lives in `packages/index/src/portfolio/`. The project list is the single source of truth in `projects.json`, newest first. The markup and the JSON-LD in `index.html` are generated from it, so never edit the blocks between the `projects:start/end` and `jsonld:start/end` comments by hand.
+Lives in `packages/index/src/pages/portfolio/index.astro`. The project list is the single source of truth in `packages/index/src/portfolio/projects.json`, newest first. The markup (`components/Project.astro`) and the JSON-LD are rendered from it at build time, there is nothing to regenerate.
 
 ### Add or edit a project
 
@@ -29,13 +29,21 @@ Lives in `packages/index/src/portfolio/`. The project list is the single source 
     | `links`       | optional extra links, `[{ "label": "...", "url": "..." }]`, e.g. app stores |
     | `noImage`     | optional, `true` renders a gradient placeholder instead of a screenshot     |
 
-3. Run `pnpm --filter=frsource.github.io-index portfolio` (regenerates `index.html` and formats it), then commit `projects.json`, the images and `index.html`.
-4. Check it with `pnpm build && pnpm preview`, then open `/portfolio/` on desktop and mobile widths.
+3. Check it with `pnpm start` (or `pnpm build && pnpm preview`), then open `/portfolio/` on desktop and mobile widths.
 
 External links get `rel="nofollow noopener"` automatically. Each project also gets a "Build something like this" link that opens the contact form with a pre-filled message (a `mailto:` link without JS).
 
 ### How it works
 
 - Without JS (and on small screens) it is a plain list of `<details>` elements, closed by default.
-- `portfolio.ts` upgrades it to the "Browser Deck" on landscape screens of 920px and wider.
+- `src/portfolio/portfolio.ts` upgrades it to the "Browser Deck" on landscape screens of 920px and wider.
 - The glitch sweep between `/` and `/portfolio/` is progressive enhancement over a normal link click (`data-glitch` attribute, `src/common/glitch.ts`). It is skipped with `prefers-reduced-motion`.
+
+## Home and portfolio pages (`packages/index`)
+
+An [Astro](https://astro.build) static site styled with [Tailwind CSS](https://tailwindcss.com) (v4, utilities only, no preflight) and plain CSS in `src/styles/`. The only client code is small vanilla TypeScript (`src/index.ts`, `src/portfolio/portfolio.ts`).
+
+- `pnpm start` runs the dev server (`/blog` is proxied to the blog's dev server).
+- `pnpm build` writes the site to the repository's `public/` folder (the blog is added there by its own build), generates the favicons and `sw.js` (precaches the homepage, see `build/serviceWorker.mjs`).
+- Static files that must be copied as they are (`robots.txt`, `sitemap.xml`, `logo.*`, ...) live in `packages/index/public/`.
+- Theme tokens (colors, spacing, breakpoints) are in the `@theme` block of `src/styles/global.css`. The `dark:` variant follows `prefers-color-scheme` unless a visitor picked a theme (`body.t-light` / `body.t-dark`).

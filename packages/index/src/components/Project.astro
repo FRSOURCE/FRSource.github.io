@@ -1,0 +1,107 @@
+---
+import Window from './Window.astro';
+
+interface Props {
+    project: {
+        id: string;
+        name: string;
+        host: string;
+        url: string | null;
+        year: string;
+        stack: string[];
+        description: string;
+        note?: string;
+        alt: string;
+        internal?: boolean;
+        noImage?: boolean;
+        links?: { label: string; url: string }[];
+    };
+    /** zero-based position in the list */
+    index: number;
+}
+
+const { project: p, index } = Astro.props;
+
+const message = `Hi! I like what you did with ${p.name} and would like something similar. `;
+const mailto = `mailto:hi@frsource.org?subject=${encodeURIComponent(`A project like ${p.name}`)}`;
+---
+
+<li class:list={['project', { 'is-active': index === 0 }]} id={p.id}>
+    <article aria-labelledby={`${p.id}-name`}>
+        <details name="work">
+            <summary>
+                <span class="project__n" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                </span>
+                <h2 class="project__name" id={`${p.id}-name`}>
+                    {p.name}
+                </h2>
+                <span class="project__year">
+                    <span class="sr-only">Year: </span>
+                    {p.year}
+                </span>
+                <span class="project__chev" aria-hidden="true"></span>
+            </summary>
+            <div class="project__body">
+                <figure class="window">
+                    <Window project={p} />
+                </figure>
+                <p class="project__url">
+                    {!p.url ? (
+                        <span>{p.host}</span>
+                    ) : p.internal ? (
+                        <a href={p.url} title={`Open ${p.host}`}>
+                            {p.host}
+                        </a>
+                    ) : (
+                        <a
+                            href={p.url}
+                            target="_blank"
+                            rel="nofollow noopener"
+                            title={`Visit ${p.host} (opens in a new window)`}
+                        >
+                            {p.host}
+                            <span class="sr-only">
+                                {' '}
+                                (opens in a new window)
+                            </span>{' '}
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    )}
+                    {p.links?.map((link) => (
+                        <a
+                            href={link.url}
+                            target="_blank"
+                            rel="nofollow noopener"
+                            title={`${link.label} (opens in a new window)`}
+                        >
+                            {link.label}
+                            <span class="sr-only">
+                                {' '}
+                                (opens in a new window)
+                            </span>{' '}
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    ))}
+                </p>
+                <ul class="project__stack" aria-label="Tech stack">
+                    {p.stack.map((tech) => (
+                        <li>{tech}</li>
+                    ))}
+                </ul>
+                <p class="project__desc">{p.description}</p>
+                {p.note && <p class="project__note">{p.note}</p>}
+                <a
+                    class="btn fill project__cta"
+                    href={mailto}
+                    data-contact
+                    data-contact-message={message}
+                >
+                    {/* wraps over several lines: needs inline flow, so whitespace must stay out */}
+                    {/* prettier-ignore */}
+                    <span class="topline inline-block"><small class="topline__item">let&apos;s&nbsp;</small><span class="topline__item">Build something like this</span></span>
+                </a>
+            </div>
+        </details>
+    </article>
+</li>

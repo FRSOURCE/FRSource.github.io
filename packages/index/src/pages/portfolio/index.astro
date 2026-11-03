@@ -1,0 +1,143 @@
+---
+import Base from '../../layouts/Base.astro';
+import Project from '../../components/Project.astro';
+import Deck from '../../components/Deck.astro';
+import DeckNav from '../../components/DeckNav.astro';
+import ThemeMenu from '../../components/ThemeMenu.astro';
+import projects from '../../portfolio/projects.json';
+
+const title = 'Our work - websites and web apps by FRSOURCE';
+const description =
+    'Websites, shops and web apps built by FRSOURCE: a music festival site, WordPress stores, a crossword and tools for visual regression testing.';
+
+const pageUrl = new URL('/portfolio/', Astro.site).href;
+const organization = {
+    '@type': 'Organization',
+    name: 'FRSOURCE',
+    url: 'https://www.frsource.org/',
+};
+
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Our work - FRSOURCE',
+    url: pageUrl,
+    isPartOf: {
+        '@type': 'WebSite',
+        name: 'FRSOURCE',
+        url: 'https://www.frsource.org/',
+    },
+    mainEntity: {
+        '@type': 'ItemList',
+        numberOfItems: projects.length,
+        itemListElement: projects.map((p, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            item: {
+                '@type': 'CreativeWork',
+                name: p.name,
+                url: p.url || `${pageUrl}#${p.id}`,
+                dateCreated: String(p.year),
+                description: p.description,
+                keywords: p.stack.join(', '),
+                creator: organization,
+            },
+        })),
+    },
+};
+---
+
+<Base
+    title={title}
+    description={description}
+    bodyClass="work-page"
+    jsonLd={jsonLd}
+>
+    <noscript slot="head">
+        <style>
+            .mobile-nav-wrapper,
+            .footer-themes {
+                display: none;
+            }
+        </style>
+    </noscript>
+
+    <script slot="head" is:inline>
+        // layout that depends on scripting (the desktop deck) is keyed off this
+        document.documentElement.classList.add('js');
+    </script>
+
+    <a slot="before" class="skip-link" href="#projects">
+        Skip to the projects
+    </a>
+
+    <nav slot="nav" class="work-nav" aria-label="Page">
+        <a
+            href="/"
+            data-glitch="back"
+            class="btn text"
+            title="Back to the FRSOURCE homepage"
+        >
+            ← Homepage
+        </a>
+        <a
+            href="mailto:hi@frsource.org"
+            class="btn fill btn--top"
+            data-contact
+            title="Click to open the FRSOURCE contact form"
+        >
+            just Contact us
+        </a>
+    </nav>
+
+    <div class="content">
+        <Deck projects={projects} />
+        <ThemeMenu />
+
+        <div class="work">
+            <div class="work__head">
+                <h1 class="grad-text">Our work</h1>
+                <p class="work__lead">
+                    Websites, stores and web apps we have built. Open a project
+                    to see details.
+                </p>
+            </div>
+            <DeckNav projects={projects} />
+            <ol class="projects" id="projects">
+                {projects.map((project, index) => (
+                    <Project project={project} index={index} />
+                ))}
+            </ol>
+            <script is:inline>
+                // desktop shows the first project open straight away; mobile keeps all closed
+                if (
+                    matchMedia(
+                        '(orientation: landscape) and (min-width: 920px)',
+                    ).matches
+                )
+                    document.querySelector('#projects details').open = true;
+            </script>
+            <div class="work__outro">
+                <a
+                    href="mailto:hi@frsource.org"
+                    class="btn fill"
+                    data-contact
+                    data-contact-message="Hi! I have a project in mind: "
+                >
+                    <span class="topline flex">
+                        <small class="topline__item">just&nbsp;</small>
+                        <span class="topline__item">Contact&nbsp;us</span>
+                    </span>
+                </a>
+
+                <small class="contact-col__cta block uppercase">
+                    A contact form will open
+                </small>
+            </div>
+        </div>
+    </div>
+</Base>
+
+<script>
+    import '../../portfolio/portfolio.ts';
+</script>

@@ -1,0 +1,26 @@
+---
+const themes = [
+    { theme: 'light', text: 'Light mode', label: 'light mode' },
+    { theme: 'auto', text: 'Automatic', label: "system's color mode" },
+    { theme: 'dark', text: 'Dark mode', label: 'dark mode' },
+];
+---
+
+<footer>
+    <div class="footer-themes hidden whitespace-nowrap md:block">
+        {themes.map(({ theme, text, label }) => (
+            <Fragment>
+                <button
+                    type="button"
+                    data-theme={theme}
+                    class="btn text"
+                    title={`Click to switch to the ${label}`}
+                    aria-label={`Click to switch to the ${label}`}
+                >
+                    {text}
+                </button>{' '}
+            </Fragment>
+        ))}
+    </div>
+    © all rights reserved
+</footer>

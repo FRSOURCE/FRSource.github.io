@@ -1,0 +1,5 @@
+{
+    "redirects": [
+        { "source": "/blog", "destination": "http://localhost\\:5173/blog/" }
+    ]
+}

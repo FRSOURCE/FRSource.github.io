@@ -1,0 +1,28 @@
+---
+interface Props {
+    projects: { name: string }[];
+}
+
+const { projects } = Astro.props;
+---
+
+<div class="deck-nav" role="group" aria-label="Projects">
+    <button type="button" class="btn text" data-deck="prev">
+        ← prev
+    </button>
+    <div class="deck-nav__dots">
+        {projects.map((p, i) => (
+            <button
+                type="button"
+                class="deck-nav__dot"
+                aria-label={`Project ${i + 1}: ${p.name}`}
+                aria-current={i === 0 ? 'true' : undefined}
+                tabindex={i === 0 ? 0 : -1}
+            ></button>
+        ))}
+    </div>
+    <button type="button" class="btn text" data-deck="next">
+        next →
+    </button>
+</div>
+<p class="sr-only" role="status" data-deck="status"></p>

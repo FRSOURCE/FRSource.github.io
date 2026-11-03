@@ -12,12 +12,19 @@ const getItemsToReveal = (logo: SVGElement) => {
     return paths;
 };
 
-export const startLogoAnimation = (logo: SVGElement) => {
+/**
+ * @param skipReveal show the whole logo at once, only the random glitching remains
+ * @returns promise resolved once the logo has been fully revealed
+ */
+export const startLogoAnimation = (logo: SVGElement, skipReveal = false) => {
     let lastVisibleItem = -1;
+    let revealed!: () => void;
+    const done = new Promise<void>((resolve) => (revealed = resolve));
 
     let itemsToReveal = [getItemsToReveal(logo)];
 
-    itemsToReveal[0].forEach((item) => (item.style.visibility = 'hidden'));
+    if (!skipReveal)
+        itemsToReveal[0].forEach((item) => (item.style.visibility = 'hidden'));
 
     const glitchWrapper = document.createElement('div');
     glitchWrapper.style.width = '100%';
@@ -28,6 +35,7 @@ export const startLogoAnimation = (logo: SVGElement) => {
     const progressReveal = async () => {
         let timeout: number;
         if (lastVisibleItem === itemsToReveal[0].length - 1) {
+            revealed();
             timeout = randInt(1000, 6000);
         } else {
             ++lastVisibleItem;
@@ -71,4 +79,7 @@ export const startLogoAnimation = (logo: SVGElement) => {
 
     setTimeout(progressReveal.bind(this), 500); // starting timeout
     initGlitch();
+    if (skipReveal) lastVisibleItem = itemsToReveal[0].length - 1;
+
+    return done;
 };

@@ -1,35 +1,12 @@
-/// <reference no-default-lib="true"/>
-/// <reference lib="esnext" />
-/// <reference lib="WebWorker" />
-
-import { manifest as urlsToCache, version } from '@parcel/service-worker';
+// Generated into /sw.js by serviceWorker.mjs, which fills in the placeholders below.
+const urlsToCache = __PRECACHE__;
+const CACHE_NAME = 'frsource-cache-__VERSION__';
 
 // pages that are controlled by this service worker
 const PAGES_TO_CONTROL = ['/', '/index.html'];
 
-const CACHE_NAME = 'frsource-cache-' + version;
-
-const typedSelf = self as unknown as ServiceWorkerGlobalScope &
-    typeof globalThis;
-
-// the portfolio page is not controlled by this worker, so don't precache its screenshots and bundles
-for (let i = urlsToCache.length - 1; i >= 0; i--)
-    if (/^\/portfolio[/.]|\.(jpe?g|webp)$/.test(urlsToCache[i]))
-        urlsToCache.splice(i, 1);
-
-urlsToCache.unshift(
-    'https://www.frsource.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js',
-    'https://fonts.googleapis.com/css2?family=Inconsolata&display=swap',
-    'https://fonts.gstatic.com/s/inconsolata/v20/QldgNThLqRwH-OJ1UHjlKENVzkWGVkL3GZQmAwLYxYWI2qfdm7Lpp4U8WR32kXWdycuJDA.woff',
-    '/site.webmanifest',
-    '/favicon.ico',
-    '/favicon-96x96.png',
-    '/robots.txt',
-    '/humans.txt',
-);
-
 // Listen for the install event, which fires when the service worker is being installed
-typedSelf.addEventListener('install', (event) => {
+self.addEventListener('install', (event) => {
     // wait with finishing of the installation until initial caching of statically provided file paths is done
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache)),
@@ -38,7 +15,7 @@ typedSelf.addEventListener('install', (event) => {
 
 // Activate is when the service worker actually takes over from the previous
 // version, which is a good time to clean up old caches
-typedSelf.addEventListener('activate', (event) => {
+self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((keys) =>
             Promise.all(
@@ -51,7 +28,7 @@ typedSelf.addEventListener('activate', (event) => {
     );
 });
 
-typedSelf.addEventListener('fetch', function (event) {
+self.addEventListener('fetch', function (event) {
     event.respondWith(
         (async () => {
             if (
@@ -63,7 +40,7 @@ typedSelf.addEventListener('fetch', function (event) {
                 return fetch(event.request);
             if (!event.clientId) return fetch(event.request);
 
-            const client = await typedSelf.clients.get(event.clientId);
+            const client = await self.clients.get(event.clientId);
             if (!client) return fetch(event.request);
 
             // don't intercept calls coming outside of your scope

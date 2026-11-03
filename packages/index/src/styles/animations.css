@@ -1,0 +1,208 @@
+@keyframes canvasSteppedShake {
+    0% {
+        transform: translate3d(0.5%, 0, 0);
+    }
+
+    10% {
+        transform: translate3d(-0.5%, 0, 0);
+    }
+
+    20% {
+        transform: translate3d(1.5%, 1%, 0);
+    }
+
+    30% {
+        transform: translate3d(-0.25%, 0, 0);
+    }
+
+    40% {
+        transform: translate3d(1.5%, 0.1%, 0);
+    }
+
+    50% {
+        transform: translate3d(0.25%, 0, 0);
+    }
+
+    60% {
+        transform: translate3d(0.5%, -0.4%, 0);
+    }
+
+    70% {
+        transform: translate3d(-1.5%, 0.5%, 0);
+    }
+
+    80% {
+        transform: translate3d(-0.25%, -0.25%, 0);
+    }
+
+    90% {
+        transform: translate3d(-0.55%, 0.1%, 0);
+    }
+
+    100% {
+        transform: translate3d(0.25%, -0.6%, 0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 25%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes rippleLogo {
+    0% {
+        transform: scale(0.6);
+    }
+
+    40% {
+        transform: scale(1.09);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes rippleLogoInner {
+    0% {
+        transform: scale(0.4);
+    }
+
+    10% {
+        transform: none;
+    }
+
+    34% {
+        transform: scale(0.93);
+    }
+
+    45% {
+        transform: none;
+    }
+
+    56% {
+        transform: scale(0.98);
+    }
+
+    67% {
+        transform: none;
+    }
+
+    78% {
+        transform: scale(0.99);
+    }
+
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes loadingPulse {
+    30% {
+        filter: saturate(0.2) brightness(5);
+    }
+    85% {
+        filter: saturate(0.2) brightness(5);
+    }
+}
+
+@property --bg-grad-anim-initial {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 80%;
+}
+
+@property --bg-grad-anim-y {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 80%;
+}
+
+@property --bg-grad-anim-x {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 80%;
+}
+
+@utility bgGradAnimation {
+    --bg-grad-anim-x: var(--bg-grad-anim-start-x, 0%);
+    --bg-grad-anim-y: var(--bg-grad-anim-start-y, 0%);
+
+    background-position: var(--bg-grad-anim-x) var(--bg-grad-anim-y);
+    animation:
+        cubic-bezier(0.65, 0.43, 0.78, 1.22) 8s bgPosFadeIn forwards,
+        linear 14s bgGradPulse 8s infinite;
+}
+
+@keyframes bgPosFadeIn {
+    100% {
+        --bg-grad-anim-x: var(---bg-grad-anim-end-x);
+        --bg-grad-anim-y: var(---bg-grad-anim-end-y);
+    }
+}
+
+@keyframes bgGradPulse {
+    25% {
+        --bg-grad-anim-x: var(--bg-grad-anim-end-x);
+        --bg-grad-anim-y: var(--bg-grad-anim-end-y, --bg-grad-anim-x);
+    }
+
+    40% {
+        --bg-grad-anim-x: calc(
+            var(--bg-grad-anim-end-x) - var(--bg-grad-anim-pulse-move)
+        );
+        --bg-grad-anim-y: calc(
+            var(--bg-grad-anim-end-x) - var(--bg-grad-anim-pulse-move)
+        );
+    }
+
+    50% {
+        --bg-grad-anim-x: var(--bg-grad-anim-end-x);
+        --bg-grad-anim-y: var(--bg-grad-anim-end-y, --bg-grad-anim-x);
+    }
+
+    96% {
+        --bg-grad-anim-x: var(--bg-grad-anim-end-x);
+        --bg-grad-anim-y: var(--bg-grad-anim-end-y, --bg-grad-anim-x);
+    }
+    98% {
+        --bg-grad-anim-x: calc(
+            var(--bg-grad-anim-end-x) + var(--bg-grad-anim-pulse-move)
+        );
+        --bg-grad-anim-y: calc(
+            var(--bg-grad-anim-end-x) + var(--bg-grad-anim-pulse-move)
+        );
+    }
+    100% {
+        --bg-grad-anim-x: var(--bg-grad-anim-end-x);
+        --bg-grad-anim-y: var(--bg-grad-anim-end-y, --bg-grad-anim-x);
+    }
+}
+
+@keyframes navPing {
+    0% {
+        box-shadow: 0 0 0 0 rgb(255 95 73 / 0.7);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0.9em rgb(255 95 73 / 0);
+    }
+}

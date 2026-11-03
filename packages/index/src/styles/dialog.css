@@ -1,0 +1,92 @@
+dialog {
+    position: absolute;
+    z-index: 1;
+    top: var(--spacing-1);
+    right: 0;
+    bottom: calc(var(--spacing-2) * -1);
+    left: 0;
+    overflow: visible;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+    width: auto;
+    height: auto;
+    font: inherit;
+    color: inherit;
+    background: none;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        0.2s opacity ease-in-out,
+        0s 0.2s visibility;
+
+    @media (orientation: landscape) and (min-width: 920px) {
+        top: 7vh;
+        right: auto;
+        bottom: 7vh;
+        left: -1px;
+        width: 31.3vw;
+        max-width: 800px;
+    }
+
+    &[open] {
+        pointer-events: all;
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0s;
+
+        & ~ .work {
+            opacity: 0.2;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 4vh;
+        right: -2vh;
+        bottom: -2vh;
+        left: 4vh;
+        z-index: -1;
+        display: block;
+        @apply grad-bg;
+        filter: blur(2vh);
+
+        @media (orientation: landscape) {
+            top: 3.4vw;
+            right: -1.5vw;
+            bottom: -1.5vw;
+            left: 3.4vw;
+            filter: blur(2.5vw);
+        }
+    }
+}
+
+.dialog__body {
+    background: var(--color-primary-inverted);
+    flex-grow: 1;
+    padding: calc(var(--spacing-1) + var(--spacing-6)) var(--spacing-4)
+        var(--spacing-4);
+
+    @media (orientation: landscape) and (min-width: 920px) {
+        padding-bottom: var(--spacing-6);
+    }
+
+    @media (orientation: landscape) and (min-width: 1920px) {
+        padding: calc(var(--spacing-7) + var(--spacing-3)) var(--spacing-7)
+            calc(var(--spacing-7) + var(--spacing-1));
+    }
+
+    @variant dark {
+        background: var(--color-dark-bg);
+    }
+}
+
+.dialog__btn-close {
+    position: absolute;
+    font-size: 30px;
+    transform: translate(-50%, -50%) rotate(180deg);
+}

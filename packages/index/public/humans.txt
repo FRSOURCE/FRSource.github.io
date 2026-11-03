@@ -1,0 +1,24 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+/* TEAM */
+Web Developer: Jakub Freisler
+Contact: jakub.freisler@gmail.com
+GitHub: @frsgit
+From: Kraków, Poland
+
+UI Designer: Karolina Źrebiec
+Website: https://karokaro.myportfolio.com
+Contact: karolina.zrebiec@gmail.com
+From: Poland
+
+/* THANKS */
+
+
+/* SITE */
+Last update: 2020/12/03
+Language: English
+Doctype: HTML5
+Standards: HTML5, CSS3, ES2015
+Components: resize-observer-polyfill, domready
+Software: VS Code, Parcel, Photopea, Typescript, SASS, rimraf, cli-real-favicon, @frsource/frs-replace

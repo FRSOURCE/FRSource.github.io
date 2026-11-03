@@ -1,0 +1,58 @@
+---
+interface Props {
+    project: {
+        id: string;
+        name: string;
+        host: string;
+        alt: string;
+        noImage?: boolean;
+    };
+    /** inside the deck: the screenshot is already described by the project */
+    decorative?: boolean;
+}
+
+const { project: p, decorative = false } = Astro.props;
+
+const images = import.meta.glob<string>('../portfolio/img/*', {
+    eager: true,
+    query: '?url',
+    import: 'default',
+});
+const image = (file: string) => images[`../portfolio/img/${file}`];
+---
+
+<div class="window__chrome" aria-hidden="true">
+    <i></i>
+    <i></i>
+    <i></i>
+    <span>{p.host}</span>
+</div>
+{p.noImage ? (
+    <div
+        class="window__fallback"
+        role={decorative ? undefined : 'img'}
+        aria-label={
+            decorative
+                ? undefined
+                : 'No screenshot available, the site is offline'
+        }
+    >
+        <span aria-hidden="true">{p.name}</span>
+    </div>
+) : (
+    <picture>
+        <source
+            type="image/webp"
+            srcset={`${image(`${p.id}-sm.webp`)} 640w, ${image(`${p.id}.webp`)} 1280w`}
+            sizes="(min-width: 920px) 36vw, 90vw"
+        />
+        <img
+            src={image(`${p.id}.jpg`)}
+            width="1280"
+            height="800"
+            alt={decorative ? '' : p.alt}
+            loading="lazy"
+            decoding="async"
+        />
+    </picture>
+)}

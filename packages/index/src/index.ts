@@ -1,30 +1,45 @@
 /// <reference lib="dom" />
 
-import 'regenerator-runtime/runtime';
-import './index.scss';
 import type { ContactDialogCtrl } from './contactDialog';
-import domready from 'domready';
 import { startLogoAnimation } from './logo.ctrl';
 import { initGlitch } from './common/glitch';
 import { initThemeButtons } from './common/theme';
+import { prefetchWhenIdle } from './common/idle';
+
+const INTRO_KEY = 'FRS:intro';
 
 (async () => {
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        const loadEls = document.body.querySelectorAll('.load-fadeinup');
-
-        domready(() =>
-            setTimeout(
-                () =>
-                    loadEls.forEach((el, i) =>
-                        setTimeout(() => el.classList.add('in'), 300 * i),
-                    ),
-                500,
-            ),
-        );
-
         const logo = document.querySelector<SVGSVGElement>('.icon-logomark')!;
 
-        startLogoAnimation(logo);
+        if (document.documentElement.classList.contains('intro-done')) {
+            // intro already seen: content is shown as is, logo just keeps glitching
+            startLogoAnimation(logo, true);
+        } else {
+            const loadEls = document.body.querySelectorAll('.load-fadeinup');
+
+            const faded = new Promise<void>((resolve) => {
+                const reveal = () =>
+                    setTimeout(() => {
+                        loadEls.forEach((el, i) =>
+                            setTimeout(() => el.classList.add('in'), 300 * i),
+                        );
+                        // last element starts at 300 * (n - 1), its animation lasts 600ms
+                        setTimeout(resolve, 300 * loadEls.length + 600);
+                    }, 500);
+
+                if (document.readyState === 'loading')
+                    document.addEventListener('DOMContentLoaded', reveal);
+                else reveal();
+            });
+
+            // remember the intro only once it has played to the end
+            Promise.all([startLogoAnimation(logo), faded]).then(() => {
+                try {
+                    localStorage.setItem(INTRO_KEY, '1');
+                } catch {}
+            });
+        }
     }
 
     let contactDialogCtrl: ContactDialogCtrl;
@@ -40,7 +55,6 @@ import { initThemeButtons } from './common/theme';
                     );
                 if (!contactDialogModule) return;
                 contactDialogCtrl = new contactDialogModule.ContactDialogCtrl();
-                await contactDialogModule.ContactDialogCtrl.templateLoader;
 
                 document.body
                     .querySelector('.content')!
@@ -58,12 +72,14 @@ import { initThemeButtons } from './common/theme';
 
     initThemeButtons();
     initGlitch();
+    prefetchWhenIdle([
+        () => import('./contactDialog'),
+        () => import('./common/glitch.veil'),
+    ]);
 
-    if ('serviceWorker' in navigator) {
+    if (import.meta.env.PROD && 'serviceWorker' in navigator) {
         navigator.serviceWorker
-            .register(new URL('./serviceWorker.ts', import.meta.url), {
-                type: 'module',
-            })
+            .register('/sw.js')
             .catch((err) =>
                 console.log('Service worker registration failed: ' + err),
             );

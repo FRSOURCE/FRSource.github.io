@@ -1,0 +1,30 @@
+---
+import Window from './Window.astro';
+
+interface Props {
+    projects: {
+        id: string;
+        name: string;
+        host: string;
+        alt: string;
+        noImage?: boolean;
+    }[];
+}
+
+const { projects } = Astro.props;
+---
+
+<!-- projects as a stack of browser windows on desktop; shown by CSS, made interactive by deck.ts -->
+<div class="deck" aria-hidden="true">
+    {projects.map((p, i) => (
+        <button
+            type="button"
+            tabindex="-1"
+            class="win"
+            style={`--p:${i}`}
+            data-far={i > 4 ? '' : undefined}
+        >
+            <Window project={p} decorative />
+        </button>
+    ))}
+</div>

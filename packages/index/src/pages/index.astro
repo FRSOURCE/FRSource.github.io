@@ -1,0 +1,237 @@
+---
+import Base from '../layouts/Base.astro';
+import Logo from '../components/Logo.astro';
+import ThemeMenu from '../components/ThemeMenu.astro';
+
+const title = "FRSOURCE - Let's shape your web";
+const description =
+    'We create modern, efficient and user-friendly web apps. Are you in the need of proper webpage and unique brand identity? Write us!';
+
+const socials = [
+    {
+        icon: 'insta',
+        name: 'Instagram',
+        href: 'https://instagram.com/frsource',
+        hint: 'Check out our instagram! (Opens up in a new window)',
+        label: 'Check out our instagram!',
+    },
+    {
+        icon: 'fb',
+        name: 'Facebook',
+        href: 'https://facebook.com/FRSOURCE',
+        hint: 'Go to our Facebook profile.',
+        label: 'Click to go to our Facebook profile. (Opens up in a new window)',
+    },
+    {
+        icon: 'github',
+        name: 'GitHub',
+        href: 'https://github.com/FRSOURCE',
+        hint: 'Click and see our GitHub projects!',
+        label: 'Click and see our GitHub projects! (Opens up in a new window)',
+    },
+    {
+        icon: 'linkedin',
+        name: 'LinkedIn',
+        href: 'https://linkedin.com/in/jakub-freisler-03a32138/',
+        hint: 'Go through our business page on LinkedIn.',
+        label: 'Go through our business page on LinkedIn. (Opens up in a new window)',
+    },
+    {
+        icon: 'twitter',
+        name: 'Twitter',
+        href: 'https://twitter.com/frsource1',
+        hint: 'Read our twitter feed! (Opens up in a new window)',
+        label: 'Click and see our twitter profile!',
+    },
+];
+
+const jsonLd = [
+    {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'FRSOURCE',
+        description,
+    },
+    {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'FRSOURCE',
+        url: 'https://www.frsource.org/',
+        logo: 'https://www.frsource.org/logo.jpg',
+        image: ['https://www.frsource.org/logo.jpg'],
+        email: 'hi@frsource.org',
+        knowsLanguage: 'English, Polish',
+        legalName: 'FRS JAKUB FREISLER',
+        slogan: "Let's shape your web",
+        address: {
+            '@type': 'PostalAddress',
+            addressCountry: 'PL',
+            addressRegion: 'Lesser Poland',
+            addressLocality: 'Krakow',
+            postalCode: '30-079',
+            streetAddress: 'Królewska 92/8',
+            email: 'hi@frsource.org',
+            telephone: '+48882568430',
+        },
+        sameAs: [
+            'https://facebook.com/FRSOURCE',
+            'https://github.com/FRSOURCE',
+            'https://twitter.com/frsource1',
+            'https://instagram.com/frsource',
+        ],
+    },
+];
+---
+
+<Base
+    title={title}
+    description={description}
+    keywords="building websites, software, software house, webdesign, frontend development"
+    jsonLd={jsonLd}
+>
+    <script is:inline slot="head">
+        // the intro animation plays on the first visit only
+        try {
+            if (localStorage.getItem('FRS:intro'))
+                document.documentElement.classList.add('intro-done');
+        } catch (e) {}
+    </script>
+    <noscript slot="head">
+        <style>
+            .icon-logomark path,
+            .icon-logomark use {
+                visibility: visible;
+            }
+            .fadeInUp {
+                animation-play-state: running;
+            }
+            button,
+            details {
+                display: none;
+            }
+        </style>
+    </noscript>
+
+    <nav slot="nav">
+        <a
+            href="/portfolio/"
+            data-glitch="fwd"
+            class="btn text nav-work"
+            title="See the websites we have built"
+        >
+            Our work
+        </a>
+        <a
+            href="/blog"
+            title="Click to navigate to our blog"
+            aria-label="Click to navigate to our blog"
+            class="btn text"
+            target="_blank"
+        >
+            <span class="sr-only md:not-sr-only">
+                Click here and enjoy our{' '}
+            </span>
+            blog
+            <span class="sr-only md:not-sr-only">with your coffee </span>♥
+        </a>
+    </nav>
+
+    <div class="icon-logotype">
+        <svg class="icon">
+            <use href="#logotype"></use>
+        </svg>
+    </div>
+
+    <div class="content">
+        <ThemeMenu />
+
+        <Logo />
+        <div class="contact-col">
+            <div class="load-fadeinup fadeInUp grad-text mb-5 title-box">
+                <h1>FRSOURCE</h1>
+                <h2>Let's shape your web</h2>
+            </div>
+
+            <div>
+                <div class="topline mb-2 flex whitespace-nowrap select-text">
+                    <small class="load-fadeinup fadeInUp topline__item uppercase select-none">
+                        write to us
+                    </small>
+                    &nbsp;
+                    <span class="load-fadeinup fadeInUp topline__item wrap-ellipsis">
+                        <a
+                            href="mailto:hi@frsource.org"
+                            title="Use this email address to contact the FRSOURCE team"
+                        >
+                            hi@frsource.org
+                        </a>
+                    </span>
+                </div>
+                <div class="topline mb-4 flex whitespace-nowrap select-text">
+                    <small class="load-fadeinup fadeInUp topline__item uppercase select-none">
+                        call us
+                    </small>
+                    &nbsp;
+                    <span class="load-fadeinup fadeInUp topline__item wrap-ellipsis">
+                        <a href="tel:+48882568430" title="Click to call us!">
+                            +48 882 568 430
+                        </a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="flex">
+                <button
+                    type="button"
+                    class="btn fill btn--contact load-fadeinup fadeInUp mb-3 block grow md:grow-0"
+                >
+                    <div class="topline flex">
+                        <small class="topline__item">just&nbsp;</small>
+                        <span class="topline__item">Contact&nbsp;us</span>
+                    </div>
+                </button>
+                <small class="load-fadeinup fadeInUp contact-col__cta uppercase">
+                    A contact form will open
+                </small>
+            </div>
+
+            <div class="flex">
+                <a
+                    href="/portfolio/"
+                    data-glitch="fwd"
+                    class="btn fill btn--work load-fadeinup fadeInUp mb-7 block grow md:grow-0"
+                    title="See the websites we have built"
+                >
+                    <span class="topline flex">
+                        <small class="topline__item">see&nbsp;</small>
+                        <span class="topline__item">our&nbsp;work&nbsp;→</span>
+                    </span>
+                </a>
+            </div>
+
+            <ul class="flex leading-none md:w-3/5">
+                {socials.map(({ icon, name, href, hint, label }) => (
+                    <li class="grow">
+                        <a
+                            class="block text-center"
+                            target="_blank"
+                            rel="noopener"
+                            href={href}
+                            title={hint}
+                            aria-label={label}
+                        >
+                            <svg class="icon load-fadeinup fadeInUp">
+                                <title>{name} logo</title>
+                                <use href={`#${icon}`} />
+                            </svg>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </div>
+</Base>
+
+<script>
+    import '../index.ts';
+</script>

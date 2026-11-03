@@ -1,14 +1,10 @@
-@use 'sass:map';
-
-@use 'variables';
-
 .content {
     position: relative;
     flex-grow: 1;
     display: flex;
     flex-flow: column;
 
-    @media (orientation:landscape) and (min-width: #{variables.$breakpoint3}) {
+    @media (orientation: landscape) and (min-width: 920px) {
         z-index: 1;
         display: flex;
         flex-flow: row-reverse;
@@ -33,38 +29,38 @@
     height: 72px;
     max-height: 20vh;
 
-    @media (orientation:landscape) and (min-width: #{variables.$breakpoint3}) {
-        margin-top: calc(24.5vh - #{map.get(variables.$spacings, 6)});
-        padding: map.get(variables.$spacings, 3) 0;
+    @media (orientation: landscape) and (min-width: 920px) {
+        margin-top: calc(24.5vh - var(--spacing-6));
+        padding: var(--spacing-3) 0;
         width: 60%;
         height: 45vh;
         max-height: none;
     }
 
-    @media (orientation: landscape) and (min-width: #{variables.$breakpoint3}) and (min-height: #{variables.$breakpoint1}) {
-        margin-top: calc(14.5vh - #{map.get(variables.$spacings, 3)});
+    @media (orientation: landscape) and (min-width: 920px) and (min-height: 480px) {
+        margin-top: calc(14.5vh - var(--spacing-3));
         padding: 10vh 0;
         max-height: none;
     }
 }
 
 .contact-col {
-    @media (orientation:landscape) and (min-width: #{variables.$breakpoint3}) {
+    @media (orientation: landscape) and (min-width: 920px) {
         flex-grow: 1;
         display: flex;
         flex-flow: column;
         justify-content: space-evenly;
     }
+}
 
-    &__cta {
-        display: none;
-        margin-top: -0.2em;
-        margin-left: map.get(variables.$spacings, 4);
-        max-width: 20ch;
+.contact-col__cta {
+    display: none;
+    margin-top: -0.2em;
+    margin-left: var(--spacing-4);
+    max-width: 20ch;
 
-        @media (min-width: #{variables.$breakpoint1}) {
-            display: block;
-        }
+    @media (min-width: 480px) {
+        display: block;
     }
 }
 
@@ -72,11 +68,6 @@
     display: block;
     width: 100%;
     stroke: none;
-
-    &--img {
-        flex-grow: 1;
-        height: 100%;
-    }
 
     path,
     use {
@@ -86,6 +77,11 @@
             visibility: visible;
         }
     }
+}
+
+.icon-logomark--img {
+    flex-grow: 1;
+    height: 100%;
 }
 
 .icon-logotype {
@@ -98,12 +94,16 @@
     height: 1em;
     font-size: 112.5vw;
     line-height: 0.2;
-    color: variables.$colorPrimaryInverted;
+    color: var(--color-primary-inverted);
     border-radius: 50%;
     transform: translate(-50%, -50%);
 
     @media (orientation: landscape) {
         font-size: 112.5vh;
+    }
+
+    @variant dark {
+        display: none;
     }
 
     .icon {
@@ -116,25 +116,25 @@
         animation-timing-function: cubic-bezier(0.65, 0.43, 0.67, 1.53);
         stroke: none;
     }
+}
 
-    &__circle {
-        transform-origin: center bottom;
-        animation: ease-out 2.5s rippleLogoInner 0.6s forwards;
+.icon-logotype__circle {
+    transform-origin: center bottom;
+    animation: ease-out 2.5s rippleLogoInner 0.6s forwards;
 
-        @media (prefers-reduced-motion: reduce) {
-            animation: none;
-        }
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
     }
 }
 
 .title-box {
     max-width: 12rem;
 
-    @media (min-height: #{variables.$breakpoint2}) {
+    @media (min-height: 600px) {
         max-width: 36vh;
     }
 
-    @media (orientation:landscape) and (min-width: #{variables.$breakpoint3}) {
+    @media (orientation: landscape) and (min-width: 920px) {
         max-width: 45vh;
     }
 }
@@ -149,5 +149,39 @@
         & > div:first-child {
             position: absolute !important;
         }
+    }
+}
+
+.fadeInUp {
+    animation: 0.6s fadeInUp;
+    animation-play-state: paused;
+
+    &.in {
+        animation-play-state: running;
+    }
+}
+
+/* intro already played once: show everything right away */
+.intro-done {
+    .load-fadeinup {
+        animation: none;
+    }
+
+    .icon-logomark {
+        path,
+        use {
+            visibility: visible;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *:not(symbol):not(circle):not(path) {
+        animation-duration: 0.000001s !important;
+        transition-duration: 0.000001s !important;
+    }
+
+    .fadeInUp {
+        animation-play-state: running;
     }
 }
