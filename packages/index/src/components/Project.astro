@@ -92,7 +92,7 @@ const mailto = `mailto:hi@frsource.org?subject=${encodeURIComponent(`A project l
                 <p class="project__desc">{p.description}</p>
                 {p.note && <p class="project__note">{p.note}</p>}
                 <a
-                    class="btn fill project__cta"
+                    class="btn fill project__cta select-none"
                     href={mailto}
                     data-contact
                     data-contact-message={message}

@@ -95,7 +95,7 @@ const jsonLd = {
         <ThemeMenu />
 
         <div class="work">
-            <div class="work__head">
+            <div class="work__head select-text">
                 <h1 class="grad-text">Our work</h1>
                 <p class="work__lead">
                     Websites, stores and web apps we have built. Open a project
@@ -103,7 +103,7 @@ const jsonLd = {
                 </p>
             </div>
             <DeckNav projects={projects} />
-            <ol class="projects" id="projects">
+            <ol class="projects select-text" id="projects">
                 {projects.map((project, index) => (
                     <Project project={project} index={index} />
                 ))}
