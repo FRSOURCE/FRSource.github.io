@@ -43,6 +43,11 @@ self.addEventListener('activate', (event) => {
     );
 });
 
+// Pass-through for requests this worker doesn't handle. A failed network request
+// (offline, blocked by an extension, ...) is reported to the page as a regular network
+// error instead of an uncaught rejection inside the worker.
+const passThrough = (request) => fetch(request).catch(() => Response.error());
+
 self.addEventListener('fetch', function (event) {
     event.respondWith(
         (async () => {
@@ -52,16 +57,16 @@ self.addEventListener('fetch', function (event) {
                     new URL(event.request.url).protocol,
                 )
             )
-                return fetch(event.request);
-            if (!event.clientId) return fetch(event.request);
+                return passThrough(event.request);
+            if (!event.clientId) return passThrough(event.request);
 
             const client = await self.clients.get(event.clientId);
-            if (!client) return fetch(event.request);
+            if (!client) return passThrough(event.request);
 
             // don't intercept calls coming outside of your scope
             const clientURL = new URL(client.url);
             if (!PAGES_TO_CONTROL.includes(clientURL.pathname))
-                return fetch(event.request);
+                return passThrough(event.request);
 
             const cachedResponse = await caches
                 .match(event.request)
