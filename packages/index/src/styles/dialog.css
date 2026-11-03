@@ -38,8 +38,10 @@ dialog {
         visibility: visible;
         transition-delay: 0s;
 
-        & ~ .work {
+        & ~ .work,
+        & ~ .contact-col {
             opacity: 0.2;
+            pointer-events: none;
         }
     }
 
