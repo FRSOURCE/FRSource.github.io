@@ -59,13 +59,16 @@ const mailto = `mailto:hi@frsource.org?subject=${encodeURIComponent(`A project l
                             target="_blank"
                             rel="nofollow noopener"
                             title={`Visit ${p.host} (opens in a new window)`}
+                            class="underline underline-offset-2"
                         >
                             {p.host}
                             <span class="sr-only">
                                 {' '}
                                 (opens in a new window)
                             </span>{' '}
-                            <span aria-hidden="true">↗</span>
+                            <span aria-hidden="true" class="align-text-bottom">
+                                ↗
+                            </span>
                         </a>
                     )}
                     {p.links?.map((link) => (

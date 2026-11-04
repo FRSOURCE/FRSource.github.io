@@ -410,9 +410,10 @@ body.work-page {
                 display: flex;
                 align-items: baseline;
                 justify-content: space-between;
-                padding: 0 0 0.6em;
+                padding: 0 0 0.2em;
                 cursor: default;
                 pointer-events: none;
+                font-size: max(1em, 1rem);
             }
 
             /* the original screenshot stays for screen readers, the deck shows it visually */
