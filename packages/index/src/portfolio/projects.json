@@ -81,7 +81,7 @@
                 "url": "https://apps.apple.com/tz/app/fast-angle/id6450143053"
             }
         ],
-        "alt": "Fast angle web app with an empty measurement board, a toolbar for loading an image, undo, zoom and fullscreen"
+        "alt": "Fast angle web app measuring a knee angle on a loaded X-ray image, with angle readouts and a toolbar for undo, download, zoom and fullscreen"
     },
     {
         "id": "unsound",
