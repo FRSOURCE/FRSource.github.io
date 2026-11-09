@@ -9,13 +9,13 @@ const urlsToCache = [
     "/robots.txt",
     "/humans.txt",
     "/",
-    "/_astro/ThemeMenu.P8rkwzBV.css",
+    "/_astro/ThemeMenu.C2eO0_EB.css",
     "/_astro/contactDialog.CcFOwkJK.js",
     "/_astro/glitch.veil.PIUt0iYn.js",
     "/_astro/idle.Du679oLF.js",
     "/_astro/index.astro_astro_type_script_index_0_lang.Dg3W-qwx.js"
 ];
-const CACHE_NAME = 'frsource-cache-132245d73170';
+const CACHE_NAME = 'frsource-cache-5faef137e566';
 
 // pages that are controlled by this service worker
 const PAGES_TO_CONTROL = ['/', '/index.html'];
