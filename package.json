@@ -6,7 +6,7 @@
   "repository": "https://github.com/FRSource/frsource.github.io.git",
   "author": "Jakub Freisler",
   "license": "Apache 2.0",
-  "packageManager": "pnpm@12.14.0",
+  "packageManager": "pnpm@12.18.0",
   "scripts": {
     "start": "pnpm run -r --parallel start",
     "build": "pnpm run --filter=frsource.github.io-index build && pnpm run --filter=frsource.github.io-blog build",
