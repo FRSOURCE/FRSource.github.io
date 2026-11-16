@@ -11,11 +11,11 @@ const urlsToCache = [
     "/",
     "/_astro/ThemeMenu.C2eO0_EB.css",
     "/_astro/contactDialog.CcFOwkJK.js",
-    "/_astro/glitch.veil.PIUt0iYn.js",
-    "/_astro/idle.Du679oLF.js",
-    "/_astro/index.astro_astro_type_script_index_0_lang.Dg3W-qwx.js"
+    "/_astro/glitch.veil.DbCpMruE.js",
+    "/_astro/idle.mZXsPswD.js",
+    "/_astro/index.astro_astro_type_script_index_0_lang.DfTApY_f.js"
 ];
-const CACHE_NAME = 'frsource-cache-5faef137e566';
+const CACHE_NAME = 'frsource-cache-f98d527fd086';
 
 // pages that are controlled by this service worker
 const PAGES_TO_CONTROL = ['/', '/index.html'];
