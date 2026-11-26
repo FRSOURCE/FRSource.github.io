@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Software factory: from designs to a working app | FRSOURCE</title>
+        <meta name="title" content="Software factory: from designs to a working app | FRSOURCE">
+        <meta name="description" content="AI can build great things, but finishing them still takes expertise. FRSOURCE takes you from designs to prototype to a working app in just a few days.">
+        <meta name="keywords" content="software factory, rapid prototyping, AI-assisted development, web app development, MVP, software house">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://www.frsource.org/factory/">
+        <meta http-equiv="Content-Security-Policy" content="default-src; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://static.cloudflareinsights.com; script-src-attr; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/; img-src 'self' data:; font-src https://fonts.gstatic.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google.com/recaptcha/; media-src; object-src; child-src; frame-src 'self' https://www.google.com; worker-src 'self'; form-action https://script.google.com; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous">
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inconsolata&amp;display=swap" as="style">
+
+        <meta property="og:title" content="Software factory: from designs to a working app | FRSOURCE">
+        <meta property="og:description" content="AI can build great things, but finishing them still takes expertise. FRSOURCE takes you from designs to prototype to a working app in just a few days.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://www.frsource.org/factory/">
+        <meta property="og:image" content="https://www.frsource.org/logo.jpg">
+        <meta property="og:locale" content="en_GB">
+        <meta property="og:site_name" content="FRSOURCE">
+
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://www.frsource.org/factory/">
+        <meta property="twitter:title" content="Software factory: from designs to a working app | FRSOURCE">
+        <meta property="twitter:description" content="AI can build great things, but finishing them still takes expertise. FRSOURCE takes you from designs to prototype to a working app in just a few days.">
+        <meta property="twitter:image" content="https://www.frsource.org/logo.jpg">
+
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata&amp;display=swap" rel="stylesheet">
+        <script>
+            // a glitch sweep is in progress: stay covered until the script reveals the page
+            (function () {
+                try {
+                    var v = (sessionStorage.getItem('FRS:glitch') || '').split(
+                        ':',
+                    );
+                    if (!v[0] || Date.now() - +v[1] > 4000) return;
+                    var t = localStorage.getItem('FRS:theme');
+                    var dark =
+                        t === 'dark' ||
+                        (t !== 'light' &&
+                            matchMedia('(prefers-color-scheme: dark)').matches);
+                    var root = document.documentElement;
+                    root.style.setProperty(
+                        '--veil-bg',
+                        dark ? '#030b19' : '#efefef',
+                    );
+                    root.classList.add('glitch-cover');
+                } catch (e) {}
+            })();
+        </script>
+        <script>
+        (function () {
+            var root = document.documentElement;
+            root.classList.add('js');
+            if (matchMedia('(prefers-reduced-motion: reduce)').matches)
+                root.dataset.motion = 'off';
+        })();
+    </script><noscript>
+        <style>
+            .mobile-nav-wrapper,
+            .footer-themes,
+            #estimate,
+            a[href='#estimate'] {
+                display: none;
+            }
+        </style>
+    </noscript>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/_astro/ThemeMenu.B0_6ptiL.css"></head>
+
+    <body class="select-none factory-page">
+        <a class="skip-link" href="#why">
+        Skip to the content
+    </a>
+        <div class="relative">
+            <header>
+                <nav class="work-nav" aria-label="Page">
+        <a href="/" data-glitch="back" data-back class="btn text" title="Back to the FRSOURCE homepage">
+            ← Homepage
+        </a>
+        <span class="f-nav">
+            <a href="#process" class="btn text f-nav__more">
+                How it works
+            </a>
+            <a href="#estimate" class="btn text f-nav__more">
+                Price estimate
+            </a>
+            <a href="mailto:hi@frsource.org" class="btn fill btn--top" data-contact title="Click to open the FRSOURCE contact form">
+                Contact us
+            </a>
+            <a href="/portfolio/" data-page-link="/portfolio/" data-glitch="fwd" class="btn text nav-work" title="See the websites and apps we have built">
+                Our work
+            </a>
+            <a href="/blog" class="btn text f-nav__more" target="_blank" rel="noopener" title="Click to navigate to our blog">
+                Our blog ♥
+            </a>
+        </span>
+    </nav>
+            </header>
+        </div>
+        <!-- applies the saved theme before first paint -->
+        <script>
+            (function (t) {
+                t && document.body.classList.add('t-' + t);
+            })(localStorage.getItem('FRS:theme'));
+        </script>
+        <main>
+            
+    
+    
+
+    
+
+    
+
+    <div class="mobile-nav-wrapper md:hidden">
+    <details class="load-fadeinup fadeInUp">
+        <summary>
+            <div class="btn btn--big btn--outline mt-1" title="Click to choose the website's color scheme" aria-label="Click to choose the website's color scheme">
+                <svg class="icon">
+                    <title>Eye</title>
+                    <use href="#eye"></use>
+                </svg>
+            </div>
+        </summary>
+        <button type="button" data-theme="dark" class="btn btn--big btn--outline mt-1 block" title="Click to switch to the dark mode" aria-label="Click to switch to the dark mode">
+                <svg class="icon">
+                    <title>Moon</title>
+                    <use href="#moon"></use>
+                </svg>
+            </button><button type="button" data-theme="auto" class="btn btn--big btn--outline mt-1 block" title="Click to switch to the system's color mode" aria-label="Click to switch to the system's color mode">
+                <svg class="icon">
+                    <title>Automatic</title>
+                    <use href="#triangle"></use>
+                </svg>
+            </button><button type="button" data-theme="light" class="btn btn--big btn--outline mt-1 block" title="Click to switch to the light mode" aria-label="Click to switch to the light mode">
+                <svg class="icon">
+                    <title>Sun</title>
+                    <use href="#circle"></use>
+                </svg>
+            </button>
+    </details>
+</div>
+
+    
+    <section class="f-hero" id="top" aria-labelledby="hero-title">
+        <div class="f-hero__stick">
+            <div class="f-wrap f-hero__grid">
+                <div class="f-hero__copy">
+                    <p class="f-eyebrow">FRSOURCE · software factory</p>
+                    <h1 id="hero-title" class="f-h1">
+                        <span class="ln">
+                            <span>We're your</span>
+                        </span>
+                        <span class="ln">
+                            <span class="grad-text">software factory.</span>
+                        </span>
+                    </h1>
+                    <p class="f-lead">
+                        From <span class="k1">designs</span> to
+                        <span class="k2">prototype</span> to
+                        <span class="k3">a working app</span> in just a few
+                        days.
+                    </p>
+                    <p class="f-sub">
+                        AI can build something impressive in an afternoon.
+                        Taking it to the finish line in good shape still takes
+                        experienced people. We are those people, and we handle
+                        everything you need to launch.
+                    </p>
+                    <div class="f-cta">
+                        <a href="#estimate" class="btn fill btn--work f-btn">
+                            <span class="topline flex justify-center">
+                                <small class="topline__item">
+                                    get&nbsp;an&nbsp;
+                                </small>
+                                <span class="topline__item">
+                                    estimate&nbsp;↓
+                                </span>
+                            </span>
+                        </a>
+                        <a href="/portfolio/" data-glitch="fwd" class="btn text f-link" title="See the websites we have built">
+                            See our work →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="f-hero__art" aria-hidden="true">
+                    <svg viewBox="0 -50 540 480" class="iso" focusable="false">
+    <defs>
+        <linearGradient id="isoTop" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ff5f49"></stop>
+            <stop offset=".3" stop-color="#ff5f49"></stop>
+            <stop offset="1" stop-color="#063fb4"></stop>
+        </linearGradient>
+        <linearGradient id="isoLeft" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#02bf89"></stop>
+            <stop offset="1" stop-color="#03206c"></stop>
+        </linearGradient>
+        <linearGradient id="isoRight" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#063fb4"></stop>
+            <stop offset="1" stop-color="#03206c"></stop>
+        </linearGradient>
+    </defs>
+
+    <g>
+        <polygon class="belt" points="-35.67,350.65 80.67,417.85 613.67,110.35 497.33,43.15"></polygon>
+        <polygon class="belt-front" points="80.67,417.85 613.67,110.35 613.67,119.35 80.67,426.85"></polygon>
+        <path class="belt-run" d="M22.5 384.25 L555.5 76.75"></path>
+    </g>
+
+    <g>
+            <g class="cube c1">
+                <polygon class="f-left" points="64.6,328 120,360 120,320 64.6,288"></polygon>
+                <polygon class="f-right" points="120,360 175.4,328 175.4,288 120,320"></polygon>
+                <polygon class="f-top" points="64.6,288 120,320 175.4,288 120,256"></polygon>
+                
+                        <path class="grid" d="M92.3,272 L147.7,304 M147.7,272 L92.3,304"></path>
+                    
+                
+                <g class="tag" transform="translate(31 210)">
+                    <rect width="178" height="26"></rect>
+                    <rect class="d1" x="9" y="10" width="6" height="6"></rect>
+                    <rect class="d2" x="19" y="10" width="6" height="6"></rect>
+                    <rect class="d3" x="29" y="10" width="6" height="6"></rect>
+                    <text x="44" y="17.5">
+                        designs.file
+                    </text>
+                </g>
+            </g>
+        </g><g>
+            <g class="cube c2">
+                <polygon class="f-left" points="194.6,253 250,285 250,205 194.6,173"></polygon>
+                <polygon class="f-right" points="250,285 305.4,253 305.4,173 250,205"></polygon>
+                <polygon class="f-top" points="194.6,173 250,205 305.4,173 250,141"></polygon>
+                
+                
+                <g class="tag" transform="translate(161 95)">
+                    <rect width="178" height="26"></rect>
+                    <rect class="d1" x="9" y="10" width="6" height="6"></rect>
+                    <rect class="d2" x="19" y="10" width="6" height="6"></rect>
+                    <rect class="d3" x="29" y="10" width="6" height="6"></rect>
+                    <text x="44" y="17.5">
+                        prototype.live
+                    </text>
+                </g>
+            </g>
+        </g><g>
+            <g class="cube c3">
+                <polygon class="f-left" points="324.6,178 380,210 380,90 324.6,58"></polygon>
+                <polygon class="f-right" points="380,210 435.4,178 435.4,58 380,90"></polygon>
+                <polygon class="f-top" points="324.6,58 380,90 435.4,58 380,26"></polygon>
+                
+                <path class="check" d="M364,56 l11,8 l22,-16"></path>
+                <g class="tag" transform="translate(291 -20)">
+                    <rect width="178" height="26"></rect>
+                    <rect class="d1" x="9" y="10" width="6" height="6"></rect>
+                    <rect class="d2" x="19" y="10" width="6" height="6"></rect>
+                    <rect class="d3" x="29" y="10" width="6" height="6"></rect>
+                    <text x="44" y="17.5">
+                        greatest.app.org
+                    </text>
+                </g>
+            </g>
+        </g>
+</svg>
+                </div>
+            </div>
+            <a href="#why" class="f-scroll" aria-label="Scroll down">
+                <span>scroll</span>
+                <i></i>
+            </a>
+        </div>
+    </section>
+
+    
+    <section class="f-sec" id="why" aria-labelledby="why-title">
+        <div class="f-wrap">
+            <h2 class="f-eyebrow" id="why-title" data-r>
+                Where AI stops
+            </h2>
+            <p class="f-statement" data-r>
+                AI gets you a demo in an afternoon. Turning it into a product
+                people can trust takes expertise: architecture, security,
+                accessibility, performance and tests. We bring that expertise.
+            </p>
+
+            <div class="gap" data-stagger>
+                <div class="gap__head" data-r>
+                    <span>AI alone</span>
+                    <span class="grad-text">With FRSOURCE</span>
+                </div>
+                <div class="gap__row" data-r>
+                        <p>A convincing demo in an afternoon</p>
+                        <p>Architecture that holds up in version two</p>
+                    </div><div class="gap__row" data-r>
+                        <p>Code that works on the happy path</p>
+                        <p>Edge cases, error states and real data handled</p>
+                    </div><div class="gap__row" data-r>
+                        <p>Looks right on your laptop</p>
+                        <p>Tested on real devices, accessible and fast</p>
+                    </div><div class="gap__row" data-r>
+                        <p>Auth and payments mostly done</p>
+                        <p>Security and compliance reviewed by a person</p>
+                    </div><div class="gap__row" data-r>
+                        <p>A pile of generated files</p>
+                        <p>A codebase your team can read and extend</p>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="f-sec" id="process" aria-labelledby="process-title">
+        <div class="f-wrap">
+            <p class="f-eyebrow" data-r>
+                How the factory runs
+            </p>
+            <h2 class="f-h2" id="process-title" data-r>
+                Three steps with one team, in a few days.
+            </h2>
+
+            <ol class="pipeline" data-stagger>
+                <li class="step" data-r>
+                        <div class="step__card">
+                            <span class="step__n">01</span>
+                            <h3>Designs</h3>
+                            <p>We turn your brand, flows and rough ideas into screens we can build. Already have designs? We start from those.</p>
+                            <small class="step__out">You get: A Figma file and design tokens</small>
+                        </div>
+                    </li><li class="step" data-r>
+                        <div class="step__card">
+                            <span class="step__n">02</span>
+                            <h3>Prototype</h3>
+                            <p>A clickable prototype within days, so you can test it with real users before anything is final.</p>
+                            <small class="step__out">You get: A live prototype link</small>
+                        </div>
+                    </li><li class="step" data-r>
+                        <div class="step__card">
+                            <span class="step__n">03</span>
+                            <h3>Working app</h3>
+                            <p>Production code with tests, accessibility and performance work, deployed and ready to launch.</p>
+                            <small class="step__out">You get: A deployed app and its source code</small>
+                        </div>
+                    </li>
+            </ol>
+        </div>
+    </section>
+
+    
+    <section class="f-sec" id="included" aria-labelledby="included-title">
+        <div class="f-wrap">
+            <p class="f-eyebrow" data-r>
+                Everything you need
+            </p>
+            <h2 class="f-h2" id="included-title" data-r>
+                One team covers all of it.
+            </h2>
+            <ul class="grid3" data-stagger>
+                <li class="tile" data-r data-depth="0">
+                        <b>01</b>
+                        <h3>UX &amp; UI design</h3>
+                        <p>Design decisions made with you, ready to build.</p>
+                    </li><li class="tile" data-r data-depth="30">
+                        <b>02</b>
+                        <h3>Interactive prototype</h3>
+                        <p>Click through the product before we build it.</p>
+                    </li><li class="tile" data-r data-depth="60">
+                        <b>03</b>
+                        <h3>Production code</h3>
+                        <p>Typed, tested and documented. Yours from day one.</p>
+                    </li><li class="tile" data-r data-depth="0">
+                        <b>04</b>
+                        <h3>Quality assurance</h3>
+                        <p>Automated and visual regression tests on every change.</p>
+                    </li><li class="tile" data-r data-depth="30">
+                        <b>05</b>
+                        <h3>Launch &amp; hosting</h3>
+                        <p>CI/CD, domains, monitoring, analytics and basic SEO.</p>
+                    </li><li class="tile" data-r data-depth="60">
+                        <b>06</b>
+                        <h3>Handover &amp; support</h3>
+                        <p>Docs, walkthroughs and someone who picks up the phone.</p>
+                    </li>
+            </ul>
+        </div>
+    </section>
+
+    
+    <section class="f-sec" id="work" aria-labelledby="work-title">
+        <div class="f-wrap">
+            <p class="f-eyebrow" data-r>
+                Recent work
+            </p>
+            <h2 class="f-h2" id="work-title" data-r>
+                Last 3 projects we have shipped.
+            </h2>
+            <ul class="grid3 work-grid" data-stagger>
+                <li class="work-card" data-r>
+                        <a href="https://visual-regression.dev/" target="_blank" rel="nofollow noopener">
+                            <figure class="window">
+                                <div class="window__chrome" aria-hidden="true">
+    <i></i>
+    <i></i>
+    <i></i>
+    <span>visual-regression.dev</span>
+</div>
+<picture>
+        <source type="image/webp" srcset="/_astro/visual-regression-sm.BaKbnllD.webp 640w, /_astro/visual-regression.BjSfx0Zd.webp 1280w" sizes="(min-width: 920px) 36vw, 90vw">
+        <img src="/_astro/visual-regression.D_aCokrE.jpg" width="1280" height="800" alt loading="lazy" decoding="async">
+    </picture>
+                            </figure>
+                            <h3>visual-regression.dev</h3>
+                            <small>Nuxt · Docus · Vue</small>
+                        </a>
+                    </li><li class="work-card" data-r>
+                        <a href="https://pixsame.com/" target="_blank" rel="nofollow noopener">
+                            <figure class="window">
+                                <div class="window__chrome" aria-hidden="true">
+    <i></i>
+    <i></i>
+    <i></i>
+    <span>pixsame.com</span>
+</div>
+<picture>
+        <source type="image/webp" srcset="/_astro/pixsame-sm.r7hPWUP2.webp 640w, /_astro/pixsame.BqHDqrgY.webp 1280w" sizes="(min-width: 920px) 36vw, 90vw">
+        <img src="/_astro/pixsame.9MgaZCn-.jpg" width="1280" height="800" alt loading="lazy" decoding="async">
+    </picture>
+                            </figure>
+                            <h3>Pixsame</h3>
+                            <small>TypeScript · Vue · Cypress</small>
+                        </a>
+                    </li><li class="work-card" data-r>
+                        <a href="https://digestweb.dev/" target="_blank" rel="nofollow noopener">
+                            <figure class="window">
+                                <div class="window__chrome" aria-hidden="true">
+    <i></i>
+    <i></i>
+    <i></i>
+    <span>digestweb.dev</span>
+</div>
+<picture>
+        <source type="image/webp" srcset="/_astro/digestweb-sm.BtErQi98.webp 640w, /_astro/digestweb.Cl8mMO9_.webp 1280w" sizes="(min-width: 920px) 36vw, 90vw">
+        <img src="/_astro/digestweb.C8YS5P9i.jpg" width="1280" height="800" alt loading="lazy" decoding="async">
+    </picture>
+                            </figure>
+                            <h3>DigestWeb</h3>
+                            <small>VitePress · Vue 3 · TypeScript</small>
+                        </a>
+                    </li>
+            </ul>
+            <p class="f-more" data-r>
+                <a href="/portfolio/" data-glitch="fwd" class="btn fill btn--work f-btn">
+                    <span class="topline flex justify-center">
+                        <small class="topline__item">full&nbsp;</small>
+                        <span class="topline__item">portfolio&nbsp;→</span>
+                    </span>
+                </a>
+            </p>
+        </div>
+    </section>
+
+    
+    <section class="f-sec" id="estimate" aria-labelledby="estimate-title">
+        <div class="f-wrap">
+            <p class="f-eyebrow" data-r>
+                Rough price in 30 seconds
+            </p>
+            <h2 class="f-h2" id="estimate-title" data-r>
+                Describe your project and get a rough price.
+            </h2>
+
+            <form id="estimator" class="estimator" data-r>
+                <div class="estimator__inputs">
+                    <fieldset>
+                        <legend>What are we building?</legend>
+                        <div class="choices">
+                            <label class="choice">
+                                    <input type="radio" name="type" value="site">
+                                    <span>Website</span>
+                                </label><label class="choice">
+                                    <input type="radio" name="type" value="shop">
+                                    <span>Online shop</span>
+                                </label><label class="choice">
+                                    <input type="radio" name="type" value="app" checked>
+                                    <span>Web app / MVP</span>
+                                </label><label class="choice">
+                                    <input type="radio" name="type" value="tool">
+                                    <span>Internal tool</span>
+                                </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>
+                            <span data-out="screens-label">
+                                Screens with unique layout:
+                            </span>
+                            <b data-out="screens-value">3</b>
+                        </legend>
+                        <input type="range" name="screens" min="1" max="30" value="3" aria-label="Number of pages or screens with unique layout">
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Where do you start?</legend>
+                        <div class="choices">
+                            <label class="choice">
+                                    <input type="radio" name="design" value="scratch" checked>
+                                    <span>
+                                        Start from scratch
+                                        <small>We design it with you</small>
+                                    </span>
+                                </label><label class="choice">
+                                    <input type="radio" name="design" value="designs">
+                                    <span>
+                                        I have designs
+                                        <small>Figma, sketches, a brand book</small>
+                                    </span>
+                                </label><label class="choice">
+                                    <input type="radio" name="design" value="ai">
+                                    <span>
+                                        I have an AI prototype
+                                        <small>Lovable, v0, Claude, Cursor… we finish it</small>
+                                    </span>
+                                </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Extras</legend>
+                        <div class="choices">
+                            <div class="choice-group">
+                                    <label class="choice">
+                                        <input type="checkbox" name="feature" value="auth">
+                                        <span>
+                                            Accounts &amp; login
+                                            <small data-hint>
+                                                
+                                            </small>
+                                        </span>
+                                    </label>
+                                    
+                                </div><div class="choice-group">
+                                    <label class="choice">
+                                        <input type="checkbox" name="feature" value="payments">
+                                        <span>
+                                            Payments
+                                            <small data-hint>
+                                                
+                                            </small>
+                                        </span>
+                                    </label>
+                                    <label class="count">
+                                            How many payment methods?
+                                            <input type="number" name="count-payments" min="1" max="20" value="1" inputmode="numeric">
+                                        </label>
+                                </div><div class="choice-group">
+                                    <label class="choice">
+                                        <input type="checkbox" name="feature" value="cms">
+                                        <span>
+                                            Editable content (CMS)
+                                            <small data-hint>
+                                                
+                                            </small>
+                                        </span>
+                                    </label>
+                                    
+                                </div><div class="choice-group">
+                                    <label class="choice">
+                                        <input type="checkbox" name="feature" value="admin">
+                                        <span>
+                                            Admin panel
+                                            <small data-hint>
+                                                
+                                            </small>
+                                        </span>
+                                    </label>
+                                    
+                                </div><div class="choice-group">
+                                    <label class="choice">
+                                        <input type="checkbox" name="feature" value="integrations">
+                                        <span>
+                                            Third-party integrations
+                                            <small data-hint>
+                                                
+                                            </small>
+                                        </span>
+                                    </label>
+                                    <label class="count">
+                                            How many integrations?
+                                            <input type="number" name="count-integrations" min="1" max="20" value="1" inputmode="numeric">
+                                        </label>
+                                </div><div class="choice-group">
+                                    <label class="choice">
+                                        <input type="checkbox" name="feature" value="i18n">
+                                        <span>
+                                            Multiple languages
+                                            <small data-hint>
+                                                
+                                            </small>
+                                        </span>
+                                    </label>
+                                    
+                                </div><div class="choice-group">
+                                    <label class="choice">
+                                        <input type="checkbox" name="feature" value="tests">
+                                        <span>
+                                            Automated &amp; visual tests
+                                            <small data-hint>
+                                                
+                                            </small>
+                                        </span>
+                                    </label>
+                                    
+                                </div><div class="choice-group">
+                                    <label class="choice">
+                                        <input type="checkbox" name="feature" value="hybrid">
+                                        <span>
+                                            Hybrid app / TWA
+                                            <small data-hint="installable, app-store ready">
+                                                installable, app-store ready
+                                            </small>
+                                        </span>
+                                    </label>
+                                    
+                                </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>
+                            <label for="est-description">
+                                About your project (optional, added to your
+                                message)
+                            </label>
+                        </legend>
+                        <textarea id="est-description" name="description" rows="2" maxlength="1500" placeholder="What does it do, who is it for, any deadlines?"></textarea>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Pace</legend>
+                        <div class="choices choices--equal">
+                            <label class="choice">
+                                <input type="radio" name="speed" value="standard" checked>
+                                <span>
+                                    Standard<small>normal calendar</small>
+                                </span>
+                            </label>
+                            <label class="choice">
+                                <input type="radio" name="speed" value="rush">
+                                <span>
+                                    Rush<small>shorter calendar, +30%</small>
+                                </span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <aside class="estimator__live">
+                    <small class="uppercase">Indicative estimate</small>
+                    <output class="estimator__price grad-text" data-out="range">
+                        —
+                    </output>
+                    <p class="estimator__days" data-out="days"></p>
+                    <div class="estimator__bar" data-out="bar"></div>
+                    <ul class="estimator__legend" data-out="legend"></ul>
+                    <p class="estimator__note">
+                        This is an approximate estimate. Send this one along and
+                        we will come back with a fixed quote after a short call.
+                    </p>
+                    <div class="estimator__actions">
+                        <a href="mailto:hi@frsource.org" class="btn fill" data-contact data-send>
+                            Send to FRSOURCE
+                        </a>
+                        <button type="button" class="btn text" data-copy>
+                            Copy summary
+                        </button>
+                    </div>
+                </aside>
+            </form>
+        </div>
+    </section>
+
+    
+    <section class="f-sec f-final" id="contact" aria-labelledby="contact-title">
+        <div class="f-wrap">
+            <h2 class="f-h1" id="contact-title" data-r>
+                Let's <span class="grad-text">build it.</span>
+            </h2>
+            <p class="f-lead" data-r>
+                Tell us about your idea, prototype or designs. We'll reply with
+                a plan.
+            </p>
+            <div class="f-cta" data-r>
+                <a href="mailto:hi@frsource.org" class="btn fill btn--work f-btn" data-contact data-contact-message="Hi! I have a project in mind: ">
+                    <span class="topline flex justify-center">
+                        <small class="topline__item">just&nbsp;</small>
+                        <span class="topline__item">contact&nbsp;us</span>
+                    </span>
+                </a>
+                <a href="mailto:hi@frsource.org" class="btn text f-link">
+                    hi@frsource.org
+                </a>
+                <a href="tel:+48882568430" class="btn text f-link">
+                    +48 882 568 430
+                </a>
+                <a href="/portfolio/" data-glitch="fwd" class="btn text f-link">
+                    Our work →
+                </a>
+            </div>
+        </div>
+    </section>
+
+        </main>
+
+        <footer>
+    <div class="footer-themes hidden whitespace-nowrap md:block">
+        
+                <button type="button" data-theme="light" class="btn text" title="Click to switch to the light mode" aria-label="Click to switch to the light mode">
+                    Light mode
+                </button> 
+                <button type="button" data-theme="auto" class="btn text" title="Click to switch to the system's color mode" aria-label="Click to switch to the system's color mode">
+                    Automatic
+                </button> 
+                <button type="button" data-theme="dark" class="btn text" title="Click to switch to the dark mode" aria-label="Click to switch to the dark mode">
+                    Dark mode
+                </button> 
+    </div>
+    © all rights reserved
+</footer>
+        <svg aria-hidden="true" class="svg-sprite" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="objectBoundingBox" gradientTransform="rotate(40, .8, .8)">
+            <stop offset="0" stop-color="#ff5f49" stop-opacity="1"></stop>
+            <stop offset="1" stop-color="#053db3" stop-opacity="1"></stop>
+        </linearGradient>
+    </defs>
+    <symbol id="circle" viewBox="0 0 131 131">
+        <circle r="60" cx="65" cy="65" stroke-width="9" fill="none"></circle>
+        <path d="M44.36 86.64A29.86 29.86 0 1186.6 44.43a29.86 29.86 0 01-42.24 42.21z"></path>
+    </symbol>
+    <symbol id="triangle" viewBox="0 0 131 131">
+        <circle r="60" cx="65" cy="65" stroke-width="9" fill="none"></circle>
+        <path d="M45.5 93.8V37.3l49 28.2-49 28.3z"></path>
+    </symbol>
+    <symbol id="logotype" viewBox="0 55 130 130">
+        <circle class="icon-logotype__circle" r="60" cx="65" cy="120" stroke-width="10" stroke="currentColor" fill="none"></circle>
+        <path d="M20.59 102.42h24.14v6.72H28.27v9.74l15.36-.96v6.82l-15.36.96v10.56h-7.68v-33.84zm27.98 0h13.11c8.06 0 15.07 1.87 15.07 9.46 0 5.57-4.51 7.1-8.59 7.58v1.92h4.94c2.64 0 4.08 1.44 4.08 4.08v10.8H69.5v-11.9H56.25v11.9h-7.68v-33.84zm13.11 15.22c4.56 0 7.39 0 7.39-4.23 0-4.27-2.83-4.27-7.39-4.27h-5.43v8.5h5.43zm35.61 19.1c-12.19 0-16.75-4.99-16.75-13.53h7.68c0 5.18 2.59 6.81 9.31 6.81 4.95 0 6.58-1.15 6.58-2.97 0-2.45-4.13-3.56-9.07-5.24-7.16-2.4-12.96-4.32-12.96-10.94 0-5.76 4.56-8.93 13.29-8.93 10.37 0 15.03 5.28 15.03 12h-7.68c0-4.13-3.17-5.28-7.35-5.28-3.45 0-5.61.77-5.61 2.5 0 1.53.81 2.11 6.24 3.93 6.24 2.12 15.79 4.8 15.79 11.86 0 5.81-4.08 9.79-14.5 9.79z"></path>
+    </symbol>
+    <symbol id="moon" viewBox="0 0 131 131">
+        <circle r="60" cx="65" cy="65" stroke-width="9" fill="none"></circle>
+        <path d="M93.8 77.2a29.9 29.9 0 11-40-40 29.8 29.8 0 0040 40z"></path>
+    </symbol>
+    <symbol id="eye" viewBox="-30 -45 131 131">
+        <circle r="60" cx="37" cy="20" stroke-width="9" fill="none"></circle>
+        <path d="M74.78 19.53l-6.72 6.72c-16.9 16.9-44.29 16.9-61.19 0L.16 19.53l6.71-6.71c16.9-16.9 44.29-16.9 61.19 0l6.72 6.71zm-25.13 0c0-6.73-5.45-12.18-12.18-12.18-6.73 0-12.19 5.45-12.19 12.18 0 6.74 5.46 12.19 12.19 12.19 6.73 0 12.18-5.45 12.18-12.19z"></path>
+    </symbol>
+    <symbol id="fb" viewBox="0 0 91 90">
+        <path d="M90.7 45.2A45.3 45.3 0 1038.3 90V58.3H26.8v-13h11.5v-10c0-11.4 6.7-17.7 17-17.7 5 0 10.2.9 10.2.9v11.1h-5.7c-5.6 0-7.4 3.5-7.4 7.1v8.5H65l-2 13.1H52.4V90a45.4 45.4 0 0038.3-44.8z"></path>
+    </symbol>
+    <symbol id="twitter" viewBox="0 0 56.59 51.02">
+        <path d="M17.91 48.18c21.06 0 32.57-17.45 32.57-32.57 0-.5 0-1-.02-1.47a23.25 23.25 0 005.72-5.94c-2.04.9-4.25 1.52-6.58 1.8a11.43 11.43 0 005.03-6.34 23.04 23.04 0 01-7.26 2.78 11.44 11.44 0 00-19.49 10.44A32.44 32.44 0 014.28 4.91a11.41 11.41 0 003.56 15.27 11.36 11.36 0 01-5.18-1.42v.14c0 5.56 3.94 10.16 9.19 11.23a11.47 11.47 0 01-5.18.19 11.42 11.42 0 0010.68 7.95A23.04 23.04 0 01.4 42.99a31.78 31.78 0 0017.51 5.19"></path>
+    </symbol>
+    <symbol id="linkedin" viewBox="0 0 95 91">
+        <path d="M94.9 56v35H74.5V58.3c0-8.3-3-13.9-10.3-13.9-5.6 0-9 3.8-10.4 7.5-.5 1.3-.7 3-.7 5V91H32.8s.3-55.5 0-61.2H53v8.7l-.1.2h.1v-.2a20.2 20.2 0 0118.4-10.1c13.3 0 23.4 8.7 23.4 27.5zM1.2 29.7h20.3V91H1.2V29.8zm21.7-19c0 6-4.4 10.7-11.5 10.7h-.2C4.4 21.5 0 16.7 0 10.9 0 4.9 4.5.3 11.5.3S22.8 5 22.9 11z"></path>
+    </symbol>
+    <symbol id="github" viewBox="0 0 91 88">
+        <path d="M45.34-.45a45.34 45.34 0 00-14.33 88.37c2.27.42 3.1-.98 3.1-2.18l-.06-7.72c-12.62 2.74-15.28-6.07-15.28-6.07-2.06-5.24-5.03-6.64-5.03-6.64-4.12-2.81.31-2.75.31-2.75 4.55.32 6.94 4.67 6.94 4.67 4.05 6.93 10.62 4.93 13.2 3.77.41-2.93 1.58-4.93 2.88-6.07C27 63.79 16.42 59.9 16.42 42.52a17.5 17.5 0 014.66-12.16c-.46-1.15-2.02-5.76.45-12.01 0 0 3.8-1.21 12.47 4.65a43.28 43.28 0 0122.7 0c8.66-5.86 12.46-4.65 12.46-4.65 2.47 6.25.92 10.86.45 12.01a17.46 17.46 0 014.66 12.16c0 17.42-10.6 21.26-20.7 22.38 1.63 1.4 3.08 4.17 3.08 8.4 0 6.06-.06 10.95-.06 12.44 0 1.21.82 2.62 3.12 2.18A45.35 45.35 0 0045.34-.45z"></path>
+    </symbol>
+    <symbol id="insta" viewBox="0 0 91 91">
+        <path d="M64.04.58c4.83.22 8.13.99 11.01 2.11a22.26 22.26 0 018.03 5.23 22.26 22.26 0 015.23 8.03c1.12 2.88 1.89 6.18 2.11 11.01.22 4.83.27 6.38.27 18.69 0 12.32-.05 13.86-.27 18.7-.22 4.83-.99 8.12-2.11 11.01a22.26 22.26 0 01-5.23 8.03 22.26 22.26 0 01-8.03 5.23c-2.88 1.12-6.18 1.89-11.01 2.11-4.83.22-6.38.27-18.69.27-12.32 0-13.86-.05-18.7-.27-4.83-.22-8.12-.99-11.01-2.11a22.26 22.26 0 01-8.03-5.23 22.26 22.26 0 01-5.23-8.03C1.26 72.47.49 69.18.27 64.35.05 59.51 0 57.97 0 45.65c0-12.31.05-13.86.27-18.69.22-4.83.99-8.13 2.11-11.01a22.26 22.26 0 015.23-8.03 22.26 22.26 0 018.03-5.23C18.53 1.57 21.82.8 26.65.58c4.84-.22 6.38-.27 18.7-.27 12.31 0 13.86.05 18.69.27zM27.02 8.74c-4.42.2-6.82.94-8.42 1.56a14.19 14.19 0 00-5.21 3.4A13.88 13.88 0 0010 18.91c-.62 1.6-1.36 4-1.57 8.42-.21 4.78-.26 6.22-.26 18.32 0 12.11.05 13.55.26 18.33.21 4.42.95 6.82 1.57 8.42.82 2.11 1.8 3.63 3.39 5.21A14.04 14.04 0 0018.6 81c1.6.63 4 1.36 8.42 1.56 4.78.22 6.22.27 18.33.27 12.1 0 13.54-.05 18.32-.27 4.42-.2 6.82-.93 8.42-1.56 2.12-.82 3.63-1.8 5.21-3.39a14.1 14.1 0 003.4-5.21c.62-1.6 1.35-4 1.56-8.42.21-4.78.26-6.22.26-18.33 0-12.1-.05-13.54-.26-18.32-.21-4.42-.94-6.82-1.56-8.42a14.02 14.02 0 00-3.4-5.21 14.02 14.02 0 00-5.21-3.4c-1.6-.62-4-1.36-8.42-1.56-4.78-.22-6.22-.26-18.32-.26-12.11 0-13.55.04-18.33.26z"></path>
+        <path d="M68.63 45.65a23.28 23.28 0 11-46.57.01 23.28 23.28 0 0146.57-.01zm-8.17 0a15.12 15.12 0 10-30.23.01 15.12 15.12 0 0030.23-.01zm14.53-24.2a5.44 5.44 0 11-10.88 0 5.44 5.44 0 0110.88 0z"></path>
+    </symbol>
+    <symbol id="logomark" viewBox="53 0 205 179">
+        <path fill="url(#grd1)" d="M138.56.08L54.39 48.67V81.6l84.17-48.59V.08z"></path>
+        <path d="M138.56.08v32.93l34.59 19.97V20.05L138.56.08z" fill="#063fb4"></path>
+        <path fill="url(#grd2)" d="M222.73 81.6l34.59 19.97V68.64l-34.59-19.97V81.6z"></path>
+        <path d="M173.15 110.23V77.3l49.58-28.63V81.6l-49.58 28.63z" fill="#063fb4"></path>
+        <path fill="url(#grd3)" d="M54.39 81.6l168.34 97.2 34.59-19.97v-.01l-49.58-28.62 49.58-28.62v-.01L222.73 81.6l-49.58 28.63-49.58-28.63 49.58-28.62-34.59-19.97L54.39 81.6z"></path>
+        <path fill="url(#grd4)" d="M207.74 130.2l49.58 28.62v-32.93l-21.06-12.15-28.52 16.46z"></path>
+        <path fill="url(#grd5)" d="M173.15 110.23L123.57 81.6l28.51-16.46 21.07 12.16v32.93z"></path>
+    </symbol>
+</svg>
+        <script type="application/ld+json">[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Software factory: from designs to a working app | FRSOURCE",
+        "description": "AI can build great things, but finishing them still takes expertise. FRSOURCE takes you from designs to prototype to a working app in just a few days.",
+        "url": "https://www.frsource.org/factory/"
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Software factory: designs to prototype to working app",
+        "provider": {
+            "@type": "Organization",
+            "name": "FRSOURCE",
+            "url": "https://www.frsource.org/"
+        },
+        "description": "AI can build great things, but finishing them still takes expertise. FRSOURCE takes you from designs to prototype to a working app in just a few days.",
+        "areaServed": "Worldwide"
+    }
+]</script>
+    </body>
+</html>
+
+<script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.C0PlKQID.js"></script>
