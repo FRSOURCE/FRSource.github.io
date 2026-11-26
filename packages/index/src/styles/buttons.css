@@ -144,6 +144,40 @@ body:not(.x) .btn.fill.btn--work {
     }
 }
 
+.nav-factory {
+    display: inline-block;
+    width: 1.15em;
+    height: 1.15em;
+    margin-left: 0.5em;
+    vertical-align: -0.25em;
+    overflow: visible;
+    stroke: none;
+
+    .nav-factory__t {
+        fill: var(--color-tertiary);
+    }
+
+    .nav-factory__l {
+        fill: var(--color-dark-grad-primary);
+    }
+
+    .nav-factory__r {
+        fill: var(--color-secondary);
+    }
+
+    /* the block is put together again and again, top face last */
+    @media (prefers-reduced-motion: no-preference) {
+        .nav-factory__t {
+            animation: navCubeTop 2.4s ease-in-out infinite;
+        }
+
+        .nav-factory__l,
+        .nav-factory__r {
+            animation: navCubeSide 2.4s ease-in-out infinite;
+        }
+    }
+}
+
 .nav-work {
     @media (prefers-reduced-motion: no-preference) {
         &::after {

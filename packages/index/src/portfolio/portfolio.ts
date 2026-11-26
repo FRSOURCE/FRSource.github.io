@@ -1,12 +1,14 @@
 /// <reference lib="dom" />
 
 import type { ContactDialogCtrl } from '../contactDialog';
+import { initBackLink } from '../common/backlink';
 import { initGlitch } from '../common/glitch';
 import { initThemeButtons } from '../common/theme';
 import { prefetchWhenIdle } from '../common/idle';
 
 const DESKTOP = '(orientation: landscape) and (min-width: 920px)';
 
+initBackLink();
 initThemeButtons();
 initGlitch();
 prefetchWhenIdle([

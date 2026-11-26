@@ -55,6 +55,12 @@ body.work-page {
     justify-content: space-between;
 }
 
+.work-nav__right {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+}
+
 .btn--top {
     padding: 0 1em;
 

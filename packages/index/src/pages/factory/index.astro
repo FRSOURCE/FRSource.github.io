@@ -1,0 +1,573 @@
+---
+import Base from '../../layouts/Base.astro';
+import Window from '../../components/Window.astro';
+import ThemeMenu from '../../components/ThemeMenu.astro';
+import FactoryArt from '../../components/FactoryArt.astro';
+import projects from '../../portfolio/projects.json';
+import { DESIGN_STATES, FEATURES, TYPES } from '../../factory/estimate';
+
+const title = 'Software factory: from designs to a working app | FRSOURCE';
+const description =
+    'AI can build great things, but finishing them still takes expertise. FRSOURCE takes you from designs to prototype to a working app in just a few days.';
+
+const steps = [
+    {
+        n: '01',
+        name: 'Designs',
+        text: 'We turn your brand, flows and rough ideas into screens we can build. Already have designs? We start from those.',
+        out: 'A Figma file and design tokens',
+    },
+    {
+        n: '02',
+        name: 'Prototype',
+        text: 'A clickable prototype within days, so you can test it with real users before anything is final.',
+        out: 'A live prototype link',
+    },
+    {
+        n: '03',
+        name: 'Working app',
+        text: 'Production code with tests, accessibility and performance work, deployed and ready to launch.',
+        out: 'A deployed app and its source code',
+    },
+];
+
+const gap = [
+    {
+        ai: 'A convincing demo in an afternoon',
+        us: 'Architecture that holds up in version two',
+    },
+    {
+        ai: 'Code that works on the happy path',
+        us: 'Edge cases, error states and real data handled',
+    },
+    {
+        ai: 'Looks right on your laptop',
+        us: 'Tested on real devices, accessible and fast',
+    },
+    {
+        ai: 'Auth and payments mostly done',
+        us: 'Security and compliance reviewed by a person',
+    },
+    {
+        ai: 'A pile of generated files',
+        us: 'A codebase your team can read and extend',
+    },
+];
+
+const included = [
+    ['UX & UI design', 'Design decisions made with you, ready to build.'],
+    ['Interactive prototype', 'Click through the product before we build it.'],
+    ['Production code', 'Typed, tested and documented. Yours from day one.'],
+    [
+        'Quality assurance',
+        'Automated and visual regression tests on every change.',
+    ],
+    [
+        'Launch & hosting',
+        'CI/CD, domains, monitoring, analytics and basic SEO.',
+    ],
+    [
+        'Handover & support',
+        'Docs, walkthroughs and someone who picks up the phone.',
+    ],
+];
+
+const featured = (
+    projects as {
+        noImage?: boolean;
+        id: string;
+        name: string;
+        host: string;
+        url: string | null;
+        stack: string[];
+        alt: string;
+    }[]
+)
+    .filter((p) => !p.noImage)
+    .slice(0, 3);
+
+const jsonLd = [
+    {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: title,
+        description,
+        url: new URL('/factory/', Astro.site).href,
+    },
+    {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: 'Software factory: designs to prototype to working app',
+        provider: {
+            '@type': 'Organization',
+            name: 'FRSOURCE',
+            url: 'https://www.frsource.org/',
+        },
+        description,
+        areaServed: 'Worldwide',
+    },
+];
+---
+
+<Base
+    title={title}
+    description={description}
+    keywords="software factory, rapid prototyping, AI-assisted development, web app development, MVP, software house"
+    bodyClass="factory-page"
+    jsonLd={jsonLd}
+>
+    <script is:inline slot="head">
+        (function () {
+            var root = document.documentElement;
+            root.classList.add('js');
+            if (matchMedia('(prefers-reduced-motion: reduce)').matches)
+                root.dataset.motion = 'off';
+        })();
+    </script>
+    <noscript slot="head">
+        <style>
+            .mobile-nav-wrapper,
+            .footer-themes,
+            #estimate,
+            a[href='#estimate'] {
+                display: none;
+            }
+        </style>
+    </noscript>
+
+    <a slot="before" class="skip-link" href="#why">
+        Skip to the content
+    </a>
+
+    <nav slot="nav" class="work-nav" aria-label="Page">
+        <a
+            href="/"
+            data-glitch="back"
+            data-back
+            class="btn text"
+            title="Back to the FRSOURCE homepage"
+        >
+            ← Homepage
+        </a>
+        <span class="f-nav">
+            <a href="#process" class="btn text f-nav__more">
+                How it works
+            </a>
+            <a href="#estimate" class="btn text f-nav__more">
+                Price estimate
+            </a>
+            <a
+                href="mailto:hi@frsource.org"
+                class="btn fill btn--top"
+                data-contact
+                title="Click to open the FRSOURCE contact form"
+            >
+                Contact us
+            </a>
+            <a
+                href="/portfolio/"
+                data-page-link="/portfolio/"
+                data-glitch="fwd"
+                class="btn text nav-work"
+                title="See the websites and apps we have built"
+            >
+                Our work
+            </a>
+            <a
+                href="/blog"
+                class="btn text f-nav__more"
+                target="_blank"
+                rel="noopener"
+                title="Click to navigate to our blog"
+            >
+                Our blog ♥
+            </a>
+        </span>
+    </nav>
+
+    <ThemeMenu />
+
+    <!-- ============ hero ============ -->
+    <section class="f-hero" id="top" aria-labelledby="hero-title">
+        <div class="f-hero__stick">
+            <div class="f-wrap f-hero__grid">
+                <div class="f-hero__copy">
+                    <p class="f-eyebrow">FRSOURCE · software factory</p>
+                    <h1 id="hero-title" class="f-h1">
+                        <span class="ln">
+                            <span>We're your</span>
+                        </span>
+                        <span class="ln">
+                            <span class="grad-text">software factory.</span>
+                        </span>
+                    </h1>
+                    <p class="f-lead">
+                        From <span class="k1">designs</span> to
+                        <span class="k2">prototype</span> to
+                        <span class="k3">a working app</span> in just a few
+                        days.
+                    </p>
+                    <p class="f-sub">
+                        AI can build something impressive in an afternoon.
+                        Taking it to the finish line in good shape still takes
+                        experienced people. We are those people, and we handle
+                        everything you need to launch.
+                    </p>
+                    <div class="f-cta">
+                        <a href="#estimate" class="btn fill btn--work f-btn">
+                            <span class="topline flex justify-center">
+                                <small class="topline__item">
+                                    get&nbsp;an&nbsp;
+                                </small>
+                                <span class="topline__item">
+                                    estimate&nbsp;↓
+                                </span>
+                            </span>
+                        </a>
+                        <a
+                            href="/portfolio/"
+                            data-glitch="fwd"
+                            class="btn text f-link"
+                            title="See the websites we have built"
+                        >
+                            See our work →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="f-hero__art" aria-hidden="true">
+                    <FactoryArt />
+                </div>
+            </div>
+            <a href="#why" class="f-scroll" aria-label="Scroll down">
+                <span>scroll</span>
+                <i></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============ promise ============ -->
+    <section class="f-sec" id="why" aria-labelledby="why-title">
+        <div class="f-wrap">
+            <h2 class="f-eyebrow" id="why-title" data-r>
+                Where AI stops
+            </h2>
+            <p class="f-statement" data-r>
+                AI gets you a demo in an afternoon. Turning it into a product
+                people can trust takes expertise: architecture, security,
+                accessibility, performance and tests. We bring that expertise.
+            </p>
+
+            <div class="gap" data-stagger>
+                <div class="gap__head" data-r>
+                    <span>AI alone</span>
+                    <span class="grad-text">With FRSOURCE</span>
+                </div>
+                {gap.map((row) => (
+                    <div class="gap__row" data-r>
+                        <p>{row.ai}</p>
+                        <p>{row.us}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ process ============ -->
+    <section class="f-sec" id="process" aria-labelledby="process-title">
+        <div class="f-wrap">
+            <p class="f-eyebrow" data-r>
+                How the factory runs
+            </p>
+            <h2 class="f-h2" id="process-title" data-r>
+                Three steps with one team, in a few days.
+            </h2>
+
+            <ol class="pipeline" data-stagger>
+                {steps.map((s) => (
+                    <li class="step" data-r>
+                        <div class="step__card">
+                            <span class="step__n">{s.n}</span>
+                            <h3>{s.name}</h3>
+                            <p>{s.text}</p>
+                            <small class="step__out">You get: {s.out}</small>
+                        </div>
+                    </li>
+                ))}
+            </ol>
+        </div>
+    </section>
+
+    <!-- ============ included ============ -->
+    <section class="f-sec" id="included" aria-labelledby="included-title">
+        <div class="f-wrap">
+            <p class="f-eyebrow" data-r>
+                Everything you need
+            </p>
+            <h2 class="f-h2" id="included-title" data-r>
+                One team covers all of it.
+            </h2>
+            <ul class="grid3" data-stagger>
+                {included.map(([name, text], i) => (
+                    <li class="tile" data-r data-depth={[0, 30, 60][i % 3]}>
+                        <b>{String(i + 1).padStart(2, '0')}</b>
+                        <h3>{name}</h3>
+                        <p>{text}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </section>
+
+    <!-- ============ work ============ -->
+    <section class="f-sec" id="work" aria-labelledby="work-title">
+        <div class="f-wrap">
+            <p class="f-eyebrow" data-r>
+                Recent work
+            </p>
+            <h2 class="f-h2" id="work-title" data-r>
+                Last 3 projects we have shipped.
+            </h2>
+            <ul class="grid3 work-grid" data-stagger>
+                {featured.map((p) => (
+                    <li class="work-card" data-r>
+                        <a
+                            href={p.url ?? '/portfolio/'}
+                            target={p.url ? '_blank' : undefined}
+                            rel={p.url ? 'nofollow noopener' : undefined}
+                        >
+                            <figure class="window">
+                                <Window project={p} decorative />
+                            </figure>
+                            <h3>{p.name}</h3>
+                            <small>{p.stack.slice(0, 3).join(' · ')}</small>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+            <p class="f-more" data-r>
+                <a
+                    href="/portfolio/"
+                    data-glitch="fwd"
+                    class="btn fill btn--work f-btn"
+                >
+                    <span class="topline flex justify-center">
+                        <small class="topline__item">full&nbsp;</small>
+                        <span class="topline__item">portfolio&nbsp;→</span>
+                    </span>
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <!-- ============ estimator ============ -->
+    <section class="f-sec" id="estimate" aria-labelledby="estimate-title">
+        <div class="f-wrap">
+            <p class="f-eyebrow" data-r>
+                Rough price in 30 seconds
+            </p>
+            <h2 class="f-h2" id="estimate-title" data-r>
+                Describe your project and get a rough price.
+            </h2>
+
+            <form id="estimator" class="estimator" data-r>
+                <div class="estimator__inputs">
+                    <fieldset>
+                        <legend>What are we building?</legend>
+                        <div class="choices">
+                            {Object.entries(TYPES).map(([id, t], i) => (
+                                <label class="choice">
+                                    <input
+                                        type="radio"
+                                        name="type"
+                                        value={id}
+                                        checked={i === 2}
+                                    />
+                                    <span>{t.label}</span>
+                                </label>
+                            ))}
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>
+                            <span data-out="screens-label">
+                                Screens with unique layout:
+                            </span>
+                            <b data-out="screens-value">3</b>
+                        </legend>
+                        <input
+                            type="range"
+                            name="screens"
+                            min="1"
+                            max="30"
+                            value="3"
+                            aria-label="Number of pages or screens with unique layout"
+                        />
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Where do you start?</legend>
+                        <div class="choices">
+                            {Object.entries(DESIGN_STATES).map(([id, d], i) => (
+                                <label class="choice">
+                                    <input
+                                        type="radio"
+                                        name="design"
+                                        value={id}
+                                        checked={i === 0}
+                                    />
+                                    <span>
+                                        {d.label}
+                                        <small>{d.hint}</small>
+                                    </span>
+                                </label>
+                            ))}
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Extras</legend>
+                        <div class="choices">
+                            {Object.entries(FEATURES).map(([id, f]) => (
+                                <div class="choice-group">
+                                    <label class="choice">
+                                        <input
+                                            type="checkbox"
+                                            name="feature"
+                                            value={id}
+                                        />
+                                        <span>
+                                            {f.label}
+                                            <small data-hint={f.hint ?? ''}>
+                                                {f.hint}
+                                            </small>
+                                        </span>
+                                    </label>
+                                    {f.perExtra && (
+                                        <label class="count">
+                                            How many {f.countLabel}?
+                                            <input
+                                                type="number"
+                                                name={`count-${id}`}
+                                                min="1"
+                                                max="20"
+                                                value="1"
+                                                inputmode="numeric"
+                                            />
+                                        </label>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>
+                            <label for="est-description">
+                                About your project (optional, added to your
+                                message)
+                            </label>
+                        </legend>
+                        <textarea
+                            id="est-description"
+                            name="description"
+                            rows="2"
+                            maxlength="1500"
+                            placeholder="What does it do, who is it for, any deadlines?"
+                        ></textarea>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Pace</legend>
+                        <div class="choices choices--equal">
+                            <label class="choice">
+                                <input
+                                    type="radio"
+                                    name="speed"
+                                    value="standard"
+                                    checked
+                                />
+                                <span>
+                                    Standard<small>normal calendar</small>
+                                </span>
+                            </label>
+                            <label class="choice">
+                                <input type="radio" name="speed" value="rush" />
+                                <span>
+                                    Rush<small>shorter calendar, +30%</small>
+                                </span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <aside class="estimator__live">
+                    <small class="uppercase">Indicative estimate</small>
+                    <output class="estimator__price grad-text" data-out="range">
+                        —
+                    </output>
+                    <p class="estimator__days" data-out="days"></p>
+                    <div class="estimator__bar" data-out="bar"></div>
+                    <ul class="estimator__legend" data-out="legend"></ul>
+                    <p class="estimator__note">
+                        This is an approximate estimate. Send this one along and
+                        we will come back with a fixed quote after a short call.
+                    </p>
+                    <div class="estimator__actions">
+                        <a
+                            href="mailto:hi@frsource.org"
+                            class="btn fill"
+                            data-contact
+                            data-send
+                        >
+                            Send to FRSOURCE
+                        </a>
+                        <button type="button" class="btn text" data-copy>
+                            Copy summary
+                        </button>
+                    </div>
+                </aside>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============ contact ============ -->
+    <section class="f-sec f-final" id="contact" aria-labelledby="contact-title">
+        <div class="f-wrap">
+            <h2 class="f-h1" id="contact-title" data-r>
+                Let's <span class="grad-text">build it.</span>
+            </h2>
+            <p class="f-lead" data-r>
+                Tell us about your idea, prototype or designs. We'll reply with
+                a plan.
+            </p>
+            <div class="f-cta" data-r>
+                <a
+                    href="mailto:hi@frsource.org"
+                    class="btn fill btn--work f-btn"
+                    data-contact
+                    data-contact-message="Hi! I have a project in mind: "
+                >
+                    <span class="topline flex justify-center">
+                        <small class="topline__item">just&nbsp;</small>
+                        <span class="topline__item">contact&nbsp;us</span>
+                    </span>
+                </a>
+                <a href="mailto:hi@frsource.org" class="btn text f-link">
+                    hi@frsource.org
+                </a>
+                <a href="tel:+48882568430" class="btn text f-link">
+                    +48 882 568 430
+                </a>
+                <a href="/portfolio/" data-glitch="fwd" class="btn text f-link">
+                    Our work →
+                </a>
+            </div>
+        </div>
+    </section>
+</Base>
+
+<script>
+    import '../../factory/factory.ts';
+</script>
