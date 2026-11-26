@@ -28,6 +28,7 @@
         "typescript": "6.0.3"
     },
     "dependencies": {
+        "@frsource/autoresize-textarea": "2.0.242",
         "powerglitch": "2.5.0"
     },
     "type": "module"

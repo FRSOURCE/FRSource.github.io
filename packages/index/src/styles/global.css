@@ -9,6 +9,7 @@
 @import './buttons.css' layer(components);
 @import './dialog.css' layer(components);
 @import './portfolio.css' layer(components);
+@import './factory.css' layer(components);
 @import './glitch.css' layer(components);
 @import './animations.css';
 

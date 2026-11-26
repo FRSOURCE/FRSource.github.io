@@ -1,0 +1,109 @@
+---
+/**
+ * Isometric "factory line": three blocks on a belt, built from the same 30° geometry and
+ * gradients as the FRSOURCE logomark. Stages (s1..s3 on the hero) are driven from factory.ts.
+ */
+const S = 64;
+const DX = +(S * 0.866).toFixed(1);
+const DY = S / 2;
+
+type P = [number, number];
+const pts = (...p: P[]) => p.map(([x, y]) => `${x},${y}`).join(' ');
+
+function cube(cx: number, cy: number, h: number) {
+    const B: P = [cx, cy];
+    const L: P = [cx - DX, cy - DY];
+    const R: P = [cx + DX, cy - DY];
+    const K: P = [cx, cy - 2 * DY];
+    const up = ([x, y]: P): P => [x, y - h];
+    return {
+        left: pts(L, B, up(B), up(L)),
+        right: pts(B, R, up(R), up(B)),
+        top: pts(up(L), up(B), up(R), up(K)),
+        // the tag floats above the block
+        tag: [cx - 89, cy - h - 2 * DY - 46] as P,
+        // centre of the top face
+        topCenter: [cx, cy - h - DY] as P,
+    };
+}
+
+const cubes = [
+    { ...cube(120, 360, 40), label: 'designs.file' },
+    { ...cube(250, 285, 80), label: 'prototype.live' },
+    { ...cube(380, 210, 120), label: 'greatest.app.org' },
+];
+
+// belt: an isometric strip through the base centres of the blocks
+const ux = 130;
+const uy = -75;
+const c0: P = [120, 360 - DY];
+const at = (t: number, side: number): P => [
+    c0[0] + ux * t + side * DX * 1.05,
+    c0[1] + uy * t + side * DY * 1.05,
+];
+const belt = pts(at(-0.75, -1), at(-0.75, 1), at(3.35, 1), at(3.35, -1));
+const beltFront = pts(
+    at(-0.75, 1),
+    at(3.35, 1),
+    [at(3.35, 1)[0], at(3.35, 1)[1] + 9],
+    [at(-0.75, 1)[0], at(-0.75, 1)[1] + 9],
+);
+const run = `M${at(-0.75, 0).join(' ')} L${at(3.35, 0).join(' ')}`;
+---
+
+<svg viewBox="0 -50 540 480" class="iso" focusable="false">
+    <defs>
+        <linearGradient id="isoTop" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ff5f49"></stop>
+            <stop offset=".3" stop-color="#ff5f49"></stop>
+            <stop offset="1" stop-color="#063fb4"></stop>
+        </linearGradient>
+        <linearGradient id="isoLeft" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#02bf89"></stop>
+            <stop offset="1" stop-color="#03206c"></stop>
+        </linearGradient>
+        <linearGradient id="isoRight" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#063fb4"></stop>
+            <stop offset="1" stop-color="#03206c"></stop>
+        </linearGradient>
+    </defs>
+
+    <g>
+        <polygon class="belt" points={belt}></polygon>
+        <polygon class="belt-front" points={beltFront}></polygon>
+        <path class="belt-run" d={run}></path>
+    </g>
+
+    {cubes.map((c, i) => (
+        <g>
+            <g class={`cube c${i + 1}`}>
+                <polygon class="f-left" points={c.left} />
+                <polygon class="f-right" points={c.right} />
+                <polygon class="f-top" points={c.top} />
+                {i === 0 && (
+                    <>
+                        <path
+                            class="grid"
+                            d={`M${c.topCenter[0] - DX / 2},${c.topCenter[1] - DY / 2} L${c.topCenter[0] + DX / 2},${c.topCenter[1] + DY / 2} M${c.topCenter[0] + DX / 2},${c.topCenter[1] - DY / 2} L${c.topCenter[0] - DX / 2},${c.topCenter[1] + DY / 2}`}
+                        />
+                    </>
+                )}
+                {i === 2 && (
+                    <path
+                        class="check"
+                        d={`M${c.topCenter[0] - 16},${c.topCenter[1] - 2} l11,8 l22,-16`}
+                    />
+                )}
+                <g class="tag" transform={`translate(${c.tag[0]} ${c.tag[1]})`}>
+                    <rect width="178" height="26" />
+                    <rect class="d1" x="9" y="10" width="6" height="6" />
+                    <rect class="d2" x="19" y="10" width="6" height="6" />
+                    <rect class="d3" x="29" y="10" width="6" height="6" />
+                    <text x="44" y="17.5">
+                        {c.label}
+                    </text>
+                </g>
+            </g>
+        </g>
+    ))}
+</svg>

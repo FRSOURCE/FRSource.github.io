@@ -1,5 +1,0 @@
-# www.robotstxt.org/
-User-agent: *
-Disallow: /znak-crossword/*
-
-Sitemap: https://www.frsource.org/sitemap.xml

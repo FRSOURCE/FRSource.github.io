@@ -75,19 +75,45 @@ const jsonLd = {
         <a
             href="/"
             data-glitch="back"
+            data-back
             class="btn text"
             title="Back to the FRSOURCE homepage"
         >
             ← Homepage
         </a>
-        <a
-            href="mailto:hi@frsource.org"
-            class="btn fill btn--top"
-            data-contact
-            title="Click to open the FRSOURCE contact form"
-        >
-            just Contact us
-        </a>
+        <span class="work-nav__right">
+            <a
+                href="/factory/"
+                data-page-link="/factory/"
+                data-glitch="fwd"
+                class="btn text"
+                title="From designs to a working app in a few days"
+            >
+                Software factory
+                <svg class="nav-factory" viewBox="0 0 24 24" aria-hidden="true">
+                    <polygon
+                        class="nav-factory__l"
+                        points="3,7 12,12 12,22 3,17"
+                    ></polygon>
+                    <polygon
+                        class="nav-factory__r"
+                        points="12,12 21,7 21,17 12,22"
+                    ></polygon>
+                    <polygon
+                        class="nav-factory__t"
+                        points="12,2 21,7 12,12 3,7"
+                    ></polygon>
+                </svg>
+            </a>
+            <a
+                href="mailto:hi@frsource.org"
+                class="btn fill btn--top"
+                data-contact
+                title="Click to open the FRSOURCE contact form"
+            >
+                just Contact us
+            </a>
+        </span>
     </nav>
 
     <div class="content">

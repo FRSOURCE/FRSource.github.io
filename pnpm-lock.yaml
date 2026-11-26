@@ -279,6 +279,9 @@ importers:
 
   packages/index:
     dependencies:
+      '@frsource/autoresize-textarea':
+        specifier: 2.0.242
+        version: 2.0.242
       powerglitch:
         specifier: 2.5.0
         version: 2.5.0
@@ -811,6 +814,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@frsource/autoresize-textarea@2.0.242':
+    resolution: {integrity: sha512-1jaSlGFmCu1mao6n0MeblSNlUIewfDJgTf6/fv3r/vMYW0oWlw8cDvQh0yfOwGuZCFPR8jeu1PrgnX/TzyCYeQ==}
 
   '@frsource/is-animated@1.1.29':
     resolution: {integrity: sha512-xM4UIt+Gc6RxiKvmNER/VMe9dy5NjXIcgE1ctx4BLwPDXicKBNqXEPS96M7FVedsCBHJ0DVYXVtddleQ+DRgng==}
@@ -4438,6 +4444,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.27.7':
     optional: true
+
+  '@frsource/autoresize-textarea@2.0.242': {}
 
   '@frsource/is-animated@1.1.29': {}
 
