@@ -421,10 +421,6 @@ main .f-link:hover {
         gap: 1em;
     }
 
-    .f-hero .f-eyebrow {
-        margin-bottom: 1.4em;
-    }
-
     .f-hero .f-lead {
         margin-top: 1em;
         font-size: 1.1rem;
@@ -1044,6 +1040,43 @@ html.js:not([data-motion='off']) {
         min-height: 0;
     }
 
+    /* phones: the description scrolls away first (--away, 0..1) and the graphic takes the
+       room it leaves, so all three blocks fit on a small screen while they are built */
+    @media (max-width: 919px) {
+        .f-hero__grid {
+            align-self: stretch;
+            grid-template-rows: auto minmax(0, 1fr);
+            align-items: stretch;
+        }
+
+        .f-hero .f-sub {
+            height: calc(var(--sub-h, auto) * (1 - var(--away, 0)));
+            margin-top: calc(0.8em * (1 - var(--away, 0)));
+            overflow: clip;
+        }
+
+        .f-sub__in {
+            display: block;
+            opacity: calc(1 - var(--away, 0) * 1.4);
+            translate: 0 calc(var(--away, 0) * -100%);
+        }
+
+        .f-hero__art {
+            min-height: 0;
+        }
+
+        .f-scroll {
+            opacity: calc(1 - var(--away, 0) * 3);
+        }
+
+        .f-hero__art .iso {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            max-height: none;
+        }
+    }
+
     /* the three stations light up in the sentence as they get built */
     .f-lead :is(.k1, .k2, .k3) {
         color: var(--muted);
@@ -1083,9 +1116,6 @@ html.js:not([data-motion='off']) {
             translate 0.7s;
     }
 
-    .f-hero__copy > .f-eyebrow {
-        transition-delay: 0.1s;
-    }
     .f-hero__copy > .f-lead {
         transition-delay: 0.7s;
     }
