@@ -8,3 +8,11 @@ allowBuilds:
   lmdb: true
   msgpackr-extract: true
   sharp: true
+
+packageExtensions:
+  # astro2tsx needs @emnapi/runtime to match its @emnapi/core, but only gets it as an
+  # auto-installed peer of @napi-rs/wasm-runtime, which pnpm resolves to a 2.x beta:
+  # `astro check` then crashes with "this.bridge.setLastError is not a function"
+  '@astrojs/astro2tsx@0.1.3':
+    dependencies:
+      '@emnapi/runtime': 1.11.3
