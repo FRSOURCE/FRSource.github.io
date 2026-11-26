@@ -80,6 +80,9 @@ const depths = [...document.querySelectorAll<HTMLElement>('[data-depth]')];
 const heroEl = document.querySelector<HTMLElement>('.f-hero')!;
 const pipeline = document.querySelector<HTMLElement>('.pipeline');
 const stack = [...document.querySelectorAll<HTMLElement>('.pipeline .step')];
+const heroSub = heroEl.querySelector<HTMLElement>('.f-sub__in');
+// phones: the hero description scrolls away before the factory starts to build (see factory.css)
+const phone = matchMedia('(max-width: 919px)');
 
 // stagger index inside a group
 document
@@ -119,6 +122,7 @@ function update() {
     const pipelineRect = pipeline?.getBoundingClientRect();
     const stackTops = stack.map((el) => el.getBoundingClientRect().top - top0);
     // at the very bottom nothing can scroll any further, so nothing may stay half-faded
+    const subH = phone.matches ? heroSub?.offsetHeight : undefined;
     const atBottom =
         scroller.scrollTop > 0 &&
         scroller.scrollTop + vh >= scroller.scrollHeight - 2;
@@ -147,7 +151,14 @@ function update() {
     if (root.dataset.motion !== 'off') {
         // pinned hero: scrolling through it builds the factory
         const p = clamp(scroller.scrollTop / (heroEl.offsetHeight - vh));
-        setStage(p < 0.06 ? 0 : p < 0.36 ? 1 : p < 0.66 ? 2 : 3);
+        if (subH) {
+            setVar(heroEl, '--sub-h', `${subH}px`);
+            setVar(heroEl, '--away', clamp(p / 0.12).toFixed(3));
+            setStage(p < 0.12 ? 0 : p < 0.4 ? 1 : p < 0.68 ? 2 : 3);
+        } else {
+            setVar(heroEl, '--away', '0');
+            setStage(p < 0.06 ? 0 : p < 0.36 ? 1 : p < 0.66 ? 2 : 3);
+        }
     }
 
     if (pipeline && pipelineRect) {
